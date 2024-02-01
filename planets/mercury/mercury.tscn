@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://daxj17mon6ks8"]
+
+[ext_resource type="Texture2D" uid="uid://c5epb3dmhhn44" path="res://pics/mockup/gojo.jpg" id="1_f5fwh"]
+
+[node name="mercury" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(584, 327)
+scale = Vector2(1.16783, 1.16783)
+texture = ExtResource("1_f5fwh")

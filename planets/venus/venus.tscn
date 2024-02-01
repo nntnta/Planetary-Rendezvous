@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgneskmpkp4wg"]
+
+[ext_resource type="Texture2D" uid="uid://rnc83ghhnmp0" path="res://pics/mockup/gojopostPR.PNG" id="1_xqayw"]
+
+[node name="venus" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(574, 324)
+scale = Vector2(1.50891, 1.50891)
+texture = ExtResource("1_xqayw")

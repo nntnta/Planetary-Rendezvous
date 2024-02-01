@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8y5q7rqiee2v"]
+
+[ext_resource type="Texture2D" uid="uid://dpdysantyk7d7" path="res://pics/mockup/kobenibadge.PNG" id="1_aoia0"]
+
+[node name="mars" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(590, 308)
+scale = Vector2(2.56189, 2.56189)
+texture = ExtResource("1_aoia0")

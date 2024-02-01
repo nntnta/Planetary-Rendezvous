@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmsn0nag6ndl8"]
+
+[ext_resource type="Texture2D" uid="uid://rl7lu013il7l" path="res://pics/mockup/blueberry.png" id="1_qqxvm"]
+
+[node name="earth" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(583, 319)
+scale = Vector2(1.29597, 1.29597)
+texture = ExtResource("1_qqxvm")

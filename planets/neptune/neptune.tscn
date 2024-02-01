@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddrv3rykexuy"]
+
+[ext_resource type="Texture2D" uid="uid://tsk0tgrmkx2t" path="res://pics/mockup/tumblr_ec7781b75dcc0c69c511009f40758c11_e5aa2863_1280.jpg" id="1_u8k4v"]
+
+[node name="neptune" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(570, 324)
+scale = Vector2(1.48, 1.48)
+texture = ExtResource("1_u8k4v")

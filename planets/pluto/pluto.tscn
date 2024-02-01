@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dipkjwlmn1sc1"]
+
+[ext_resource type="Texture2D" uid="uid://d2ho4d1nuys15" path="res://pics/mockup/veggieburger.jpeg" id="1_dijct"]
+
+[node name="pluto" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(578, 312)
+scale = Vector2(1.67558, 1.67558)
+texture = ExtResource("1_dijct")

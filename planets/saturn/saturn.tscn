@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://unvxioa0yyk1"]
+
+[ext_resource type="Texture2D" uid="uid://cosidrwll80un" path="res://pics/mockup/skywormmidjourney.png" id="1_xaow1"]
+
+[node name="saturn" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(580, 324)
+scale = Vector2(0.660156, 0.660156)
+texture = ExtResource("1_xaow1")

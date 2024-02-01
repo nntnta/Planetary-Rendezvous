@@ -1,3 +1,121 @@
-[gd_scene format=3 uid="uid://bhxw21aas15t6"]
+[gd_scene load_steps=12 format=3 uid="uid://bhxw21aas15t6"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://bifbohx6hr3me" path="res://pics/mockup/icon.svg" id="1_k6ytj"]
+[ext_resource type="Script" path="res://main_scene/planet_select.gd" id="1_vqedp"]
+[ext_resource type="PackedScene" uid="uid://daxj17mon6ks8" path="res://planets/mercury/mercury.tscn" id="2_r6nro"]
+[ext_resource type="PackedScene" uid="uid://cgneskmpkp4wg" path="res://planets/venus/venus.tscn" id="3_sj5uu"]
+[ext_resource type="PackedScene" uid="uid://bmsn0nag6ndl8" path="res://planets/earth/earth.tscn" id="4_lap2q"]
+[ext_resource type="PackedScene" uid="uid://b8y5q7rqiee2v" path="res://planets/mars/mars.tscn" id="5_qqpey"]
+[ext_resource type="PackedScene" uid="uid://2fn8jb7l7xpi" path="res://planets/jupiter/jupiter.tscn" id="6_ycni4"]
+[ext_resource type="PackedScene" uid="uid://unvxioa0yyk1" path="res://planets/saturn/saturn.tscn" id="7_8kni0"]
+[ext_resource type="PackedScene" uid="uid://cntul2jy054a8" path="res://planets/uranus/uranus.tscn" id="8_lca27"]
+[ext_resource type="PackedScene" uid="uid://ddrv3rykexuy" path="res://planets/neptune/neptune.tscn" id="9_0tle6"]
+[ext_resource type="PackedScene" uid="uid://dipkjwlmn1sc1" path="res://planets/pluto/pluto.tscn" id="10_o6jhv"]
+
+[node name="planet_menu" type="Node2D"]
+script = ExtResource("1_vqedp")
+mercury = ExtResource("2_r6nro")
+venus = ExtResource("3_sj5uu")
+earth = ExtResource("4_lap2q")
+mars = ExtResource("5_qqpey")
+jupiter = ExtResource("6_ycni4")
+saturn = ExtResource("7_8kni0")
+uranus = ExtResource("8_lca27")
+neptune = ExtResource("9_0tle6")
+pluto = ExtResource("10_o6jhv")
+
+[node name="planets" type="Node2D" parent="."]
+
+[node name="mercury" type="TextureButton" parent="planets"]
+offset_left = 43.0
+offset_top = 286.0
+offset_right = 86.0
+offset_bottom = 329.0
+texture_normal = ExtResource("1_k6ytj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="venus" type="TextureButton" parent="planets"]
+offset_left = 156.0
+offset_top = 235.0
+offset_right = 209.0
+offset_bottom = 288.0
+texture_normal = ExtResource("1_k6ytj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="earth" type="TextureButton" parent="planets"]
+offset_left = 270.0
+offset_top = 202.0
+offset_right = 324.0
+offset_bottom = 256.0
+texture_normal = ExtResource("1_k6ytj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="mars" type="TextureButton" parent="planets"]
+offset_left = 388.0
+offset_top = 253.0
+offset_right = 415.0
+offset_bottom = 280.0
+texture_normal = ExtResource("1_k6ytj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="jupiter" type="TextureButton" parent="planets"]
+offset_left = 457.0
+offset_top = 296.0
+offset_right = 573.0
+offset_bottom = 412.0
+texture_normal = ExtResource("1_k6ytj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="saturn" type="TextureButton" parent="planets"]
+offset_left = 614.0
+offset_top = 200.0
+offset_right = 718.0
+offset_bottom = 304.0
+texture_normal = ExtResource("1_k6ytj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="uranus" type="TextureButton" parent="planets"]
+offset_left = 769.0
+offset_top = 298.0
+offset_right = 837.0
+offset_bottom = 366.0
+texture_normal = ExtResource("1_k6ytj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="neptune" type="TextureButton" parent="planets"]
+offset_left = 898.0
+offset_top = 237.0
+offset_right = 962.0
+offset_bottom = 301.0
+texture_normal = ExtResource("1_k6ytj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="pluto" type="TextureButton" parent="planets"]
+offset_left = 1077.0
+offset_top = 430.0
+offset_right = 1096.0
+offset_bottom = 449.0
+texture_normal = ExtResource("1_k6ytj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 312)
+
+[connection signal="pressed" from="planets/mercury" to="." method="_on_mercury_pressed"]
+[connection signal="pressed" from="planets/venus" to="." method="_on_venus_pressed"]
+[connection signal="pressed" from="planets/earth" to="." method="_on_earth_pressed"]
+[connection signal="pressed" from="planets/mars" to="." method="_on_mars_pressed"]
+[connection signal="pressed" from="planets/jupiter" to="." method="_on_jupiter_pressed"]
+[connection signal="pressed" from="planets/saturn" to="." method="_on_saturn_pressed"]
+[connection signal="pressed" from="planets/uranus" to="." method="_on_uranus_pressed"]
+[connection signal="pressed" from="planets/neptune" to="." method="_on_neptune_pressed"]
+[connection signal="pressed" from="planets/pluto" to="." method="_on_pluto_pressed"]
