@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmsn0nag6ndl8"]
+[gd_scene load_steps=6 format=3 uid="uid://bmsn0nag6ndl8"]
 
 [ext_resource type="Script" path="res://planets/earth/earth.gd" id="1_48bx1"]
 [ext_resource type="Texture2D" uid="uid://rl7lu013il7l" path="res://pics/mockup/blueberry.png" id="1_qqxvm"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_qkox3"]
+[ext_resource type="Texture2D" uid="uid://dmwqoxayeudod" path="res://pics/mockup/Red_circle.svg.png" id="4_6k3m8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vm1t4"]
-radius = 47.2652
+[sub_resource type="CircleShape2D" id="CircleShape2D_od74y"]
+radius = 30.5941
 
 [node name="earth" type="Node2D"]
 script = ExtResource("1_48bx1")
@@ -21,8 +22,12 @@ position = Vector2(346, 294)
 
 [node name="takeoff" type="Area2D" parent="spawn_player" groups=["takeoff"]]
 
+[node name="takeoff" type="Sprite2D" parent="spawn_player/takeoff"]
+scale = Vector2(0.083, 0.083)
+texture = ExtResource("4_6k3m8")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/takeoff"]
-shape = SubResource("CircleShape2D_vm1t4")
+shape = SubResource("CircleShape2D_od74y")
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

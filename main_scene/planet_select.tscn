@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhxw21aas15t6"]
+[gd_scene load_steps=38 format=3 uid="uid://bhxw21aas15t6"]
 
-[ext_resource type="Texture2D" uid="uid://bifbohx6hr3me" path="res://pics/mockup/icon.svg" id="1_k6ytj"]
 [ext_resource type="Script" path="res://main_scene/planet_select.gd" id="1_vqedp"]
 [ext_resource type="PackedScene" uid="uid://daxj17mon6ks8" path="res://planets/mercury/mercury.tscn" id="2_r6nro"]
 [ext_resource type="PackedScene" uid="uid://cgneskmpkp4wg" path="res://planets/venus/venus.tscn" id="3_sj5uu"]
@@ -11,6 +10,33 @@
 [ext_resource type="PackedScene" uid="uid://cntul2jy054a8" path="res://planets/uranus/uranus.tscn" id="8_lca27"]
 [ext_resource type="PackedScene" uid="uid://ddrv3rykexuy" path="res://planets/neptune/neptune.tscn" id="9_0tle6"]
 [ext_resource type="PackedScene" uid="uid://dipkjwlmn1sc1" path="res://planets/pluto/pluto.tscn" id="10_o6jhv"]
+[ext_resource type="Texture2D" uid="uid://cn2sbfsul03n8" path="res://pics/planets_button/mercury.png" id="11_cid21"]
+[ext_resource type="Texture2D" uid="uid://bs7hyg2w1hc1l" path="res://pics/planets_button/mercury_hover.png" id="12_2fekc"]
+[ext_resource type="Texture2D" uid="uid://dxns17ees5sig" path="res://pics/planets_button/mercury_pressed.png" id="12_b2rjn"]
+[ext_resource type="Texture2D" uid="uid://d36hyfbje0060" path="res://pics/planets_button/venus.png" id="13_ruqa2"]
+[ext_resource type="Texture2D" uid="uid://djefepdc7bab1" path="res://pics/planets_button/venus_hover.png" id="14_tv6tl"]
+[ext_resource type="Texture2D" uid="uid://0dyibmytmmev" path="res://pics/planets_button/earth.png" id="15_ujs55"]
+[ext_resource type="Texture2D" uid="uid://c6xfpsno23eoq" path="res://pics/planets_button/venus_pressed.png" id="15_xm45f"]
+[ext_resource type="Texture2D" uid="uid://ceotwfg304cgf" path="res://pics/planets_button/earth_hover.png" id="16_08ohw"]
+[ext_resource type="Texture2D" uid="uid://b8n3egn37yxef" path="res://pics/planets_button/mars.png" id="17_e1wog"]
+[ext_resource type="Texture2D" uid="uid://cktm3og6qo08v" path="res://pics/planets_button/earth_pressed.png" id="18_skjcm"]
+[ext_resource type="Texture2D" uid="uid://b1y03tkjy8r3s" path="res://pics/planets_button/mars_hover.png" id="18_ua4f2"]
+[ext_resource type="Texture2D" uid="uid://bcigur11v8oir" path="res://pics/planets_button/jupiter.png" id="19_ras7j"]
+[ext_resource type="Texture2D" uid="uid://xr0tls5oxdyq" path="res://pics/planets_button/jupiter_hover.png" id="20_hls8t"]
+[ext_resource type="Texture2D" uid="uid://bt4u26s0hvewn" path="res://pics/planets_button/saturn.png" id="21_nrykg"]
+[ext_resource type="Texture2D" uid="uid://dywketmo33yqh" path="res://pics/planets_button/mars_pressed.png" id="21_v2osg"]
+[ext_resource type="Texture2D" uid="uid://c044i7ypllh00" path="res://pics/planets_button/saturn_hover.png" id="22_er4u3"]
+[ext_resource type="Texture2D" uid="uid://dnavk5hiq76lj" path="res://pics/planets_button/uranus.png" id="23_r4a8o"]
+[ext_resource type="Texture2D" uid="uid://dli1wkjwb6pb8" path="res://pics/planets_button/jupiter_pressed.png" id="24_66xcw"]
+[ext_resource type="Texture2D" uid="uid://cpp7hx74tmdhd" path="res://pics/planets_button/uranus_hover.png" id="24_djvtn"]
+[ext_resource type="Texture2D" uid="uid://dqwtappndtkvs" path="res://pics/planets_button/neptune.png" id="25_4023s"]
+[ext_resource type="Texture2D" uid="uid://dcyxtjkqa7ape" path="res://pics/planets_button/neptune_hover.png" id="26_pctvq"]
+[ext_resource type="Texture2D" uid="uid://bv58x5fjwf3r0" path="res://pics/planets_button/saturn_pressed.png" id="27_3bb5l"]
+[ext_resource type="Texture2D" uid="uid://csrmya7fgfvvc" path="res://pics/planets_button/pluto.png" id="27_282cp"]
+[ext_resource type="Texture2D" uid="uid://lhr2hhtdsesu" path="res://pics/planets_button/pluto_hover.png" id="28_nn27j"]
+[ext_resource type="Texture2D" uid="uid://b5rh8lh2d80af" path="res://pics/planets_button/uranus_pressed.png" id="30_byvh7"]
+[ext_resource type="Texture2D" uid="uid://6adad3p32u7x" path="res://pics/planets_button/neptune_pressed.png" id="33_kqxga"]
+[ext_resource type="Texture2D" uid="uid://d2shbhn1f0nrb" path="res://pics/planets_button/pluto_pressed.png" id="36_4xnlr"]
 
 [node name="planet_menu" type="Node2D"]
 script = ExtResource("1_vqedp")
@@ -27,85 +53,112 @@ pluto = ExtResource("10_o6jhv")
 [node name="planets" type="Node2D" parent="."]
 
 [node name="mercury" type="TextureButton" parent="planets"]
-offset_left = 43.0
-offset_top = 286.0
-offset_right = 86.0
-offset_bottom = 329.0
-texture_normal = ExtResource("1_k6ytj")
+offset_left = 82.0
+offset_top = 304.0
+offset_right = 140.0
+offset_bottom = 363.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("11_cid21")
+texture_pressed = ExtResource("12_b2rjn")
+texture_hover = ExtResource("12_2fekc")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 3
 
 [node name="venus" type="TextureButton" parent="planets"]
-offset_left = 156.0
-offset_top = 235.0
-offset_right = 209.0
-offset_bottom = 288.0
-texture_normal = ExtResource("1_k6ytj")
+offset_left = 198.0
+offset_top = 241.0
+offset_right = 284.0
+offset_bottom = 333.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("13_ruqa2")
+texture_pressed = ExtResource("15_xm45f")
+texture_hover = ExtResource("14_tv6tl")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 3
 
 [node name="earth" type="TextureButton" parent="planets"]
-offset_left = 270.0
-offset_top = 202.0
-offset_right = 324.0
-offset_bottom = 256.0
-texture_normal = ExtResource("1_k6ytj")
+offset_left = 306.0
+offset_top = 310.0
+offset_right = 396.0
+offset_bottom = 406.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("15_ujs55")
+texture_pressed = ExtResource("18_skjcm")
+texture_hover = ExtResource("16_08ohw")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 3
 
 [node name="mars" type="TextureButton" parent="planets"]
-offset_left = 388.0
-offset_top = 253.0
-offset_right = 415.0
-offset_bottom = 280.0
-texture_normal = ExtResource("1_k6ytj")
+offset_left = 389.0
+offset_top = 221.0
+offset_right = 490.0
+offset_bottom = 323.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("17_e1wog")
+texture_pressed = ExtResource("21_v2osg")
+texture_hover = ExtResource("18_ua4f2")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 3
 
 [node name="jupiter" type="TextureButton" parent="planets"]
-offset_left = 457.0
-offset_top = 296.0
-offset_right = 573.0
-offset_bottom = 412.0
-texture_normal = ExtResource("1_k6ytj")
+offset_left = 506.0
+offset_top = 309.0
+offset_right = 666.0
+offset_bottom = 473.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("19_ras7j")
+texture_pressed = ExtResource("24_66xcw")
+texture_hover = ExtResource("20_hls8t")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 3
 
 [node name="saturn" type="TextureButton" parent="planets"]
-offset_left = 614.0
-offset_top = 200.0
-offset_right = 718.0
-offset_bottom = 304.0
-texture_normal = ExtResource("1_k6ytj")
+offset_left = 654.0
+offset_top = 209.0
+offset_right = 794.0
+offset_bottom = 337.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("21_nrykg")
+texture_pressed = ExtResource("27_3bb5l")
+texture_hover = ExtResource("22_er4u3")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 3
 
 [node name="uranus" type="TextureButton" parent="planets"]
-offset_left = 769.0
-offset_top = 298.0
-offset_right = 837.0
-offset_bottom = 366.0
-texture_normal = ExtResource("1_k6ytj")
+offset_left = 813.0
+offset_top = 311.0
+offset_right = 901.0
+offset_bottom = 403.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("23_r4a8o")
+texture_pressed = ExtResource("30_byvh7")
+texture_hover = ExtResource("24_djvtn")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 3
 
 [node name="neptune" type="TextureButton" parent="planets"]
-offset_left = 898.0
-offset_top = 237.0
-offset_right = 962.0
-offset_bottom = 301.0
-texture_normal = ExtResource("1_k6ytj")
+offset_left = 955.0
+offset_top = 305.0
+offset_right = 1063.0
+offset_bottom = 411.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("25_4023s")
+texture_pressed = ExtResource("33_kqxga")
+texture_hover = ExtResource("26_pctvq")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 3
 
 [node name="pluto" type="TextureButton" parent="planets"]
-offset_left = 1077.0
-offset_top = 430.0
-offset_right = 1096.0
-offset_bottom = 449.0
-texture_normal = ExtResource("1_k6ytj")
+offset_left = 1081.0
+offset_top = 401.0
+offset_right = 1127.0
+offset_bottom = 444.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("27_282cp")
+texture_pressed = ExtResource("36_4xnlr")
+texture_hover = ExtResource("28_nn27j")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 312)
