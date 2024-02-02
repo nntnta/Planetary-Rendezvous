@@ -1,10 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://cntul2jy054a8"]
+[gd_scene load_steps=5 format=3 uid="uid://cntul2jy054a8"]
 
 [ext_resource type="Texture2D" uid="uid://uk0y7c45nhly" path="res://pics/mockup/S__5799993.jpg" id="1_2krrg"]
+[ext_resource type="Script" path="res://planets/uranus/uranus.gd" id="1_xbgjy"]
+[ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_t4y1b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ms82g"]
+radius = 47.2652
 
 [node name="uranus" type="Node2D"]
+script = ExtResource("1_xbgjy")
+player = ExtResource("2_t4y1b")
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(571, 313)
 scale = Vector2(0.755179, 0.755179)
 texture = ExtResource("1_2krrg")
+
+[node name="spawn_player" type="Marker2D" parent="."]
+position = Vector2(583, 495)
+
+[node name="takeoff" type="Area2D" parent="spawn_player" groups=["takeoff"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/takeoff"]
+shape = SubResource("CircleShape2D_ms82g")
+
+[connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
+[connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

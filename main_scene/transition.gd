@@ -3,6 +3,7 @@ extends Node2D
 @export var menu: PackedScene
 
 var current_scene
+var takeOffArea = false
 
 func change_scene(planet: PackedScene, name):
 	current_scene = name
@@ -27,6 +28,6 @@ func _process(delta):
 	pass
 
 func _input(event):
-	if event.is_action_pressed("esc"):
+	if event.is_action_pressed("esc") && takeOffArea:
 		$transition/ColorRect.visible = false
 		get_tree().change_scene_to_packed(menu)

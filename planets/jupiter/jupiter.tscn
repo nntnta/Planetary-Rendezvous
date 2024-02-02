@@ -1,11 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://2fn8jb7l7xpi"]
+[gd_scene load_steps=5 format=3 uid="uid://2fn8jb7l7xpi"]
 
+[ext_resource type="Script" path="res://planets/jupiter/jupiter.gd" id="1_2rx63"]
 [ext_resource type="Texture2D" uid="uid://sqvog3u7bmxk" path="res://pics/mockup/Rika_restrains_Yuji.webp" id="1_dhob3"]
+[ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_r5jse"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gj04v"]
+radius = 47.2652
 
 [node name="jupiter" type="Node2D"]
+script = ExtResource("1_2rx63")
+player = ExtResource("2_r5jse")
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(576, 322)
 rotation = 1.5708
 scale = Vector2(0.845133, 0.845133)
 texture = ExtResource("1_dhob3")
+
+[node name="spawn_player" type="Marker2D" parent="."]
+position = Vector2(830, 468)
+
+[node name="takeoff" type="Area2D" parent="spawn_player" groups=["takeoff"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/takeoff"]
+shape = SubResource("CircleShape2D_gj04v")
+
+[connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
+[connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

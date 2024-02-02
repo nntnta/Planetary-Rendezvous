@@ -1,10 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://dipkjwlmn1sc1"]
+[gd_scene load_steps=5 format=3 uid="uid://dipkjwlmn1sc1"]
 
 [ext_resource type="Texture2D" uid="uid://d2ho4d1nuys15" path="res://pics/mockup/veggieburger.jpeg" id="1_dijct"]
+[ext_resource type="Script" path="res://planets/pluto/pluto.gd" id="1_e4tr7"]
+[ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_ameq8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rwsuo"]
+radius = 47.2652
 
 [node name="pluto" type="Node2D"]
+script = ExtResource("1_e4tr7")
+player = ExtResource("2_ameq8")
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(578, 312)
 scale = Vector2(1.67558, 1.67558)
 texture = ExtResource("1_dijct")
+
+[node name="spawn_player" type="Marker2D" parent="."]
+position = Vector2(546, 502)
+
+[node name="takeoff" type="Area2D" parent="spawn_player" groups=["takeoff"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/takeoff"]
+shape = SubResource("CircleShape2D_rwsuo")
+
+[connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
+[connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

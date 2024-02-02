@@ -1,10 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddrv3rykexuy"]
+[gd_scene load_steps=5 format=3 uid="uid://ddrv3rykexuy"]
 
+[ext_resource type="Script" path="res://planets/neptune/neptune.gd" id="1_434ty"]
 [ext_resource type="Texture2D" uid="uid://tsk0tgrmkx2t" path="res://pics/mockup/tumblr_ec7781b75dcc0c69c511009f40758c11_e5aa2863_1280.jpg" id="1_u8k4v"]
+[ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_bnsqq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_htjpv"]
+radius = 47.2652
 
 [node name="neptune" type="Node2D"]
+script = ExtResource("1_434ty")
+player = ExtResource("2_bnsqq")
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(570, 324)
 scale = Vector2(1.48, 1.48)
 texture = ExtResource("1_u8k4v")
+
+[node name="spawn_player" type="Marker2D" parent="."]
+position = Vector2(242, 284)
+
+[node name="takeoff" type="Area2D" parent="spawn_player" groups=["takeoff"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/takeoff"]
+shape = SubResource("CircleShape2D_htjpv")
+
+[connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
+[connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

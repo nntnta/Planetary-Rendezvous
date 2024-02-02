@@ -1,10 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://daxj17mon6ks8"]
+[gd_scene load_steps=5 format=3 uid="uid://daxj17mon6ks8"]
 
 [ext_resource type="Texture2D" uid="uid://c5epb3dmhhn44" path="res://pics/mockup/gojo.jpg" id="1_f5fwh"]
+[ext_resource type="Script" path="res://planets/mercury/mercury.gd" id="1_hgf0m"]
+[ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_tjwwk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1o2uy"]
+radius = 47.2652
 
 [node name="mercury" type="Node2D"]
+script = ExtResource("1_hgf0m")
+player = ExtResource("2_tjwwk")
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(584, 327)
 scale = Vector2(1.16783, 1.16783)
 texture = ExtResource("1_f5fwh")
+
+[node name="spawn_player" type="Marker2D" parent="."]
+position = Vector2(692, 243)
+
+[node name="takeoff" type="Area2D" parent="spawn_player" groups=["takeoff"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/takeoff"]
+shape = SubResource("CircleShape2D_1o2uy")
+
+[connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
+[connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]
