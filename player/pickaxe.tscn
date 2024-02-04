@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://1bkog0g7pyew"]
+
+[node name="Pickaxe" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
