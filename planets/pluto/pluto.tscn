@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dipkjwlmn1sc1"]
+[gd_scene load_steps=7 format=3 uid="uid://dipkjwlmn1sc1"]
 
 [ext_resource type="Texture2D" uid="uid://d2ho4d1nuys15" path="res://pics/mockup/veggieburger.jpeg" id="1_dijct"]
 [ext_resource type="Script" path="res://planets/pluto/pluto.gd" id="1_e4tr7"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_ameq8"]
 [ext_resource type="Texture2D" uid="uid://dmwqoxayeudod" path="res://pics/mockup/Red_circle.svg.png" id="4_ti8pr"]
+[ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="5_lk2s4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hot70"]
 radius = 30.5941
@@ -28,6 +29,8 @@ texture = ExtResource("4_ti8pr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/takeoff"]
 shape = SubResource("CircleShape2D_hot70")
+
+[node name="player_interface" parent="." instance=ExtResource("5_lk2s4")]
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

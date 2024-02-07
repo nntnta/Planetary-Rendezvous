@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmsn0nag6ndl8"]
+[gd_scene load_steps=9 format=3 uid="uid://bmsn0nag6ndl8"]
 
 [ext_resource type="Script" path="res://planets/earth/earth.gd" id="1_48bx1"]
 [ext_resource type="Texture2D" uid="uid://rl7lu013il7l" path="res://pics/mockup/blueberry.png" id="1_qqxvm"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_qkox3"]
 [ext_resource type="Texture2D" uid="uid://dmwqoxayeudod" path="res://pics/mockup/Red_circle.svg.png" id="4_6k3m8"]
+[ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="5_507p3"]
+[ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="5_j4730"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_od74y"]
 radius = 30.5941
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_frrj7"]
+radius = 29.0
 
 [node name="earth" type="Node2D"]
 script = ExtResource("1_48bx1")
@@ -28,6 +33,25 @@ texture = ExtResource("4_6k3m8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/takeoff"]
 shape = SubResource("CircleShape2D_od74y")
+
+[node name="natural_drops" type="Node2D" parent="."]
+
+[node name="starter_pickaxe" type="Node2D" parent="natural_drops"]
+position = Vector2(949, 237)
+
+[node name="bronze_pickaxe" type="Sprite2D" parent="natural_drops/starter_pickaxe"]
+rotation = -3.14159
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_507p3")
+region_enabled = true
+region_rect = Rect2(20, 20, 120, 120)
+
+[node name="grabBox" type="Area2D" parent="natural_drops/starter_pickaxe" groups=["tool"]]
+
+[node name="coll" type="CollisionShape2D" parent="natural_drops/starter_pickaxe/grabBox"]
+shape = SubResource("CircleShape2D_frrj7")
+
+[node name="player_interface" parent="." instance=ExtResource("5_j4730")]
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

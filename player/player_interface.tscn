@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://bob5f2sxvlmc0"]
+
+[ext_resource type="Script" path="res://player/player_interface.gd" id="1_ww167"]
+[ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="2_loui6"]
+[ext_resource type="Texture2D" uid="uid://dealv2xmpn5r6" path="res://pics/tools/inventory_bg.png" id="3_e6y34"]
+[ext_resource type="Texture2D" uid="uid://dwpikjkuu4pdd" path="res://pics/tools/inventory_unselected.png" id="4_fbvl1"]
+
+[node name="player_interface" type="Node2D"]
+script = ExtResource("1_ww167")
+
+[node name="inv" type="Node2D" parent="."]
+
+[node name="inv1" type="Node2D" parent="inv"]
+
+[node name="inv_1" type="Sprite2D" parent="inv/inv1"]
+visible = false
+z_index = 1
+position = Vector2(59, 589)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_loui6")
+region_enabled = true
+region_rect = Rect2(20, 20, 120, 120)
+
+[node name="inv_1_selected" type="Sprite2D" parent="inv/inv1"]
+z_index = 1
+position = Vector2(59, 589)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_e6y34")
+
+[node name="inv_1_unselected" type="Sprite2D" parent="inv/inv1"]
+position = Vector2(59, 589)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_fbvl1")
+
+[node name="inv2" type="Node2D" parent="inv"]
+position = Vector2(96, 0)
+
+[node name="inv_2" type="Sprite2D" parent="inv/inv2"]
+visible = false
+z_index = 1
+position = Vector2(59, 589)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_loui6")
+region_enabled = true
+region_rect = Rect2(20, 20, 120, 120)
+
+[node name="inv_2_selected" type="Sprite2D" parent="inv/inv2"]
+visible = false
+z_index = 1
+position = Vector2(59, 589)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_e6y34")
+
+[node name="inv_2_unselected" type="Sprite2D" parent="inv/inv2"]
+position = Vector2(59, 589)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_fbvl1")
+
+[node name="inv3" type="Node2D" parent="inv"]
+position = Vector2(192, 0)
+
+[node name="inv_3" type="Sprite2D" parent="inv/inv3"]
+visible = false
+z_index = 1
+position = Vector2(59, 589)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_loui6")
+region_enabled = true
+region_rect = Rect2(20, 20, 120, 120)
+
+[node name="inv_3_selected" type="Sprite2D" parent="inv/inv3"]
+visible = false
+z_index = 1
+position = Vector2(59, 589)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_e6y34")
+
+[node name="inv_3_unselected" type="Sprite2D" parent="inv/inv3"]
+position = Vector2(59, 589)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_fbvl1")
