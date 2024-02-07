@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var current_pos = $spawn_player
 @export var player: PackedScene
+
+var mouse_in = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Transition.takeOffArea = true
@@ -14,7 +16,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_takeoff_area_entered(area):
 	if area.is_in_group('player'):
 		Transition.takeOffArea = true
@@ -23,3 +24,6 @@ func _on_takeoff_area_entered(area):
 func _on_takeoff_area_exited(area):
 	if area.is_in_group('player'):
 		Transition.takeOffArea = false
+
+
+

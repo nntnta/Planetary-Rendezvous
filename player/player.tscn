@@ -239,7 +239,7 @@ graph_offset = Vector2(0, 52.3771)
 script = ExtResource("1_f84py")
 
 [node name="sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.3125, 0.3125)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_1gbtg")
 hframes = 48
 region_rect = Rect2(10, 10, 140, 140)
