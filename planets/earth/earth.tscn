@@ -46,14 +46,14 @@ rotation = -3.14159
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_507p3")
 region_enabled = true
-region_rect = Rect2(20, 180, 120, 120)
+region_rect = Rect2(180, 500, 120, 120)
 
 [node name="hover" type="Sprite2D" parent="natural_drops/starter_pickaxe"]
 rotation = 3.14159
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_507p3")
 region_enabled = true
-region_rect = Rect2(10, 10, 140, 140)
+region_rect = Rect2(10, 490, 140, 140)
 
 [node name="grabBox" type="Area2D" parent="natural_drops/starter_pickaxe" groups=["tool"]]
 

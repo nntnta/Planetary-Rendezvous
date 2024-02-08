@@ -19,7 +19,7 @@ position = Vector2(59, 589)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_loui6")
 region_enabled = true
-region_rect = Rect2(20, 180, 120, 120)
+region_rect = Rect2(180, 500, 120, 120)
 
 [node name="inv_1_selected" type="Sprite2D" parent="inv/inv1"]
 z_index = 1

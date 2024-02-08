@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 	if !global.bronze_pickaxe_drop:
 		$inv/inv1/inv_1.visible = true
-		$inv/inv1/inv_1.region_rect = Rect2(20,180,120,120) #bronze pickaxe
+		$inv/inv1/inv_1.region_rect = Rect2(180,500,120,120) #bronze pickaxe
 
 
 func _input(event):
