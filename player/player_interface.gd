@@ -8,7 +8,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if !global.bronze_pickaxe_drop:
+		$inv/inv1/inv_1.visible = true
+		$inv/inv1/inv_1.region_rect = Rect2(20,180,120,120) #bronze pickaxe
 
 
 func _input(event):
