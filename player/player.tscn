@@ -605,8 +605,6 @@ shape = SubResource("CircleShape2D_y0uib")
 
 [node name="pickaxe" type="Node2D" parent="tools"]
 z_index = 1
-position = Vector2(22, -1)
-rotation = 2.35609
 
 [node name="pickaxe" type="Sprite2D" parent="tools/pickaxe"]
 scale = Vector2(0.25, 0.25)
@@ -628,5 +626,5 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_6065w")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0.647577)
-parameters/swingPickaxe/blend_position = Vector2(-0.6064, -0.118943)
+parameters/swingPickaxe/blend_position = Vector2(0, 0.52381)
 parameters/walk/blend_position = Vector2(-0.00480002, 0.647577)
