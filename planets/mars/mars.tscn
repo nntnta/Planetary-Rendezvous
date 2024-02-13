@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8y5q7rqiee2v"]
+[gd_scene load_steps=8 format=3 uid="uid://b8y5q7rqiee2v"]
 
 [ext_resource type="Texture2D" uid="uid://dpdysantyk7d7" path="res://pics/mockup/kobenibadge.PNG" id="1_aoia0"]
 [ext_resource type="Script" path="res://planets/mars/mars.gd" id="1_g8fur"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_ax6wt"]
+[ext_resource type="PackedScene" uid="uid://bc82m3np056ip" path="res://loots/minerals.tscn" id="3_t6x2j"]
 [ext_resource type="Texture2D" uid="uid://dmwqoxayeudod" path="res://pics/mockup/Red_circle.svg.png" id="4_o4e7a"]
 [ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="5_c5rr2"]
 
@@ -10,8 +11,10 @@
 radius = 30.5941
 
 [node name="mars" type="Node2D"]
+editor_description = "mars"
 script = ExtResource("1_g8fur")
 player = ExtResource("2_ax6wt")
+mars_mineral = ExtResource("3_t6x2j")
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(590, 308)

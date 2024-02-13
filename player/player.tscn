@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://sc8xm7aym51d"]
+[gd_scene load_steps=41 format=3 uid="uid://sc8xm7aym51d"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_f84py"]
 [ext_resource type="Texture2D" uid="uid://wsvqtsgmecit" path="res://pics/player/player_all.png" id="2_1gbtg"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0uib"]
 radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_07rs6"]
+radius = 5.09902
 
 [sub_resource type="Animation" id="Animation_guceh"]
 length = 0.001
@@ -214,6 +217,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(-20, -1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("tools/pickaxe/hitbox/coll:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, -9), Vector2(-1, 13)]
+}
 
 [sub_resource type="Animation" id="Animation_hil5c"]
 resource_name = "swingPickaxeLeft"
@@ -292,6 +307,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2i(1, 3), Vector2i(1, 3)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("tools/pickaxe/hitbox/coll:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-11.3137, 5.65685), Vector2(-11.3137, 5.65685)]
 }
 
 [sub_resource type="Animation" id="Animation_mxkie"]
@@ -372,6 +399,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2i(1, 3), Vector2i(1, 3)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("tools/pickaxe/hitbox/coll:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6.86404, -11.5062), Vector2(6.86404, -11.5062)]
+}
 
 [sub_resource type="Animation" id="Animation_0suae"]
 resource_name = "swingPickaxeUp"
@@ -438,6 +477,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(22, -1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("tools/pickaxe/hitbox/coll:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, -8), Vector2(-1, 13)]
 }
 
 [sub_resource type="Animation" id="Animation_5jbbv"]
@@ -605,6 +656,8 @@ shape = SubResource("CircleShape2D_y0uib")
 
 [node name="pickaxe" type="Node2D" parent="tools"]
 z_index = 1
+position = Vector2(-28, 1.99993)
+rotation = -0.783695
 
 [node name="pickaxe" type="Sprite2D" parent="tools/pickaxe"]
 scale = Vector2(0.25, 0.25)
@@ -613,6 +666,13 @@ hframes = 11
 vframes = 5
 frame = 12
 region_rect = Rect2(180, 500, 120, 120)
+
+[node name="hitbox" type="Area2D" parent="tools/pickaxe" groups=["pickaxe"]]
+
+[node name="coll" type="CollisionShape2D" parent="tools/pickaxe/hitbox"]
+position = Vector2(-11.3137, 5.65685)
+rotation = 0.00976468
+shape = SubResource("CircleShape2D_07rs6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -626,5 +686,5 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_6065w")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0.647577)
-parameters/swingPickaxe/blend_position = Vector2(0, 0.52381)
+parameters/swingPickaxe/blend_position = Vector2(-0.4992, -0.121693)
 parameters/walk/blend_position = Vector2(-0.00480002, 0.647577)

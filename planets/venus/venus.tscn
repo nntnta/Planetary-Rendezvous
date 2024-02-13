@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgneskmpkp4wg"]
+[gd_scene load_steps=8 format=3 uid="uid://cgneskmpkp4wg"]
 
 [ext_resource type="Script" path="res://planets/venus/venus.gd" id="1_avxae"]
 [ext_resource type="Texture2D" uid="uid://rnc83ghhnmp0" path="res://pics/mockup/gojopostPR.PNG" id="1_xqayw"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_whf08"]
+[ext_resource type="PackedScene" uid="uid://bc82m3np056ip" path="res://loots/minerals.tscn" id="3_5p1lm"]
 [ext_resource type="Texture2D" uid="uid://dmwqoxayeudod" path="res://pics/mockup/Red_circle.svg.png" id="4_wbobd"]
 [ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="5_hv8vv"]
 
@@ -10,8 +11,10 @@
 radius = 30.5941
 
 [node name="venus" type="Node2D"]
+editor_description = "venus"
 script = ExtResource("1_avxae")
 player = ExtResource("2_whf08")
+venus_mineral = ExtResource("3_5p1lm")
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(574, 324)

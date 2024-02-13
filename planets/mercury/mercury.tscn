@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://daxj17mon6ks8"]
+[gd_scene load_steps=8 format=3 uid="uid://daxj17mon6ks8"]
 
 [ext_resource type="Texture2D" uid="uid://c5epb3dmhhn44" path="res://pics/mockup/gojo.jpg" id="1_f5fwh"]
 [ext_resource type="Script" path="res://planets/mercury/mercury.gd" id="1_hgf0m"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_tjwwk"]
+[ext_resource type="PackedScene" uid="uid://bc82m3np056ip" path="res://loots/minerals.tscn" id="3_sigxt"]
 [ext_resource type="Texture2D" uid="uid://dmwqoxayeudod" path="res://pics/mockup/Red_circle.svg.png" id="4_h77oc"]
 [ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="5_dewnt"]
 
@@ -10,8 +11,10 @@
 radius = 30.5941
 
 [node name="mercury" type="Node2D"]
+editor_description = "mercury"
 script = ExtResource("1_hgf0m")
 player = ExtResource("2_tjwwk")
+mercury_mineral = ExtResource("3_sigxt")
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(584, 327)
