@@ -229,6 +229,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(-1, -9), Vector2(-1, 13)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("tools/pickaxe/hitbox/coll:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_hil5c"]
 resource_name = "swingPickaxeLeft"
@@ -319,6 +331,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-11.3137, 5.65685), Vector2(-11.3137, 5.65685)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("tools/pickaxe/hitbox/coll:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_mxkie"]
@@ -411,6 +435,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(6.86404, -11.5062), Vector2(6.86404, -11.5062)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("tools/pickaxe/hitbox/coll:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_0suae"]
 resource_name = "swingPickaxeUp"
@@ -489,6 +525,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-1, -8), Vector2(-1, 13)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("tools/pickaxe/hitbox/coll:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_5jbbv"]
@@ -656,8 +704,6 @@ shape = SubResource("CircleShape2D_y0uib")
 
 [node name="pickaxe" type="Node2D" parent="tools"]
 z_index = 1
-position = Vector2(-28, 1.99993)
-rotation = -0.783695
 
 [node name="pickaxe" type="Sprite2D" parent="tools/pickaxe"]
 scale = Vector2(0.25, 0.25)
@@ -670,7 +716,6 @@ region_rect = Rect2(180, 500, 120, 120)
 [node name="hitbox" type="Area2D" parent="tools/pickaxe" groups=["pickaxe"]]
 
 [node name="coll" type="CollisionShape2D" parent="tools/pickaxe/hitbox"]
-position = Vector2(-11.3137, 5.65685)
 rotation = 0.00976468
 shape = SubResource("CircleShape2D_07rs6")
 

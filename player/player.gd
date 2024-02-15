@@ -3,6 +3,8 @@ extends CharacterBody2D
 const SPEED = 15000.0
 var swing = false
 
+func _ready():
+	$tools/pickaxe/hitbox/coll.disabled = true
 
 func _physics_process(delta):
 	velocity  = Input.get_vector("a",'d','w','s') * SPEED * delta
