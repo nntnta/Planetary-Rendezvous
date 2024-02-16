@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://ddrv3rykexuy"]
 
 [ext_resource type="Script" path="res://planets/neptune/neptune.gd" id="1_434ty"]
-[ext_resource type="Texture2D" uid="uid://tsk0tgrmkx2t" path="res://pics/mockup/tumblr_ec7781b75dcc0c69c511009f40758c11_e5aa2863_1280.jpg" id="1_u8k4v"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_bnsqq"]
+[ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="3_r2p6v"]
 [ext_resource type="Texture2D" uid="uid://dmwqoxayeudod" path="res://pics/mockup/Red_circle.svg.png" id="4_lwlls"]
 [ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="5_7qnmw"]
 
@@ -14,9 +14,9 @@ script = ExtResource("1_434ty")
 player = ExtResource("2_bnsqq")
 
 [node name="bg" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0.439216, 1, 1)
 position = Vector2(570, 324)
-scale = Vector2(1.48, 1.48)
-texture = ExtResource("1_u8k4v")
+texture = ExtResource("3_r2p6v")
 
 [node name="spawn_player" type="Marker2D" parent="."]
 position = Vector2(242, 284)

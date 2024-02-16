@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://bmsn0nag6ndl8"]
 
 [ext_resource type="Script" path="res://planets/earth/earth.gd" id="1_48bx1"]
-[ext_resource type="Texture2D" uid="uid://rl7lu013il7l" path="res://pics/mockup/blueberry.png" id="1_qqxvm"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_qkox3"]
 [ext_resource type="PackedScene" uid="uid://bc82m3np056ip" path="res://loots/minerals.tscn" id="3_2c5ol"]
 [ext_resource type="Texture2D" uid="uid://dmwqoxayeudod" path="res://pics/mockup/Red_circle.svg.png" id="4_6k3m8"]
+[ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="4_dey5f"]
 [ext_resource type="Script" path="res://planets/earth/starter_pickaxe.gd" id="5_8v7g6"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="5_507p3"]
 [ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="5_j4730"]
@@ -24,9 +24,9 @@ metadata/_edit_horizontal_guides_ = [648.0, 18.0]
 metadata/_edit_vertical_guides_ = [1152.0]
 
 [node name="bg" type="Sprite2D" parent="."]
+self_modulate = Color(0.105882, 1, 0.631373, 1)
 position = Vector2(583, 319)
-scale = Vector2(1.29597, 1.29597)
-texture = ExtResource("1_qqxvm")
+texture = ExtResource("4_dey5f")
 
 [node name="spawn_player" type="Marker2D" parent="."]
 position = Vector2(346, 294)

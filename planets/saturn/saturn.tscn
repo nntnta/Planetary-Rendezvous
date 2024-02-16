@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://unvxioa0yyk1"]
 
 [ext_resource type="Script" path="res://planets/saturn/saturn.gd" id="1_1f5vk"]
-[ext_resource type="Texture2D" uid="uid://cosidrwll80un" path="res://pics/mockup/skywormmidjourney.png" id="1_xaow1"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_38etp"]
+[ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="3_tpbgs"]
 [ext_resource type="Texture2D" uid="uid://dmwqoxayeudod" path="res://pics/mockup/Red_circle.svg.png" id="4_8006a"]
 [ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="5_b327y"]
 
@@ -14,9 +14,9 @@ script = ExtResource("1_1f5vk")
 player = ExtResource("2_38etp")
 
 [node name="bg" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.760784, 0.0117647, 1)
 position = Vector2(580, 324)
-scale = Vector2(0.660156, 0.660156)
-texture = ExtResource("1_xaow1")
+texture = ExtResource("3_tpbgs")
 
 [node name="spawn_player" type="Marker2D" parent="."]
 position = Vector2(268, 386)

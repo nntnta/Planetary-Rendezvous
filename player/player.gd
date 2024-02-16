@@ -9,7 +9,7 @@ func _ready():
 
 func _physics_process(delta):
 	velocity  = Input.get_vector("a",'d','w','s') * SPEED * delta
-	pickaxeCollHidden()
+	#pickaxeCollHidden()
 	
 	if velocity == Vector2.ZERO && !swing:
 		$AnimationTree.get("parameters/playback").travel("idle")
@@ -42,5 +42,5 @@ func _on_hitbox_area_entered(area):
 func pickaxeCollHidden():
 	if !$tools/pickaxe/pickaxe.visible:
 		$tools/pickaxe/hitbox/coll.disabled = true
-	elif $tools/pickaxe/pickaxe.visible:
+	if $tools/pickaxe/pickaxe.visible:
 		$tools/pickaxe/hitbox/coll.disabled = false

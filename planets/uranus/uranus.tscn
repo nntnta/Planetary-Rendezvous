@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cntul2jy054a8"]
 
-[ext_resource type="Texture2D" uid="uid://uk0y7c45nhly" path="res://pics/mockup/S__5799993.jpg" id="1_2krrg"]
 [ext_resource type="Script" path="res://planets/uranus/uranus.gd" id="1_xbgjy"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_t4y1b"]
+[ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="3_pn5oo"]
 [ext_resource type="Texture2D" uid="uid://dmwqoxayeudod" path="res://pics/mockup/Red_circle.svg.png" id="4_ycyjq"]
 [ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="5_5abvl"]
 
@@ -14,9 +14,9 @@ script = ExtResource("1_xbgjy")
 player = ExtResource("2_t4y1b")
 
 [node name="bg" type="Sprite2D" parent="."]
+self_modulate = Color(0, 1, 1, 1)
 position = Vector2(571, 313)
-scale = Vector2(0.755179, 0.755179)
-texture = ExtResource("1_2krrg")
+texture = ExtResource("3_pn5oo")
 
 [node name="spawn_player" type="Marker2D" parent="."]
 position = Vector2(583, 495)

@@ -14,6 +14,7 @@ extends Node2D
 func _ready():
 	Transition.takeOffArea = true
 	Transition.inMenu = true
+	$AnimationPlayer.play('idle_bg')
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
