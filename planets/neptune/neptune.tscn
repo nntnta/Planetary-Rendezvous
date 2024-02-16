@@ -1,13 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddrv3rykexuy"]
+[gd_scene load_steps=9 format=3 uid="uid://ddrv3rykexuy"]
 
 [ext_resource type="Script" path="res://planets/neptune/neptune.gd" id="1_434ty"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_bnsqq"]
 [ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="3_r2p6v"]
-[ext_resource type="Texture2D" uid="uid://dmwqoxayeudod" path="res://pics/mockup/Red_circle.svg.png" id="4_lwlls"]
+[ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="4_ivn7f"]
 [ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="5_7qnmw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bkmdn"]
-radius = 30.5941
+radius = 56.57
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dr35s"]
+radius = 42.0119
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_su1at"]
+radius = 14.0357
 
 [node name="neptune" type="Node2D"]
 script = ExtResource("1_434ty")
@@ -23,12 +29,38 @@ position = Vector2(242, 284)
 
 [node name="takeoff" type="Area2D" parent="spawn_player" groups=["takeoff"]]
 
-[node name="takeoff" type="Sprite2D" parent="spawn_player/takeoff"]
-scale = Vector2(0.083, 0.083)
-texture = ExtResource("4_lwlls")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/takeoff"]
+position = Vector2(0, -32)
 shape = SubResource("CircleShape2D_bkmdn")
+
+[node name="rocket_upper" type="Sprite2D" parent="spawn_player/takeoff"]
+z_index = 5
+position = Vector2(0, -169)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ivn7f")
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 440)
+
+[node name="rocket_lower" type="Sprite2D" parent="spawn_player/takeoff"]
+position = Vector2(0, -9)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ivn7f")
+region_enabled = true
+region_rect = Rect2(0, 440, 640, 200)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="spawn_player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/StaticBody2D"]
+position = Vector2(0, -49)
+shape = SubResource("CircleShape2D_dr35s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="spawn_player/StaticBody2D"]
+position = Vector2(49, -39)
+shape = SubResource("CircleShape2D_su1at")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="spawn_player/StaticBody2D"]
+position = Vector2(-49, -39)
+shape = SubResource("CircleShape2D_su1at")
 
 [node name="player_interface" parent="." instance=ExtResource("5_7qnmw")]
 

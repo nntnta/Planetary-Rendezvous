@@ -1,8 +1,11 @@
-[gd_scene load_steps=41 format=3 uid="uid://sc8xm7aym51d"]
+[gd_scene load_steps=42 format=3 uid="uid://sc8xm7aym51d"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_f84py"]
 [ext_resource type="Texture2D" uid="uid://wsvqtsgmecit" path="res://pics/player/player_all.png" id="2_1gbtg"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="3_50khj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0g0a7"]
+radius = 17.0294
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0uib"]
 radius = 15.0
@@ -687,6 +690,9 @@ graph_offset = Vector2(0, 52.3771)
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_f84py")
 
+[node name="coll_for_env" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0g0a7")
+
 [node name="sprite" type="Sprite2D" parent="."]
 z_index = 2
 scale = Vector2(0.25, 0.25)
@@ -704,8 +710,6 @@ shape = SubResource("CircleShape2D_y0uib")
 
 [node name="pickaxe" type="Node2D" parent="tools"]
 z_index = 1
-position = Vector2(22, -1)
-rotation = 0.785398
 
 [node name="pickaxe" type="Sprite2D" parent="tools/pickaxe"]
 scale = Vector2(0.25, 0.25)
@@ -719,7 +723,6 @@ region_rect = Rect2(180, 500, 120, 120)
 
 [node name="coll" type="CollisionShape2D" parent="tools/pickaxe/hitbox"]
 z_index = 4
-position = Vector2(-1, -20)
 rotation = 0.00976468
 shape = SubResource("CircleShape2D_07rs6")
 
