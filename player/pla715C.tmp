@@ -227,11 +227,11 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-1, -9), Vector2(-1, 24)]
+"values": [Vector2(-1, -9), Vector2(-1, 13)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
-tracks/6/enabled = false
+tracks/6/enabled = true
 tracks/6/path = NodePath("tools/pickaxe/hitbox/coll:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
@@ -334,7 +334,7 @@ tracks/6/keys = {
 }
 tracks/7/type = "value"
 tracks/7/imported = false
-tracks/7/enabled = false
+tracks/7/enabled = true
 tracks/7/path = NodePath("tools/pickaxe/hitbox/coll:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
@@ -437,7 +437,7 @@ tracks/6/keys = {
 }
 tracks/7/type = "value"
 tracks/7/imported = false
-tracks/7/enabled = false
+tracks/7/enabled = true
 tracks/7/path = NodePath("tools/pickaxe/hitbox/coll:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
@@ -524,11 +524,11 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-1, -20), Vector2(-1, 18)]
+"values": [Vector2(-1, -8), Vector2(-1, 13)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
-tracks/6/enabled = false
+tracks/6/enabled = true
 tracks/6/path = NodePath("tools/pickaxe/hitbox/coll:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
@@ -733,6 +733,3 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0.647577)
 parameters/swingPickaxe/blend_position = Vector2(-0.4992, -0.121693)
 parameters/walk/blend_position = Vector2(-0.00480002, 0.647577)
-
-[connection signal="area_entered" from="tools/pickaxe/hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="area_exited" from="tools/pickaxe/hitbox" to="." method="_on_hitbox_area_exited"]

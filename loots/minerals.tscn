@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_wxvvp"]
 radius = 12.0416
 
-[node name="minerals" type="Area2D"]
+[node name="minerals" type="Area2D" groups=["mineral"]]
 script = ExtResource("1_1q0km")
 
 [node name="coll" type="CollisionShape2D" parent="."]
