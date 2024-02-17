@@ -30,6 +30,7 @@ texture = ExtResource("4_4o30c")
 position = Vector2(692, 243)
 
 [node name="takeoff" type="Area2D" parent="spawn_player" groups=["takeoff"]]
+position = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/takeoff"]
 position = Vector2(0, -32)
@@ -51,6 +52,7 @@ region_enabled = true
 region_rect = Rect2(0, 440, 640, 200)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="spawn_player"]
+position = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/StaticBody2D"]
 position = Vector2(0, -49)
