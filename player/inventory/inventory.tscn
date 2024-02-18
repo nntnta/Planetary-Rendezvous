@@ -1,18 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctbslfewtlkwv"]
+[gd_scene load_steps=6 format=3 uid="uid://ctbslfewtlkwv"]
 
 [ext_resource type="Script" path="res://player/inventory/inv_grid.gd" id="1_cn8rl"]
 [ext_resource type="PackedScene" uid="uid://dg8ka074mhrlc" path="res://player/inventory/slot.tscn" id="1_eos7a"]
+[ext_resource type="Script" path="res://player/inventory/UI.gd" id="1_ni7ij"]
 [ext_resource type="Script" path="res://player/inventory/character.gd" id="2_a8fxl"]
 [ext_resource type="PackedScene" uid="uid://b074yf6ad0w1i" path="res://player/inventory/passive_slot.tscn" id="2_v658d"]
 
 [node name="inventory" type="Node2D"]
-position = Vector2(213, 126)
+z_index = 8
+position = Vector2(189, 258)
+scale = Vector2(2, 2)
 
 [node name="UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_ni7ij")
 
 [node name="inv_grid" type="GridContainer" parent="UI"]
 layout_mode = 1

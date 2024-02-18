@@ -1,20 +1,24 @@
 extends Area2D
 var mineral_hp = 3
-
+var ID = '0'
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$drops.monitoring = false
 	
 	if get_parent().editor_description == 'mercury':
+		ID = '3'
 		$mineral.region_rect = Rect2(160,0,160,160)
 		
 	if get_parent().editor_description == 'venus':
+		ID = '2'
 		$mineral.region_rect = Rect2(480,0,160,160)
 	
 	if get_parent().editor_description == 'earth':
+		ID = '0'
 		$mineral.region_rect = Rect2(0,0,160,160)
 	
 	if get_parent().editor_description == 'mars':
+		ID = '1'
 		$mineral.region_rect = Rect2(320,0,160,160)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,4 +48,5 @@ func _on_area_entered(area):
 
 func _on_drops_area_entered(area):
 	if area.is_in_group('player'):
+		get_parent().find_child("inv_grid").add_item(ID)
 		queue_free()

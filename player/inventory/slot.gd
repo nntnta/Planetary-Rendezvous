@@ -33,6 +33,15 @@ func get_preview():
 func get_ATK():
 	return texture_rect.ATK
 
+func get_ID():
+	return texture_rect.ID
+	
+func get_quantity():
+	return texture_rect.quantity
+	
+func set_quantity(data):
+	texture_rect.quantity += data
+
 func set_property(data):
 	texture_rect.property = data
 	if data["TEXTURE"] == null:
