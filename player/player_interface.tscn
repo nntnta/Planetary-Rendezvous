@@ -83,3 +83,4 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_fbvl1")
 
 [node name="inventory" parent="." instance=ExtResource("5_kysye")]
+position = Vector2(322, 208)

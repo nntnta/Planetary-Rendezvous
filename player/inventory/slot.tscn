@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dg8ka074mhrlc"]
+[gd_scene load_steps=4 format=3 uid="uid://dg8ka074mhrlc"]
 
 [ext_resource type="Script" path="res://player/inventory/slot.gd" id="1_holgv"]
 [ext_resource type="Script" path="res://player/inventory/slotStat.gd" id="2_8ngjj"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5ndk"]
+
 [node name="slot" type="PanelContainer"]
+custom_minimum_size = Vector2(36, 36)
+offset_right = 30.0
+offset_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_x5ndk")
 script = ExtResource("1_holgv")
 
 [node name="slot_texture" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 expand_mode = 1
 script = ExtResource("2_8ngjj")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctbslfewtlkwv"]
+[gd_scene load_steps=7 format=3 uid="uid://ctbslfewtlkwv"]
 
 [ext_resource type="Script" path="res://player/inventory/inv_grid.gd" id="1_cn8rl"]
 [ext_resource type="PackedScene" uid="uid://dg8ka074mhrlc" path="res://player/inventory/slot.tscn" id="1_eos7a"]
 [ext_resource type="Script" path="res://player/inventory/UI.gd" id="1_ni7ij"]
 [ext_resource type="Script" path="res://player/inventory/character.gd" id="2_a8fxl"]
+[ext_resource type="Texture2D" uid="uid://bpfbqjpjdsmsy" path="res://pics/tools/inventory_box.png" id="2_lmtku"]
 [ext_resource type="PackedScene" uid="uid://b074yf6ad0w1i" path="res://player/inventory/passive_slot.tscn" id="2_v658d"]
 
 [node name="inventory" type="Node2D"]
@@ -19,10 +20,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_ni7ij")
 
+[node name="inv_box" type="Sprite2D" parent="UI"]
+position = Vector2(123.5, 55.5)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_lmtku")
+
 [node name="inv_grid" type="GridContainer" parent="UI"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 1
-offset_left = 48.0
-offset_right = 220.0
+offset_left = 47.5
+offset_right = 219.5
 offset_bottom = 128.0
 columns = 4
 script = ExtResource("1_cn8rl")
@@ -70,26 +77,35 @@ offset_bottom = 40.0
 script = ExtResource("2_a8fxl")
 
 [node name="passiveSlot" parent="UI/player" instance=ExtResource("2_v658d")]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 0
 offset_left = 320.0
 offset_right = 360.0
 offset_bottom = 40.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 slot_type = 1
 
 [node name="passiveSlot2" parent="UI/player" instance=ExtResource("2_v658d")]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 0
 offset_left = 320.0
 offset_top = 44.0
 offset_right = 360.0
 offset_bottom = 84.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 slot_type = 2
 
 [node name="passiveSlot3" parent="UI/player" instance=ExtResource("2_v658d")]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 0
 offset_left = 320.0
 offset_top = 88.0
 offset_right = 360.0
 offset_bottom = 128.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 slot_type = 3
 
 [node name="atk" type="Label" parent="UI"]
