@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctbslfewtlkwv"]
+[gd_scene load_steps=5 format=3 uid="uid://ctbslfewtlkwv"]
 
+[ext_resource type="Script" path="res://player/inventory/inv_grid.gd" id="1_cn8rl"]
 [ext_resource type="PackedScene" uid="uid://dg8ka074mhrlc" path="res://player/inventory/slot.tscn" id="1_eos7a"]
+[ext_resource type="Script" path="res://player/inventory/character.gd" id="2_a8fxl"]
 [ext_resource type="PackedScene" uid="uid://b074yf6ad0w1i" path="res://player/inventory/passive_slot.tscn" id="2_v658d"]
 
 [node name="inventory" type="Node2D"]
+position = Vector2(213, 126)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -11,61 +14,55 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="inv" type="GridContainer" parent="UI"]
-layout_mode = 0
-offset_right = 234.0
-offset_bottom = 176.0
-columns = 5
+[node name="inv_grid" type="GridContainer" parent="UI"]
+layout_mode = 1
+offset_left = 48.0
+offset_right = 220.0
+offset_bottom = 128.0
+columns = 4
+script = ExtResource("1_cn8rl")
 
-[node name="slot" parent="UI/inv" instance=ExtResource("1_eos7a")]
+[node name="slot" parent="UI/inv_grid" instance=ExtResource("1_eos7a")]
 layout_mode = 2
 
-[node name="slot2" parent="UI/inv" instance=ExtResource("1_eos7a")]
+[node name="slot2" parent="UI/inv_grid" instance=ExtResource("1_eos7a")]
 layout_mode = 2
 
-[node name="slot3" parent="UI/inv" instance=ExtResource("1_eos7a")]
+[node name="slot3" parent="UI/inv_grid" instance=ExtResource("1_eos7a")]
 layout_mode = 2
 
-[node name="slot4" parent="UI/inv" instance=ExtResource("1_eos7a")]
+[node name="slot4" parent="UI/inv_grid" instance=ExtResource("1_eos7a")]
 layout_mode = 2
 
-[node name="slot5" parent="UI/inv" instance=ExtResource("1_eos7a")]
+[node name="slot5" parent="UI/inv_grid" instance=ExtResource("1_eos7a")]
 layout_mode = 2
 
-[node name="slot6" parent="UI/inv" instance=ExtResource("1_eos7a")]
+[node name="slot6" parent="UI/inv_grid" instance=ExtResource("1_eos7a")]
 layout_mode = 2
 
-[node name="slot7" parent="UI/inv" instance=ExtResource("1_eos7a")]
+[node name="slot7" parent="UI/inv_grid" instance=ExtResource("1_eos7a")]
 layout_mode = 2
 
-[node name="slot8" parent="UI/inv" instance=ExtResource("1_eos7a")]
+[node name="slot8" parent="UI/inv_grid" instance=ExtResource("1_eos7a")]
 layout_mode = 2
 
-[node name="slot9" parent="UI/inv" instance=ExtResource("1_eos7a")]
+[node name="slot9" parent="UI/inv_grid" instance=ExtResource("1_eos7a")]
 layout_mode = 2
 
-[node name="slot10" parent="UI/inv" instance=ExtResource("1_eos7a")]
+[node name="slot10" parent="UI/inv_grid" instance=ExtResource("1_eos7a")]
 layout_mode = 2
 
-[node name="slot11" parent="UI/inv" instance=ExtResource("1_eos7a")]
+[node name="slot11" parent="UI/inv_grid" instance=ExtResource("1_eos7a")]
 layout_mode = 2
 
-[node name="slot12" parent="UI/inv" instance=ExtResource("1_eos7a")]
-layout_mode = 2
-
-[node name="slot13" parent="UI/inv" instance=ExtResource("1_eos7a")]
-layout_mode = 2
-
-[node name="slot14" parent="UI/inv" instance=ExtResource("1_eos7a")]
-layout_mode = 2
-
-[node name="slot15" parent="UI/inv" instance=ExtResource("1_eos7a")]
+[node name="slot12" parent="UI/inv_grid" instance=ExtResource("1_eos7a")]
 layout_mode = 2
 
 [node name="player" type="Control" parent="UI"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_a8fxl")
 
 [node name="passiveSlot" parent="UI/player" instance=ExtResource("2_v658d")]
 layout_mode = 0
@@ -89,3 +86,11 @@ offset_top = 88.0
 offset_right = 360.0
 offset_bottom = 128.0
 slot_type = 3
+
+[node name="atk" type="Label" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 250.0
+offset_top = 97.0
+offset_right = 290.0
+offset_bottom = 120.0

@@ -1,0 +1,25 @@
+{
+	"0" : {
+		"texture" : "mineral_earth.png",
+		"slot_type" : 0,
+		"ATK" : 0
+	},
+	
+	"1" : {
+		"texture" : "mineral_emerald.png",
+		"slot_type" : 0,
+		"ATK" : 0
+	},
+	
+	"2" : {
+		"texture" : "mineral_green.png",
+		"slot_type" : 0,
+		"ATK" : 0
+	},
+	
+	"3" : {
+		"texture" : "mineral_red.png",
+		"slot_type" : 0,
+		"ATK" : 0
+	}
+}

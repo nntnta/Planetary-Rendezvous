@@ -7,6 +7,9 @@ extends TextureRect
 		ATK = value
 		%debug.text = str(ATK)
 		
+		if get_parent() is PassiveSlot:
+			get_parent().get_parent().calculate()
+		
 @onready var property: Dictionary = {"TEXTURE": texture,
 									"ATK": ATK,
 									"SLOT_TYPE": slot_type}:

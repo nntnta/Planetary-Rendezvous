@@ -19,6 +19,7 @@ config/icon="res://pics/mockup/icon.svg"
 
 Transition="*res://main_scene/transition.tscn"
 global="*res://global_check/global.gd"
+ItemData="*res://Autoload/database.gd"
 
 [display]
 
