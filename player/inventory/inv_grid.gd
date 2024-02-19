@@ -1,5 +1,6 @@
 extends GridContainer
 
+
 func _ready():
 	for i in global.item_array:
 		add_item(i)

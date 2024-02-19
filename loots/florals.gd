@@ -23,7 +23,8 @@ func _on_area_entered(area):
 		if shiny:
 			var ID = '0'
 			global.healing_factor_dropped = true
-			get_parent().find_child("inv_grid").add_item(ID)
+			$"../player/player_interface/inventory/UI/inv_grid".add_item(ID)
+			#get_parent().find_child("inv_grid").add_item(ID)
 		queue_free()
 
 func drops():

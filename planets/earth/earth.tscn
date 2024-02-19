@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmsn0nag6ndl8"]
+[gd_scene load_steps=12 format=3 uid="uid://bmsn0nag6ndl8"]
 
 [ext_resource type="Script" path="res://planets/earth/earth.gd" id="1_48bx1"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_qkox3"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="4_dey5f"]
 [ext_resource type="Script" path="res://planets/earth/starter_pickaxe.gd" id="5_8v7g6"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="5_507p3"]
-[ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="5_j4730"]
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="5_tw04c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_od74y"]
@@ -98,8 +97,6 @@ region_rect = Rect2(10, 490, 140, 140)
 
 [node name="coll" type="CollisionShape2D" parent="natural_drops/starter_pickaxe/grabBox"]
 shape = SubResource("CircleShape2D_frrj7")
-
-[node name="player_interface" parent="." instance=ExtResource("5_j4730")]
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

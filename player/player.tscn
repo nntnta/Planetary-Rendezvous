@@ -1,7 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://sc8xm7aym51d"]
+[gd_scene load_steps=43 format=3 uid="uid://sc8xm7aym51d"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_f84py"]
 [ext_resource type="Texture2D" uid="uid://wsvqtsgmecit" path="res://pics/player/player_all.png" id="2_1gbtg"]
+[ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="2_bxit4"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="3_50khj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0g0a7"]
@@ -786,6 +787,9 @@ graph_offset = Vector2(0, 52.3771)
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_f84py")
 
+[node name="player_interface" parent="." instance=ExtResource("2_bxit4")]
+position = Vector2(-574, -328)
+
 [node name="coll_for_env" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0g0a7")
 
@@ -845,6 +849,8 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0.647577)
 parameters/swingPickaxe/blend_position = Vector2(-0.4992, -0.121693)
 parameters/walk/blend_position = Vector2(-0.00480002, 0.647577)
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="area_entered" from="tools/pickaxe/hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="tools/pickaxe/hitbox" to="." method="_on_hitbox_area_exited"]
