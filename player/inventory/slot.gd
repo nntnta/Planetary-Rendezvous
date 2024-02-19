@@ -17,12 +17,8 @@ func _can_drop_data(_pos, data):
 func _drop_data(_pos, data):
 	var temp = texture_rect.property
 	texture_rect.property = data.property
-	if data.ID == texture_rect.ID:
-		set_quantity(texture_rect.quantity)
 	data.property = temp
 	
-	
-		
 
 func get_preview():
 	var preview_texture = TextureRect.new()

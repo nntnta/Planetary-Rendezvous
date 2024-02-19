@@ -1,15 +1,16 @@
 extends Node2D
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !global.bronze_pickaxe_drop:
 		$inv/inv1/inv_1.visible = true
-		$inv/inv1/inv_1.region_rect = Rect2(180,500,120,120) #bronze pickaxe
-
+		$inv/inv1/inv_1.region_rect = Rect2(160,480,160,160) #bronze pickaxe
+	if !global.silver_pickaxe_drop:
+		$inv/inv1/inv_1.visible = true
+		$inv/inv1/inv_1.region_rect = Rect2(320,480,160,160)
 
 func _input(event):
 	if event.is_action_pressed("1"):

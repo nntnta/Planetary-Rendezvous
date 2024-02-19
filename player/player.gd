@@ -6,6 +6,7 @@ var swing = false
 func _ready():
 	$tools/pickaxe/hitbox/coll.disabled = true
 	$tools/pickaxe/pickaxe.visible = false
+	#global.silver_pickaxe_drop = false
 
 func _physics_process(delta):
 	velocity  = Input.get_vector("a",'d','w','s') * SPEED * delta
@@ -20,6 +21,14 @@ func _physics_process(delta):
 		$AnimationTree.set("parameters/walk/blend_position", velocity)
 		
 		move_and_slide()
+	#pickaxe upgrades below
+	if !global.silver_pickaxe_drop:
+		#$tools/pickaxe/pickaxe.frame_coords = Vector2i(2,3)
+		anim_silver_change('swingPickaxeDown')
+		anim_silver_change('swingPickaxeLeft')
+		anim_silver_change('swingPickaxeRight')
+		anim_silver_change('swingPickaxeUp')
+
 	
 func _input(event):
 	if event.is_action_pressed("leftClick", false) && !swing && !global.bronze_pickaxe_drop && global.slot == 'inv1':
@@ -44,3 +53,16 @@ func pickaxeCollHidden():
 		$tools/pickaxe/hitbox/coll.disabled = true
 	if $tools/pickaxe/pickaxe.visible:
 		$tools/pickaxe/hitbox/coll.disabled = false
+
+func anim_silver_change(name:String):
+	var anim = $AnimationPlayer.get_animation(name)
+	var index_frame_1 = anim.find_track('tools/pickaxe/pickaxe:frame_coords',0)
+	var index_frame_2 = anim.find_track('tools/pickaxe/pickaxe_silver:frame_coords',0)
+	var index_vis_1 = anim.find_track('tools/pickaxe/pickaxe:visible',0)
+	var index_vis_2 = anim.find_track('tools/pickaxe/pickaxe_silver:visible',0)
+	anim.remove_track(index_frame_1)
+	anim.track_set_enabled(index_frame_2, true)
+	anim.remove_track(index_vis_1)
+	anim.track_set_enabled(index_vis_2, true)
+	
+	

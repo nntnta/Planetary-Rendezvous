@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc82m3np056ip"]
+[gd_scene load_steps=6 format=3 uid="uid://bc82m3np056ip"]
 
 [ext_resource type="Script" path="res://loots/minerals.gd" id="1_1q0km"]
 [ext_resource type="Texture2D" uid="uid://blidvsppbwdwu" path="res://pics/minerals/minerals.png" id="1_dvt3g"]
@@ -8,6 +8,9 @@ radius = 12.0416
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2dn0l"]
 radius = 13.0384
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i1yno"]
+radius = 16.0
 
 [node name="minerals" type="Area2D" groups=["mineral"]]
 script = ExtResource("1_1q0km")
@@ -25,6 +28,13 @@ region_rect = Rect2(0, 352, 144, 152)
 
 [node name="coll" type="CollisionShape2D" parent="drops"]
 shape = SubResource("CircleShape2D_2dn0l")
+
+[node name="coll_for_env" type="StaticBody2D" parent="."]
+
+[node name="coll" type="CollisionShape2D" parent="coll_for_env"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_i1yno")
+debug_color = Color(0.894118, 0.317647, 0.101961, 0.419608)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_entered" from="drops" to="." method="_on_drops_area_entered"]

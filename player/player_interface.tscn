@@ -21,7 +21,7 @@ position = Vector2(59, 589)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_loui6")
 region_enabled = true
-region_rect = Rect2(180, 500, 120, 120)
+region_rect = Rect2(340, 500, 120, 120)
 
 [node name="inv_1_selected" type="Sprite2D" parent="inv/inv1"]
 z_index = 1
@@ -83,4 +83,4 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_fbvl1")
 
 [node name="inventory" parent="." instance=ExtResource("5_kysye")]
-position = Vector2(322, 208)
+position = Vector2(170, 265)

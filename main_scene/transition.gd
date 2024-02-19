@@ -7,6 +7,8 @@ var takeOffArea = false
 var inMenu = false
 
 func change_scene(planet: PackedScene, name):
+	global.shiny_floral = false
+	
 	current_scene = name
 	$transition/ColorRect.visible = true
 	$transition.play("fadeout")

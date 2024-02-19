@@ -3,19 +3,18 @@
 [ext_resource type="Script" path="res://player/inventory/slot.gd" id="1_holgv"]
 [ext_resource type="Script" path="res://player/inventory/slotStat.gd" id="2_8ngjj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5ndk"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4sg5c"]
 
 [node name="slot" type="PanelContainer"]
-custom_minimum_size = Vector2(36, 36)
-offset_right = 30.0
-offset_bottom = 30.0
+offset_right = 24.0
+offset_bottom = 24.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_x5ndk")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4sg5c")
 script = ExtResource("1_holgv")
 
 [node name="slot_texture" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 expand_mode = 1
 script = ExtResource("2_8ngjj")
