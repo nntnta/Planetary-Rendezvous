@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="3_50khj"]
 [ext_resource type="Script" path="res://player/SubViewport.gd" id="5_0ietd"]
 [ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="6_fiufc"]
-[ext_resource type="Script" path="res://player/minimap_bg.gd" id="8_m34t2"]
+[ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="7_3o6nj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0g0a7"]
 radius = 17.0294
@@ -890,7 +890,11 @@ script = ExtResource("5_0ietd")
 [node name="minimap_bg" type="Sprite2D" parent="minimap/SubViewportContainer/SubViewport"]
 self_modulate = Color(1, 1, 0.137255, 1)
 texture = ExtResource("6_fiufc")
-script = ExtResource("8_m34t2")
+
+[node name="minimap_rocket" type="Sprite2D" parent="minimap/SubViewportContainer/SubViewport"]
+z_index = 1
+texture = ExtResource("7_3o6nj")
+offset = Vector2(0, -250)
 
 [node name="Camera2D" type="Camera2D" parent="minimap/SubViewportContainer/SubViewport"]
 zoom = Vector2(0.05, 0.05)
