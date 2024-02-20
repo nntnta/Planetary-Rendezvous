@@ -11,6 +11,10 @@ func _process(delta):
 	if !global.silver_pickaxe_drop:
 		$inv/inv1/inv_1.visible = true
 		$inv/inv1/inv_1.region_rect = Rect2(320,480,160,160)
+		
+	if !global.frostblade_drop:
+		$inv/inv2/inv_2.visible = true
+		$inv/inv2/inv_2.region_rect = Rect2(0,0,160,160)
 
 func _input(event):
 	if event.is_action_pressed("1"):

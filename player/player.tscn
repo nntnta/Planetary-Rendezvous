@@ -790,7 +790,6 @@ graph_offset = Vector2(0, 52.3771)
 [sub_resource type="CanvasTexture" id="CanvasTexture_nftiu"]
 
 [node name="player" type="CharacterBody2D"]
-position = Vector2(576, 324)
 script = ExtResource("1_f84py")
 
 [node name="player_interface" parent="." instance=ExtResource("2_bxit4")]
