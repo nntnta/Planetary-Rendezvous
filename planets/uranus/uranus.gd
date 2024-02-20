@@ -27,5 +27,5 @@ func _on_takeoff_area_exited(area):
 
 func frostblade_spawn():
 	var frostblade_spawner = frostblade.instantiate()
-	frostblade_spawner.position = Vector2i(randi_range(50,1100),randi_range(50,600))
+	frostblade_spawner.position = Vector2i(200,500)
 	get_tree().current_scene.call_deferred('add_child', frostblade_spawner)

@@ -5,9 +5,11 @@ extends Node2D
 var current_scene
 var takeOffArea = false
 var inMenu = false
+var takeoff_clicked = false
 
 func change_scene(planet: PackedScene, name):
 	global.shiny_floral = false
+	
 	
 	current_scene = name
 	$transition/ColorRect.visible = true
@@ -15,6 +17,7 @@ func change_scene(planet: PackedScene, name):
 	await get_tree().create_timer(0.5, false).timeout
 	get_tree().change_scene_to_packed(planet)
 	$transition.play("fadein")
+	takeoff_clicked = false
 	
 func resume(planet: PackedScene, name):
 	current_scene = name
@@ -31,7 +34,8 @@ func _process(delta):
 	pass
 
 func _input(event):
-	if event.is_action_pressed("rightClick") && takeOffArea && !inMenu:
+	if event.is_action_pressed("rightClick") && takeOffArea && !inMenu && !takeoff_clicked :
+		takeoff_clicked = true
 		$transition/ColorRect.visible = true
 		$transition.play("fadeout")
 		await get_tree().create_timer(0.5, false).timeout

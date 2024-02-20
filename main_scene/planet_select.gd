@@ -23,46 +23,55 @@ func _process(delta):
 
 
 func _on_mercury_pressed():
+	$planets/mercury.disabled = true
 	Transition.inMenu = false
 	Transition.change_scene(mercury, "mercury")
 
 
 func _on_venus_pressed():
+	$planets/venus.disabled = true
 	Transition.inMenu = false
 	Transition.change_scene(venus, "venus")
 
 
 func _on_earth_pressed():
+	$planets/earth.disabled = true
 	Transition.inMenu = false
 	Transition.change_scene(earth, "earth")
 
 
 func _on_mars_pressed():
+	$planets/mars.disabled = true
 	Transition.inMenu = false
 	Transition.change_scene(mars, "mars")
 
 
 func _on_jupiter_pressed():
+	$planets/jupiter.disabled = true
 	Transition.inMenu = false
 	Transition.change_scene(jupiter, "jupiter")
 
 
 func _on_saturn_pressed():
+	$planets/saturn.disabled = true
 	Transition.inMenu = false
 	Transition.change_scene(saturn, "saturn")
 
 
 func _on_uranus_pressed():
+	$planets/uranus.disabled = true
 	Transition.inMenu = false
 	Transition.change_scene(uranus, "uranus")
 
 
 func _on_neptune_pressed():
+	$planets/neptune.disabled = true
 	Transition.inMenu = false
 	Transition.change_scene(neptune, "neptune")
 
 
 func _on_pluto_pressed():
+	$planets/pluto.disabled = true
 	Transition.inMenu = false
 	Transition.change_scene(pluto, "pluto")
 
