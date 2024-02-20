@@ -23,6 +23,7 @@ mercury_mineral = ExtResource("3_sigxt")
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(584, 327)
+scale = Vector2(2, 2)
 texture = ExtResource("4_4o30c")
 
 [node name="spawn_player" type="Marker2D" parent="."]

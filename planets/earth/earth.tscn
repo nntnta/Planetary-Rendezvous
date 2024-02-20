@@ -31,6 +31,7 @@ metadata/_edit_vertical_guides_ = [1152.0]
 [node name="bg" type="Sprite2D" parent="."]
 self_modulate = Color(0.105882, 1, 0.631373, 1)
 position = Vector2(583, 319)
+scale = Vector2(3, 3)
 texture = ExtResource("4_dey5f")
 
 [node name="spawn_player" type="Marker2D" parent="."]

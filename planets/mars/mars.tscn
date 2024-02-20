@@ -24,6 +24,7 @@ mars_mineral = ExtResource("3_t6x2j")
 [node name="bg" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0.207843, 0.313726, 1)
 position = Vector2(581, 371)
+scale = Vector2(3, 3)
 texture = ExtResource("4_ed7jo")
 
 [node name="spawn_player" type="Marker2D" parent="."]

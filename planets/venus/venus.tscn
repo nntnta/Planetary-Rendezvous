@@ -26,6 +26,7 @@ venus_healPlant = ExtResource("4_2bdhc")
 [node name="bg" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0.517647, 0.337255, 1)
 position = Vector2(574, 324)
+scale = Vector2(3, 3)
 texture = ExtResource("5_hjf8n")
 
 [node name="spawn_player" type="Marker2D" parent="."]

@@ -21,6 +21,7 @@ player = ExtResource("2_ameq8")
 [node name="bg" type="Sprite2D" parent="."]
 self_modulate = Color(0.52549, 0.886275, 1, 1)
 position = Vector2(578, 312)
+scale = Vector2(2, 2)
 texture = ExtResource("3_funxo")
 
 [node name="spawn_player" type="Marker2D" parent="."]
