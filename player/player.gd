@@ -6,6 +6,8 @@ var swing = false
 func _ready():
 	$tools/pickaxe/hitbox/coll.disabled = true
 	$tools/pickaxe/pickaxe.visible = false
+	$tools/melee_weapon/hitbox/coll.disabled = true
+	$tools/melee_weapon/frostblade.visible = false
 	#global.silver_pickaxe_drop = false
 
 func _physics_process(delta):
@@ -36,6 +38,12 @@ func _input(event):
 		$AnimationTree.set("parameters/idle/blend_position", global_position.direction_to(get_global_mouse_position()))
 		swing = true
 		$AnimationTree.get("parameters/playback").travel("swingPickaxe")
+		
+	if event.is_action_pressed("leftClick", false) && !swing && !global.frostblade_drop && global.slot == 'inv2':
+		$AnimationTree.set("parameters/swingMelee/blend_position", global_position.direction_to(get_global_mouse_position()))
+		$AnimationTree.set("parameters/idle/blend_position", global_position.direction_to(get_global_mouse_position()))
+		swing = true
+		$AnimationTree.get("parameters/playback").travel("swingMelee")
 		
 		
 func end_swinging():

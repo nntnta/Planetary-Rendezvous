@@ -1,7 +1,7 @@
 extends Node
 
 func _process(delta):
-	if exp_earth >= 5 && exp_mars >= 5 && exp_mercury >= 5 && exp_venus >= 5:
+	if exp_earth >= 1 && exp_mars >= 1 && exp_mercury >= 1 && exp_venus >= 1:
 		silver_pickaxe_drop = false
 
 #slots------------------------------------------------------------------------------------------------
