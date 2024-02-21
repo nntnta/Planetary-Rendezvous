@@ -2,9 +2,12 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(global.max_hp, global.hp)
+	$hpBar.value = global.hp
+	$hpBar.max_value = global.max_hp
+	
 	if !global.bronze_pickaxe_drop:
 		$inv/inv1/inv_1.visible = true
 		$inv/inv1/inv_1.region_rect = Rect2(160,480,160,160) #bronze pickaxe

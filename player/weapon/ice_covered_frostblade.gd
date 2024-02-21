@@ -19,8 +19,8 @@ func _on_hitbox_area_entered(area):
 		if hp == 2:
 			$hitbox/sprite.frame_coords = Vector2(0,2)
 		if hp <= 0:
-			$coll_for_env/coll.disabled = true
-			$coll_for_env/coll2.disabled = true
+			if !blade_dropped:
+				$coll_for_env.queue_free()
 			$hitbox/sprite.frame_coords = Vector2(0,3)
 			$hitbox/sprite.rotation = PI/4
 			blade_dropped = true

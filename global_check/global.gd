@@ -1,6 +1,8 @@
 extends Node
 
 func _process(delta):
+	max_hp = 10 + floor(exp_earth/2)
+	
 	if exp_earth >= 1 && exp_mars >= 1 && exp_mercury >= 1 && exp_venus >= 1:
 		silver_pickaxe_drop = false
 
@@ -26,6 +28,11 @@ var shiny_floral = false
 var item_array = []
 var healing_factor_dropped = false
 #items-------
+
+#stats
+var hp = 10
+var max_hp = 10
+#stats
 
 #planet exp------
 var exp_mercury = 0

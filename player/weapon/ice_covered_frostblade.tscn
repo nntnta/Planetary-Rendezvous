@@ -6,6 +6,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_37qsj"]
 radius = 20.0998
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_78vbb"]
+radius = 19.0263
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_621tm"]
+radius = 9.21954
+
 [sub_resource type="Animation" id="Animation_qwmla"]
 resource_name = "cant_break"
 length = 0.4
@@ -27,12 +33,6 @@ _data = {
 "cant_break": SubResource("Animation_qwmla")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_78vbb"]
-radius = 19.0263
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_621tm"]
-radius = 9.21954
-
 [node name="ice_covered_frostblade" type="Node2D"]
 script = ExtResource("1_u4uph")
 
@@ -48,11 +48,6 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_iny81")
 vframes = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_sgxg0")
-}
-
 [node name="coll_for_env" type="StaticBody2D" parent="."]
 
 [node name="coll" type="CollisionShape2D" parent="coll_for_env"]
@@ -64,5 +59,10 @@ debug_color = Color(0.85098, 0.372549, 0, 0.419608)
 position = Vector2(12, -15)
 shape = SubResource("CircleShape2D_621tm")
 debug_color = Color(0.768627, 0.447059, 0, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sgxg0")
+}
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

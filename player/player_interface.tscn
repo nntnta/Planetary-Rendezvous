@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bob5f2sxvlmc0"]
+[gd_scene load_steps=9 format=3 uid="uid://bob5f2sxvlmc0"]
 
 [ext_resource type="Script" path="res://player/player_interface.gd" id="1_ww167"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="2_loui6"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dwpikjkuu4pdd" path="res://pics/tools/inventory_unselected.png" id="4_fbvl1"]
 [ext_resource type="Texture2D" uid="uid://ye56vr1dh0q8" path="res://pics/tools/frostblade.png" id="5_1m1dh"]
 [ext_resource type="PackedScene" uid="uid://ctbslfewtlkwv" path="res://player/inventory/inventory.tscn" id="5_kysye"]
+[ext_resource type="Texture2D" uid="uid://c5cxbo8yjk7ug" path="res://pics/player/bars/healthBar.png" id="7_7psh7"]
+[ext_resource type="Texture2D" uid="uid://blwg4mgn37qj7" path="res://pics/player/bars/healthBarProgress.png" id="8_oephr"]
 
 [node name="player_interface" type="Node2D"]
 z_index = 3
@@ -85,3 +87,15 @@ texture = ExtResource("4_fbvl1")
 
 [node name="inventory" parent="." instance=ExtResource("5_kysye")]
 position = Vector2(170, 265)
+
+[node name="hpBar" type="TextureProgressBar" parent="."]
+z_index = 2
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 646.0
+offset_bottom = 168.0
+scale = Vector2(0.5, 0.5)
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("7_7psh7")
+texture_progress = ExtResource("8_oephr")

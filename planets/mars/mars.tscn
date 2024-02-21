@@ -20,6 +20,8 @@ editor_description = "mars"
 script = ExtResource("1_g8fur")
 player = ExtResource("2_ax6wt")
 mars_mineral = ExtResource("3_t6x2j")
+metadata/_edit_vertical_guides_ = [474.0, -502.0]
+metadata/_edit_horizontal_guides_ = [836.0]
 
 [node name="bg" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0.207843, 0.313726, 1)

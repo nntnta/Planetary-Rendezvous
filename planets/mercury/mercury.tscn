@@ -20,6 +20,8 @@ editor_description = "mercury"
 script = ExtResource("1_hgf0m")
 player = ExtResource("2_tjwwk")
 mercury_mineral = ExtResource("3_sigxt")
+metadata/_edit_horizontal_guides_ = [672.0]
+metadata/_edit_vertical_guides_ = [1386.0]
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(584, 327)
