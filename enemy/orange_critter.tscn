@@ -1,0 +1,147 @@
+[gd_scene load_steps=12 format=3 uid="uid://br5vkv7cpawkf"]
+
+[ext_resource type="Script" path="res://enemy/orange_critter.gd" id="1_wuueu"]
+[ext_resource type="Texture2D" uid="uid://cix26plb0tvgj" path="res://pics/enemy/jupiter_critter.png" id="2_kaqfl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_coueb"]
+radius = 24.0208
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_frla8"]
+radius = 27.074
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_buhpe"]
+radius = 214.114
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rsras"]
+radius = 36.1386
+
+[sub_resource type="Animation" id="Animation_f4yq2"]
+resource_name = "attacking"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 160, 320, 320), Rect2(320, 160, 320, 320), Rect2(0, 160, 320, 320)]
+}
+
+[sub_resource type="Animation" id="Animation_bdl0t"]
+resource_name = "idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 160, 160), Rect2(160, 0, 160, 160)]
+}
+
+[sub_resource type="Animation" id="Animation_hjsn5"]
+resource_name = "moving"
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 160, 160), Rect2(320, 0, 160, 160), Rect2(160, 0, 160, 160)]
+}
+
+[sub_resource type="Animation" id="Animation_6hlu7"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(480, 0, 160, 160)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h7483"]
+_data = {
+"attacking": SubResource("Animation_f4yq2"),
+"dead": SubResource("Animation_6hlu7"),
+"idle": SubResource("Animation_bdl0t"),
+"moving": SubResource("Animation_hjsn5")
+}
+
+[node name="orange_critter" type="Node2D"]
+script = ExtResource("1_wuueu")
+
+[node name="body" type="CharacterBody2D" parent="."]
+
+[node name="coll" type="CollisionShape2D" parent="body"]
+shape = SubResource("CircleShape2D_coueb")
+
+[node name="sprite" type="Sprite2D" parent="body"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_kaqfl")
+region_enabled = true
+region_rect = Rect2(0, 160, 320, 320)
+
+[node name="hitbox" type="Area2D" parent="body" groups=["enemy"]]
+
+[node name="coll" type="CollisionShape2D" parent="body/hitbox"]
+shape = SubResource("CircleShape2D_frla8")
+debug_color = Color(0.698039, 0.490196, 0.129412, 0.419608)
+
+[node name="search" type="Area2D" parent="body"]
+
+[node name="coll" type="CollisionShape2D" parent="body/search"]
+shape = SubResource("CircleShape2D_buhpe")
+debug_color = Color(0.290196, 0.498039, 1, 0.419608)
+
+[node name="attack" type="Area2D" parent="body"]
+
+[node name="coll" type="CollisionShape2D" parent="body/attack"]
+shape = SubResource("CircleShape2D_rsras")
+debug_color = Color(0, 0.627451, 0.505882, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h7483")
+}
+
+[connection signal="area_entered" from="body/hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="body/search" to="." method="_on_search_area_entered"]
+[connection signal="area_exited" from="body/search" to="." method="_on_search_area_exited"]
+[connection signal="area_entered" from="body/attack" to="." method="_on_attack_area_entered"]
+[connection signal="area_exited" from="body/attack" to="." method="_on_attack_area_exited"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://2fn8jb7l7xpi"]
+[gd_scene load_steps=9 format=3 uid="uid://2fn8jb7l7xpi"]
 
 [ext_resource type="Script" path="res://planets/jupiter/jupiter.gd" id="1_2rx63"]
+[ext_resource type="PackedScene" uid="uid://br5vkv7cpawkf" path="res://enemy/orange_critter.tscn" id="2_pgxa8"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_r5jse"]
 [ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="3_m7dp1"]
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="4_meer0"]
@@ -16,7 +17,10 @@ radius = 14.0357
 
 [node name="jupiter" type="Node2D"]
 script = ExtResource("1_2rx63")
+orange_critter = ExtResource("2_pgxa8")
 player = ExtResource("2_r5jse")
+metadata/_edit_vertical_guides_ = [607.0]
+metadata/_edit_horizontal_guides_ = [647.0]
 
 [node name="bg" type="Sprite2D" parent="."]
 self_modulate = Color(0.941176, 0.54902, 0.172549, 1)
