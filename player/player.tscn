@@ -1354,6 +1354,8 @@ position_smoothing_speed = 5000.0
 
 [node name="minimap" type="CanvasLayer" parent="."]
 
+[node name="minimap_border" type="Sprite2D" parent="minimap"]
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="minimap"]
 anchors_preset = 8
 anchor_left = 0.5
