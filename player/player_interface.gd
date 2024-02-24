@@ -11,14 +11,22 @@ func _process(delta):
 	if !global.bronze_pickaxe_drop:
 		$inv/inv1/inv_1.visible = true
 		$inv/inv1/inv_1.region_rect = Rect2(160,480,160,160) #bronze pickaxe
+		#$AnimationPlayer.play("just_got_inv1")
 	if !global.silver_pickaxe_drop:
 		$inv/inv1/inv_1.visible = true
 		$inv/inv1/inv_1.region_rect = Rect2(320,480,160,160)
+		#$AnimationPlayer.play("just_got_inv1")
 		
+	# INV 2 for melee weapons !!!!
+	
+	if !global.basic_baton_drop:
+		$inv/inv2/inv_2.visible = true
+		$inv/inv2/inv_2.frame_coords = Vector2(1,0)
+		#$AnimationPlayer.play("just_got_inv2")
 	if !global.frostblade_drop:
 		$inv/inv2/inv_2.visible = true
-		$inv/inv2/inv_2.region_rect = Rect2(0,0,160,160)
-
+		$inv/inv2/inv_2.frame_coords = Vector2(0,0)
+		#$AnimationPlayer.play("just_got_inv2")
 func _input(event):
 	if event.is_action_pressed("1"):
 		global.slot = 'inv1'
@@ -37,3 +45,5 @@ func _input(event):
 		$inv/inv1/inv_1_selected.visible = false
 		$inv/inv2/inv_2_selected.visible = false
 		$inv/inv3/inv_3_selected.visible = true
+
+
