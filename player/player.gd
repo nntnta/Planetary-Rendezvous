@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var SPEED = 15000.0 
 var swing = false
-var melee_dmg = 1
+#var melee_dmg = 1
 
 func _ready():
 	$tools/pickaxe/hitbox/coll.disabled = true
@@ -14,12 +14,12 @@ func _ready():
 func _physics_process(delta):
 	velocity  = Input.get_vector("a",'d','w','s') * (SPEED + global.extra_speed) * delta
 	#pickaxeCollHidden()
-	if !global.frostblade_drop:
-		melee_dmg = 2
-		anim_frostblade_change('swingMeleeDown')
-		anim_frostblade_change('swingMeleeLeft')
-		anim_frostblade_change('swingMeleeRight')
-		anim_frostblade_change('swingMeleeUp')
+	#if !global.frostblade_drop:
+		#melee_dmg = 2
+		#anim_frostblade_change('swingMeleeDown')
+		#anim_frostblade_change('swingMeleeLeft')
+		#anim_frostblade_change('swingMeleeRight')
+		#anim_frostblade_change('swingMeleeUp')
 		
 	if velocity == Vector2.ZERO && !swing:
 		$AnimationTree.get("parameters/playback").travel("idle")
@@ -46,7 +46,7 @@ func _input(event):
 		swing = true
 		$AnimationTree.get("parameters/playback").travel("swingPickaxe")
 		
-	if event.is_action_pressed("leftClick", false) && !swing && !global.basic_baton_drop && global.slot == 'inv2':
+	if event.is_action_pressed("leftClick", false) && !swing && (!global.basic_baton_drop or !global.frostblade_drop ) && global.slot == 'inv2':
 		$AnimationTree.set("parameters/swingMelee/blend_position", global_position.direction_to(get_global_mouse_position()))
 		$AnimationTree.set("parameters/idle/blend_position", global_position.direction_to(get_global_mouse_position()))
 		swing = true
@@ -108,4 +108,4 @@ func _on_invulnerable_timeout():
 
 func _on_hitbox_melee_area_entered(area):
 	if area.is_in_group('enemy'):
-		area.get_parent().get_parent().hp -= melee_dmg
+		area.get_parent().get_parent().hp -= global.melee_dmg

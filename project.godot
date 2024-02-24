@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Space Jam"
+config/name="Planetary Rendezvous"
 run/main_scene="res://main_scene/planet_select.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://pics/mockup/icon.svg"
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="res://pics/player/player.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://pics/player/player.png"
 
 [autoload]
 
@@ -24,6 +28,7 @@ ItemData="*res://Autoload/database.gd"
 [display]
 
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://pics/bg/cursor.png"
 
 [input]
 

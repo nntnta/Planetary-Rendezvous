@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwlvd0bbp4q81"]
+[gd_scene load_steps=10 format=3 uid="uid://dwlvd0bbp4q81"]
 
 [ext_resource type="Texture2D" uid="uid://baiem3e7e0gd" path="res://pics/tools/ice_covered_frostblade.png" id="1_iny81"]
 [ext_resource type="Script" path="res://player/weapon/ice_covered_frostblade.gd" id="1_u4uph"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_37qsj"]
 radius = 20.0998
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkomg"]
+radius = 43.0465
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78vbb"]
 radius = 25.7099
@@ -28,9 +31,40 @@ tracks/0/keys = {
 "values": [Vector2(-4, 0), Vector2(2, 0), Vector2(-2, 0), Vector2(4, 0), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_1aq2w"]
+resource_name = "pop_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hitbox/sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 2, 2),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(0.4, 0.4), Vector2(0.25, 0.25)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sgxg0"]
 _data = {
-"cant_break": SubResource("Animation_qwmla")
+"cant_break": SubResource("Animation_qwmla"),
+"pop_up": SubResource("Animation_1aq2w")
 }
 
 [node name="ice_covered_frostblade" type="Node2D"]
@@ -46,7 +80,12 @@ shape = SubResource("CircleShape2D_37qsj")
 position = Vector2(-4, 0)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_iny81")
-vframes = 4
+vframes = 5
+
+[node name="grabBox" type="Area2D" parent="."]
+
+[node name="coll" type="CollisionShape2D" parent="grabBox"]
+shape = SubResource("CircleShape2D_rkomg")
 
 [node name="coll_for_env" type="StaticBody2D" parent="."]
 
@@ -66,3 +105,5 @@ libraries = {
 }
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="grabBox" to="." method="_on_grab_box_area_entered"]
+[connection signal="area_exited" from="grabBox" to="." method="_on_grab_box_area_exited"]

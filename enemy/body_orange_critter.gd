@@ -26,4 +26,4 @@ func _physics_process(delta):
 			$attack/coll3.disabled = true
 			$"../AnimationPlayer".play('idle')
 		else:
-			$"../AnimationPlayer".queue('attacking')
+			$"../AnimationPlayer".play('attacking')
