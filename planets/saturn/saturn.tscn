@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="4_4ks05"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sl4o1"]
-radius = 56.57
+radius = 73.03
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0k1k8"]
 radius = 42.0119

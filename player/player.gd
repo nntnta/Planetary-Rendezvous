@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var SPEED = 15000.0 
 var swing = false
-var melee_dmg = 0
+var melee_dmg = 1
 
 func _ready():
 	$tools/pickaxe/hitbox/coll.disabled = true
@@ -16,7 +16,11 @@ func _physics_process(delta):
 	#pickaxeCollHidden()
 	if !global.frostblade_drop:
 		melee_dmg = 2
-	
+		anim_frostblade_change('swingMeleeDown')
+		anim_frostblade_change('swingMeleeLeft')
+		anim_frostblade_change('swingMeleeRight')
+		anim_frostblade_change('swingMeleeUp')
+		
 	if velocity == Vector2.ZERO && !swing:
 		$AnimationTree.get("parameters/playback").travel("idle")
 	
@@ -42,7 +46,7 @@ func _input(event):
 		swing = true
 		$AnimationTree.get("parameters/playback").travel("swingPickaxe")
 		
-	if event.is_action_pressed("leftClick", false) && !swing && !global.frostblade_drop && global.slot == 'inv2':
+	if event.is_action_pressed("leftClick", false) && !swing && !global.basic_baton_drop && global.slot == 'inv2':
 		$AnimationTree.set("parameters/swingMelee/blend_position", global_position.direction_to(get_global_mouse_position()))
 		$AnimationTree.set("parameters/idle/blend_position", global_position.direction_to(get_global_mouse_position()))
 		swing = true
@@ -80,6 +84,21 @@ func anim_silver_change(name:String):
 	anim.remove_track(index_vis_1)
 	anim.track_set_enabled(index_vis_2, true)
 	
+
+func anim_frostblade_change(name:String):
+	var anim = $AnimationPlayer.get_animation(name)
+	var index_frame_1 = anim.find_track('tools/melee_weapon/basicbaton:frame_coords',0)
+	var index_frame_2 = anim.find_track('tools/melee_weapon/frostblade:frame_coords',0)
+	var index_vis_1 = anim.find_track('tools/melee_weapon/basicbaton:visible',0)
+	var index_vis_2 = anim.find_track('tools/melee_weapon/frostblade:visible',0)
+	var index_z_1 = anim.find_track('tools/melee_weapon/basicbaton:z_index',0)
+	var index_z_2 = anim.find_track('tools/melee_weapon/frostblade:z_index',0)
+	anim.remove_track(index_frame_1)
+	anim.track_set_enabled(index_frame_2, true)
+	anim.remove_track(index_vis_1)
+	anim.track_set_enabled(index_vis_2, true)
+	anim.remove_track(index_z_1)
+	anim.track_set_enabled(index_z_2, true)
 	
 
 

@@ -4,7 +4,7 @@ var heal_factor_cd = 3
 func _process(delta):
 	max_hp = 10 + floor(exp_earth/2)
 	extra_speed = exp_mercury * 500
-	if exp_earth >= 1 && exp_mars >= 1 && exp_mercury >= 1 && exp_venus >= 1:
+	if exp_earth >= 2 && exp_mars >= 2 && exp_mercury >= 2 && exp_venus >= 2:
 		silver_pickaxe_drop = false
 	
 	if healing_factor_dropped:

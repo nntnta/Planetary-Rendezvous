@@ -4,18 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://blidvsppbwdwu" path="res://pics/minerals/minerals.png" id="1_dvt3g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wxvvp"]
-radius = 12.0416
+radius = 17.0294
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2dn0l"]
 radius = 13.0384
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i1yno"]
-radius = 16.0
+radius = 18.0278
 
 [node name="minerals" type="Area2D" groups=["mineral"]]
 script = ExtResource("1_1q0km")
 
 [node name="coll" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_wxvvp")
 
 [node name="mineral" type="Sprite2D" parent="."]

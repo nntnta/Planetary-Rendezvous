@@ -139,7 +139,57 @@ texture_under = ExtResource("7_7psh7")
 texture_progress = ExtResource("8_fg3tb")
 texture_progress_offset = Vector2(70, 70)
 
+[node name="hp" type="Label" parent="hpBar"]
+offset_left = 616.0
+offset_top = 50.0
+offset_right = 746.0
+offset_bottom = 107.0
+theme_override_font_sizes/font_size = 41
+text = "20 / 20
+"
+
+[node name="exp" type="Node2D" parent="."]
+
+[node name="mercury" type="TextureProgressBar" parent="exp"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="venus" type="TextureProgressBar" parent="exp"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="earth" type="TextureProgressBar" parent="exp"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="mars" type="TextureProgressBar" parent="exp"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="jupiter" type="TextureProgressBar" parent="exp"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="saturn" type="TextureProgressBar" parent="exp"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="uranus" type="TextureProgressBar" parent="exp"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="neptune" type="TextureProgressBar" parent="exp"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="pluto" type="TextureProgressBar" parent="exp"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ej53o")
 }
+
+[connection signal="mouse_entered" from="hpBar" to="." method="_on_hp_bar_mouse_entered"]
+[connection signal="mouse_exited" from="hpBar" to="." method="_on_hp_bar_mouse_exited"]

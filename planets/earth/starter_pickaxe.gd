@@ -15,8 +15,7 @@ func _process(delta):
 		$hover.visible = false
 	
 	if !global.bronze_pickaxe_drop:
-		pass
-		#queue_free()
+		queue_free()
 
 
 func _on_grab_box_area_entered(area):
@@ -30,8 +29,9 @@ func _on_grab_box_area_exited(area):
 
 func _input(event):
 	if event.is_action_pressed("rightClick") && player_in:
-		global.bronze_pickaxe_drop = false
+		
 		player_in = false
+		$coll_env/CollisionShape2D.disabled = true
 		$AnimationPlayer.play('pop_up')
 
 
@@ -41,3 +41,6 @@ func _on_grab_box_mouse_entered():
 
 func _on_grab_box_mouse_exited():
 	mouseIn = false
+
+func picked():
+	global.bronze_pickaxe_drop = false

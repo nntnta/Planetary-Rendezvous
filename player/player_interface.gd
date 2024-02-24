@@ -2,11 +2,14 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$hpBar/hp.visible = false
 	global.slot = 'inv1'
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$hpBar.value = global.hp
 	$hpBar.max_value = global.max_hp
+	
+	$hpBar/hp.text = str($hpBar.value) + ' / ' + str($hpBar.max_value)
 	
 	if !global.bronze_pickaxe_drop:
 		$inv/inv1/inv_1.visible = true
@@ -47,3 +50,9 @@ func _input(event):
 		$inv/inv3/inv_3_selected.visible = true
 
 
+func _on_hp_bar_mouse_entered():
+	$hpBar/hp.visible = true
+
+
+func _on_hp_bar_mouse_exited():
+	$hpBar/hp.visible = false

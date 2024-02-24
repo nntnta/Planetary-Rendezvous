@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="5_tw04c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_od74y"]
-radius = 56.57
+radius = 73.03
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6nc5"]
 radius = 42.0119
@@ -50,6 +50,20 @@ tracks/1/keys = {
 "values": [{
 "args": [],
 "method": &"queue_free"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"picked"
 }]
 }
 

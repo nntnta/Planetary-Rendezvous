@@ -228,7 +228,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("tools/melee_weapon/frostblade:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -240,7 +240,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "value"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("tools/melee_weapon/frostblade:frame_coords")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -278,7 +278,7 @@ tracks/6/keys = {
 }
 tracks/7/type = "value"
 tracks/7/imported = false
-tracks/7/enabled = true
+tracks/7/enabled = false
 tracks/7/path = NodePath("tools/melee_weapon/frostblade:z_index")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
@@ -290,7 +290,7 @@ tracks/7/keys = {
 }
 tracks/8/type = "value"
 tracks/8/imported = false
-tracks/8/enabled = false
+tracks/8/enabled = true
 tracks/8/path = NodePath("tools/melee_weapon/basicbaton:frame_coords")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
@@ -302,7 +302,7 @@ tracks/8/keys = {
 }
 tracks/9/type = "value"
 tracks/9/imported = false
-tracks/9/enabled = false
+tracks/9/enabled = true
 tracks/9/path = NodePath("tools/melee_weapon/basicbaton:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
@@ -314,7 +314,7 @@ tracks/9/keys = {
 }
 tracks/10/type = "value"
 tracks/10/imported = false
-tracks/10/enabled = false
+tracks/10/enabled = true
 tracks/10/path = NodePath("tools/melee_weapon/basicbaton:z_index")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
@@ -367,7 +367,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("tools/melee_weapon/frostblade:frame_coords")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -379,7 +379,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "value"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("tools/melee_weapon/frostblade:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -417,7 +417,7 @@ tracks/6/keys = {
 }
 tracks/7/type = "value"
 tracks/7/imported = false
-tracks/7/enabled = true
+tracks/7/enabled = false
 tracks/7/path = NodePath("tools/melee_weapon/frostblade:z_index")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
@@ -429,7 +429,7 @@ tracks/7/keys = {
 }
 tracks/8/type = "value"
 tracks/8/imported = false
-tracks/8/enabled = false
+tracks/8/enabled = true
 tracks/8/path = NodePath("tools/melee_weapon/basicbaton:frame_coords")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
@@ -441,7 +441,7 @@ tracks/8/keys = {
 }
 tracks/9/type = "value"
 tracks/9/imported = false
-tracks/9/enabled = false
+tracks/9/enabled = true
 tracks/9/path = NodePath("tools/melee_weapon/basicbaton:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
@@ -453,7 +453,7 @@ tracks/9/keys = {
 }
 tracks/10/type = "value"
 tracks/10/imported = false
-tracks/10/enabled = false
+tracks/10/enabled = true
 tracks/10/path = NodePath("tools/melee_weapon/basicbaton:z_index")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
@@ -506,7 +506,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("tools/melee_weapon/frostblade:frame_coords")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -518,7 +518,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "value"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("tools/melee_weapon/frostblade:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -556,7 +556,7 @@ tracks/6/keys = {
 }
 tracks/7/type = "value"
 tracks/7/imported = false
-tracks/7/enabled = true
+tracks/7/enabled = false
 tracks/7/path = NodePath("tools/melee_weapon/frostblade:z_index")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
@@ -568,7 +568,7 @@ tracks/7/keys = {
 }
 tracks/8/type = "value"
 tracks/8/imported = false
-tracks/8/enabled = false
+tracks/8/enabled = true
 tracks/8/path = NodePath("tools/melee_weapon/basicbaton:frame_coords")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
@@ -580,7 +580,7 @@ tracks/8/keys = {
 }
 tracks/9/type = "value"
 tracks/9/imported = false
-tracks/9/enabled = false
+tracks/9/enabled = true
 tracks/9/path = NodePath("tools/melee_weapon/basicbaton:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
@@ -592,7 +592,7 @@ tracks/9/keys = {
 }
 tracks/10/type = "value"
 tracks/10/imported = false
-tracks/10/enabled = false
+tracks/10/enabled = true
 tracks/10/path = NodePath("tools/melee_weapon/basicbaton:z_index")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
@@ -645,7 +645,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("tools/melee_weapon/frostblade:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -657,7 +657,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "value"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("tools/melee_weapon/frostblade:frame_coords")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -695,7 +695,7 @@ tracks/6/keys = {
 }
 tracks/7/type = "value"
 tracks/7/imported = false
-tracks/7/enabled = true
+tracks/7/enabled = false
 tracks/7/path = NodePath("tools/melee_weapon/frostblade:z_index")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
@@ -707,7 +707,7 @@ tracks/7/keys = {
 }
 tracks/8/type = "value"
 tracks/8/imported = false
-tracks/8/enabled = false
+tracks/8/enabled = true
 tracks/8/path = NodePath("tools/melee_weapon/basicbaton:frame_coords")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
@@ -719,7 +719,7 @@ tracks/8/keys = {
 }
 tracks/9/type = "value"
 tracks/9/imported = false
-tracks/9/enabled = false
+tracks/9/enabled = true
 tracks/9/path = NodePath("tools/melee_weapon/basicbaton:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
@@ -731,7 +731,7 @@ tracks/9/keys = {
 }
 tracks/10/type = "value"
 tracks/10/imported = false
-tracks/10/enabled = false
+tracks/10/enabled = true
 tracks/10/path = NodePath("tools/melee_weapon/basicbaton:z_index")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
@@ -1472,14 +1472,15 @@ z_index = 2
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_df2qi")
 hframes = 2
-vframes = 2
+vframes = 3
 frame = 1
 
 [node name="frostblade" type="Sprite2D" parent="tools/melee_weapon"]
+z_index = 3
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_df2qi")
 hframes = 2
-vframes = 2
+vframes = 3
 
 [node name="hitbox_melee" type="Area2D" parent="tools/melee_weapon" groups=["melee_weapon"]]
 
