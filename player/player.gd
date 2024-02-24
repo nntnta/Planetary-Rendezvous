@@ -1,18 +1,21 @@
 extends CharacterBody2D
 
-const SPEED = 15000.0
+var SPEED = 15000.0 
 var swing = false
+var melee_dmg = 0
 
 func _ready():
 	$tools/pickaxe/hitbox/coll.disabled = true
 	$tools/pickaxe/pickaxe.visible = false
-	$tools/melee_weapon/hitbox/coll.disabled = true
+	$tools/melee_weapon/hitbox_melee/coll.disabled = true
 	$tools/melee_weapon/frostblade.visible = false
 	#global.silver_pickaxe_drop = false
 
 func _physics_process(delta):
-	velocity  = Input.get_vector("a",'d','w','s') * SPEED * delta
+	velocity  = Input.get_vector("a",'d','w','s') * (SPEED + global.extra_speed) * delta
 	#pickaxeCollHidden()
+	if !global.frostblade_drop:
+		melee_dmg = 2
 	
 	if velocity == Vector2.ZERO && !swing:
 		$AnimationTree.get("parameters/playback").travel("idle")
@@ -52,9 +55,13 @@ func end_swinging():
 
 
 func _on_hitbox_area_entered(area):
-	if area.is_in_group('mineral'):
-		#$tools/pickaxe/hitbox/coll.disabled = true
-		pass
+	if area.is_in_group('enemy_attack'):
+		if $sprite.self_modulate == Color(1,1,1):
+			global.hp -= 1
+			$sprite.self_modulate = Color(100,100,100)
+			$hitbox/invulnerable.start()
+		
+		
 
 func pickaxeCollHidden():
 	if !$tools/pickaxe/pickaxe.visible:
@@ -74,3 +81,12 @@ func anim_silver_change(name:String):
 	anim.track_set_enabled(index_vis_2, true)
 	
 	
+
+
+func _on_invulnerable_timeout():
+	$sprite.self_modulate = Color(1,1,1)
+
+
+func _on_hitbox_melee_area_entered(area):
+	if area.is_in_group('enemy'):
+		area.get_parent().get_parent().hp -= melee_dmg

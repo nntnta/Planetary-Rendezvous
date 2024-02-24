@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ye56vr1dh0q8" path="res://pics/tools/frostblade.png" id="5_1m1dh"]
 [ext_resource type="PackedScene" uid="uid://ctbslfewtlkwv" path="res://player/inventory/inventory.tscn" id="5_kysye"]
 [ext_resource type="Texture2D" uid="uid://c5cxbo8yjk7ug" path="res://pics/player/bars/healthBar.png" id="7_7psh7"]
-[ext_resource type="Texture2D" uid="uid://blwg4mgn37qj7" path="res://pics/player/bars/healthBarProgress.png" id="8_oephr"]
+[ext_resource type="Texture2D" uid="uid://c2umce6sg7gt0" path="res://pics/player/bars/healthProgress.png" id="8_fg3tb"]
 
 [node name="player_interface" type="Node2D"]
 z_index = 3
@@ -90,12 +90,11 @@ position = Vector2(170, 265)
 
 [node name="hpBar" type="TextureProgressBar" parent="."]
 z_index = 2
-offset_left = 6.0
-offset_top = 8.0
-offset_right = 646.0
-offset_bottom = 168.0
+offset_right = 640.0
+offset_bottom = 160.0
 scale = Vector2(0.5, 0.5)
 max_value = 10.0
 value = 10.0
 texture_under = ExtResource("7_7psh7")
-texture_progress = ExtResource("8_oephr")
+texture_progress = ExtResource("8_fg3tb")
+texture_progress_offset = Vector2(70, 70)

@@ -13,7 +13,7 @@
 radius = 17.0294
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0uib"]
-radius = 15.0
+radius = 21.0238
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_07rs6"]
 radius = 5.09902
@@ -253,7 +253,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("tools/melee_weapon/hitbox/coll:disabled")
+tracks/5/path = NodePath("tools/melee_weapon/hitbox_melee/coll:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -356,7 +356,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("tools/melee_weapon/hitbox/coll:disabled")
+tracks/5/path = NodePath("tools/melee_weapon/hitbox_melee/coll:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -459,7 +459,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("tools/melee_weapon/hitbox/coll:disabled")
+tracks/5/path = NodePath("tools/melee_weapon/hitbox_melee/coll:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -562,7 +562,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("tools/melee_weapon/hitbox/coll:disabled")
+tracks/5/path = NodePath("tools/melee_weapon/hitbox_melee/coll:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1268,7 +1268,8 @@ graph_offset = Vector2(0, -41.2458)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nftiu"]
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
+motion_mode = 1
 script = ExtResource("1_f84py")
 
 [node name="player_interface" parent="." instance=ExtResource("2_bxit4")]
@@ -1289,6 +1290,8 @@ region_rect = Rect2(10, 10, 140, 140)
 
 [node name="hitbox" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource("CircleShape2D_y0uib")
+
+[node name="invulnerable" type="Timer" parent="hitbox"]
 
 [node name="tools" type="Node2D" parent="."]
 
@@ -1326,9 +1329,9 @@ texture = ExtResource("5_o8t52")
 vframes = 2
 frame = 1
 
-[node name="hitbox" type="Area2D" parent="tools/melee_weapon" groups=["melee_weapon"]]
+[node name="hitbox_melee" type="Area2D" parent="tools/melee_weapon" groups=["melee_weapon"]]
 
-[node name="coll" type="CollisionShape2D" parent="tools/melee_weapon/hitbox"]
+[node name="coll" type="CollisionShape2D" parent="tools/melee_weapon/hitbox_melee"]
 position = Vector2(-2.28553, -1.78553)
 rotation = 0.785398
 shape = SubResource("RectangleShape2D_3uiph")
@@ -1394,5 +1397,8 @@ offset = Vector2(0, -250)
 [node name="Camera2D" type="Camera2D" parent="minimap/SubViewportContainer/SubViewport"]
 zoom = Vector2(0.05, 0.05)
 
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="hitbox/invulnerable" to="." method="_on_invulnerable_timeout"]
 [connection signal="area_entered" from="tools/pickaxe/hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="tools/pickaxe/hitbox" to="." method="_on_hitbox_area_exited"]
+[connection signal="area_entered" from="tools/melee_weapon/hitbox_melee" to="." method="_on_hitbox_melee_area_entered"]

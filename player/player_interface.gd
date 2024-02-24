@@ -5,7 +5,6 @@ func _ready():
 	global.slot = 'inv1'
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(global.max_hp, global.hp)
 	$hpBar.value = global.hp
 	$hpBar.max_value = global.max_hp
 	
