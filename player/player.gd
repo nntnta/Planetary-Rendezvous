@@ -11,6 +11,10 @@ func _ready():
 	$tools/melee_weapon/frostblade.visible = false
 	#global.silver_pickaxe_drop = false
 
+func _process(delta):
+	pass
+	#camera_border(get_parent().editor_description)
+
 func _physics_process(delta):
 	velocity  = Input.get_vector("a",'d','w','s') * (SPEED + global.extra_speed) * delta
 	#pickaxeCollHidden()
@@ -109,3 +113,51 @@ func _on_invulnerable_timeout():
 func _on_hitbox_melee_area_entered(area):
 	if area.is_in_group('enemy'):
 		area.get_parent().get_parent().hp -= global.melee_dmg
+
+func camera_border(planet):
+	match planet:
+		"mercury":
+			$Camera2D.limit_left	= -687
+			$Camera2D.limit_top		= -946
+			$Camera2D.limit_right	= 1848
+			$Camera2D.limit_bottom	= 1595
+		"venus":
+			$Camera2D.limit_left	= -1328
+			$Camera2D.limit_top		= -1566
+			$Camera2D.limit_right	= 2480
+			$Camera2D.limit_bottom	= 2224
+		"earth":
+			$Camera2D.limit_left	= -1328
+			$Camera2D.limit_top		= -1566
+			$Camera2D.limit_right	= 2480
+			$Camera2D.limit_bottom	= 2224
+		"mars":
+			$Camera2D.limit_left	= -1328
+			$Camera2D.limit_top		= -1566
+			$Camera2D.limit_right	= 2480
+			$Camera2D.limit_bottom	= 2224
+		"jupiter":
+			$Camera2D.limit_left	= -1954
+			$Camera2D.limit_top		= -2216
+			$Camera2D.limit_right	= 3114
+			$Camera2D.limit_bottom	= 2864
+		"saturn":
+			$Camera2D.limit_left	= -1954
+			$Camera2D.limit_top		= -2216
+			$Camera2D.limit_right	= 3114
+			$Camera2D.limit_bottom	= 2864
+		"uranus":
+			$Camera2D.limit_left	= -1328
+			$Camera2D.limit_top		= -1566
+			$Camera2D.limit_right	= 2480
+			$Camera2D.limit_bottom	= 2224
+		"neptune":
+			$Camera2D.limit_left	= -1328
+			$Camera2D.limit_top		= -1566
+			$Camera2D.limit_right	= 2480
+			$Camera2D.limit_bottom	= 2224
+		"pluto":
+			$Camera2D.limit_left	= -687
+			$Camera2D.limit_top		= -946
+			$Camera2D.limit_right	= 1848
+			$Camera2D.limit_bottom	= 1595

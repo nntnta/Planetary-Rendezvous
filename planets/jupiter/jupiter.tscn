@@ -19,8 +19,8 @@ radius = 14.0357
 script = ExtResource("1_2rx63")
 orange_critter = ExtResource("2_pgxa8")
 player = ExtResource("2_r5jse")
-metadata/_edit_vertical_guides_ = [607.0]
-metadata/_edit_horizontal_guides_ = [647.0]
+metadata/_edit_vertical_guides_ = [607.0, -1954.0, 3114.0]
+metadata/_edit_horizontal_guides_ = [647.0, -2216.0, -2205.0, 2864.0]
 
 [node name="bg" type="Sprite2D" parent="."]
 self_modulate = Color(0.941176, 0.54902, 0.172549, 1)
