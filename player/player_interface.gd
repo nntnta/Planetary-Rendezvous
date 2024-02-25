@@ -8,6 +8,7 @@ func _ready():
 func _process(delta):
 	$hpBar.value = global.hp
 	$hpBar.max_value = global.max_hp
+	update_exp_progress()
 	
 	$hpBar/hp.text = str($hpBar.value) + ' / ' + str($hpBar.max_value)
 	
@@ -56,3 +57,14 @@ func _on_hp_bar_mouse_entered():
 
 func _on_hp_bar_mouse_exited():
 	$hpBar/hp.visible = false
+	
+func update_exp_progress():
+	$exp/mercury.value = global.exp_mercury
+	$exp/venus.value = global.exp_venus
+	$exp/earth.value = global.exp_earth
+	$exp/mars.value = global.exp_mars
+	$exp/jupiter.value = global.exp_jupiter
+	$exp/saturn.value = global.exp_saturn
+	$exp/uranus.value = global.exp_uranus
+	$exp/neptune.value = global.exp_neptune
+	$exp/pluto.value = global.exp_pluto

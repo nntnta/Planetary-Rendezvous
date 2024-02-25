@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bob5f2sxvlmc0"]
+[gd_scene load_steps=30 format=3 uid="uid://bob5f2sxvlmc0"]
 
 [ext_resource type="Script" path="res://player/player_interface.gd" id="1_ww167"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="2_loui6"]
@@ -8,6 +8,24 @@
 [ext_resource type="PackedScene" uid="uid://ctbslfewtlkwv" path="res://player/inventory/inventory.tscn" id="5_kysye"]
 [ext_resource type="Texture2D" uid="uid://c5cxbo8yjk7ug" path="res://pics/player/bars/healthBar.png" id="7_7psh7"]
 [ext_resource type="Texture2D" uid="uid://c2umce6sg7gt0" path="res://pics/player/bars/healthProgress.png" id="8_fg3tb"]
+[ext_resource type="Texture2D" uid="uid://cn2sbfsul03n8" path="res://pics/planets_button/mercury.png" id="9_3fnrw"]
+[ext_resource type="Texture2D" uid="uid://d36hyfbje0060" path="res://pics/planets_button/venus.png" id="10_lnrsc"]
+[ext_resource type="Texture2D" uid="uid://dxns17ees5sig" path="res://pics/planets_button/mercury_pressed.png" id="10_w4dw0"]
+[ext_resource type="Texture2D" uid="uid://0dyibmytmmev" path="res://pics/planets_button/earth.png" id="11_quxlj"]
+[ext_resource type="Texture2D" uid="uid://b8n3egn37yxef" path="res://pics/planets_button/mars.png" id="12_by5k7"]
+[ext_resource type="Texture2D" uid="uid://c6xfpsno23eoq" path="res://pics/planets_button/venus_pressed.png" id="12_xyxij"]
+[ext_resource type="Texture2D" uid="uid://bcigur11v8oir" path="res://pics/planets_button/jupiter.png" id="13_ktkpb"]
+[ext_resource type="Texture2D" uid="uid://bt4u26s0hvewn" path="res://pics/planets_button/saturn.png" id="14_glq8h"]
+[ext_resource type="Texture2D" uid="uid://cktm3og6qo08v" path="res://pics/planets_button/earth_pressed.png" id="14_rj8e0"]
+[ext_resource type="Texture2D" uid="uid://dnavk5hiq76lj" path="res://pics/planets_button/uranus.png" id="15_id3ei"]
+[ext_resource type="Texture2D" uid="uid://dqwtappndtkvs" path="res://pics/planets_button/neptune.png" id="16_otlit"]
+[ext_resource type="Texture2D" uid="uid://dywketmo33yqh" path="res://pics/planets_button/mars_pressed.png" id="16_v48be"]
+[ext_resource type="Texture2D" uid="uid://csrmya7fgfvvc" path="res://pics/planets_button/pluto.png" id="17_dkdlr"]
+[ext_resource type="Texture2D" uid="uid://dli1wkjwb6pb8" path="res://pics/planets_button/jupiter_pressed.png" id="18_buw8k"]
+[ext_resource type="Texture2D" uid="uid://bv58x5fjwf3r0" path="res://pics/planets_button/saturn_pressed.png" id="20_q85ui"]
+[ext_resource type="Texture2D" uid="uid://b5rh8lh2d80af" path="res://pics/planets_button/uranus_pressed.png" id="22_sxms6"]
+[ext_resource type="Texture2D" uid="uid://6adad3p32u7x" path="res://pics/planets_button/neptune_pressed.png" id="24_uwmh7"]
+[ext_resource type="Texture2D" uid="uid://d2shbhn1f0nrb" path="res://pics/planets_button/pluto_pressed.png" id="26_n10mi"]
 
 [sub_resource type="Animation" id="Animation_mq52g"]
 resource_name = "just_got_inv1"
@@ -150,42 +168,106 @@ text = "20 / 20
 "
 
 [node name="exp" type="Node2D" parent="."]
+position = Vector2(100, -3)
 
 [node name="mercury" type="TextureProgressBar" parent="exp"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 310.0
+offset_top = 576.0
+offset_right = 470.0
+offset_bottom = 736.0
+scale = Vector2(0.25, 0.25)
+max_value = 20.0
+fill_mode = 5
+texture_under = ExtResource("9_3fnrw")
+texture_progress = ExtResource("10_w4dw0")
 
 [node name="venus" type="TextureProgressBar" parent="exp"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 360.0
+offset_top = 573.0
+offset_right = 520.0
+offset_bottom = 733.0
+scale = Vector2(0.25, 0.25)
+max_value = 20.0
+fill_mode = 5
+texture_under = ExtResource("10_lnrsc")
+texture_progress = ExtResource("12_xyxij")
 
 [node name="earth" type="TextureProgressBar" parent="exp"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 412.0
+offset_top = 573.0
+offset_right = 572.0
+offset_bottom = 733.0
+scale = Vector2(0.25, 0.25)
+max_value = 20.0
+fill_mode = 5
+texture_under = ExtResource("11_quxlj")
+texture_progress = ExtResource("14_rj8e0")
 
 [node name="mars" type="TextureProgressBar" parent="exp"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 465.0
+offset_top = 573.0
+offset_right = 625.0
+offset_bottom = 733.0
+scale = Vector2(0.25, 0.25)
+max_value = 20.0
+fill_mode = 5
+texture_under = ExtResource("12_by5k7")
+texture_progress = ExtResource("16_v48be")
 
 [node name="jupiter" type="TextureProgressBar" parent="exp"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 508.0
+offset_top = 554.0
+offset_right = 828.0
+offset_bottom = 874.0
+scale = Vector2(0.25, 0.25)
+max_value = 20.0
+fill_mode = 5
+texture_under = ExtResource("13_ktkpb")
+texture_progress = ExtResource("18_buw8k")
 
 [node name="saturn" type="TextureProgressBar" parent="exp"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 588.0
+offset_top = 554.0
+offset_right = 908.0
+offset_bottom = 874.0
+scale = Vector2(0.25, 0.25)
+max_value = 20.0
+fill_mode = 5
+texture_under = ExtResource("14_glq8h")
+texture_progress = ExtResource("20_q85ui")
 
 [node name="uranus" type="TextureProgressBar" parent="exp"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 658.0
+offset_top = 554.0
+offset_right = 978.0
+offset_bottom = 874.0
+scale = Vector2(0.25, 0.25)
+max_value = 20.0
+fill_mode = 5
+texture_under = ExtResource("15_id3ei")
+texture_progress = ExtResource("22_sxms6")
 
 [node name="neptune" type="TextureProgressBar" parent="exp"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 710.0
+offset_top = 554.0
+offset_right = 1030.0
+offset_bottom = 874.0
+scale = Vector2(0.25, 0.25)
+max_value = 20.0
+fill_mode = 5
+texture_under = ExtResource("16_otlit")
+texture_progress = ExtResource("24_uwmh7")
 
 [node name="pluto" type="TextureProgressBar" parent="exp"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 780.0
+offset_top = 574.0
+offset_right = 940.0
+offset_bottom = 734.0
+scale = Vector2(0.25, 0.25)
+max_value = 20.0
+fill_mode = 5
+texture_under = ExtResource("17_dkdlr")
+texture_progress = ExtResource("26_n10mi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -5,6 +5,7 @@ var dead = false
 func _physics_process(delta):
 	if $"..".hp <= 0 && !dead:
 		dead = true
+		global.exp_jupiter += 1
 		$"../AnimationPlayer".play('dead')
 	elif !dead:
 		if last_velocity.x > 0:

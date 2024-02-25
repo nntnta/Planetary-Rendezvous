@@ -193,7 +193,7 @@ shape = SubResource("CircleShape2D_frla8")
 debug_color = Color(0.698039, 0.490196, 0.129412, 0.419608)
 
 [node name="attacked" type="Timer" parent="body/hitbox"]
-wait_time = 0.2
+wait_time = 0.1
 
 [node name="attack" type="Area2D" parent="body" groups=["enemy_attack"]]
 
