@@ -34,7 +34,7 @@ func _process(delta):
 	pass
 
 func _input(event):
-	if event.is_action_pressed("rightClick") && takeOffArea && !inMenu && !takeoff_clicked :
+	if (event.is_action_pressed("rightClick") or event.is_action_pressed("spaceBar")) && takeOffArea && !inMenu && !takeoff_clicked :
 		takeoff_clicked = true
 		$transition/ColorRect.visible = true
 		$transition.play("fadeout")

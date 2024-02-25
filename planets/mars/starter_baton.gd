@@ -19,7 +19,7 @@ func _process(delta):
 		
 
 func _input(event):
-	if event.is_action_pressed("rightClick") && player_in:
+	if (event.is_action_pressed("rightClick") or event.is_action_pressed("spaceBar")) && player_in:
 		
 		player_in = false
 		$coll_env/CollisionShape2D.disabled = true

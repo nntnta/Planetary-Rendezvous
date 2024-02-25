@@ -4,7 +4,8 @@ var shiny = false
 var dropped = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if randi_range(0,100) < 8 && global.shiny_floral == false && global.healing_factor_dropped == false:
+	$heal_update.visible = false
+	if randi_range(0,100) < 8+global.exp_mars && global.shiny_floral == false && global.healing_factor_dropped == false:
 		shiny = true
 		global.shiny_floral = true
 		$AnimationPlayer.play('idle_shiny')
@@ -27,7 +28,9 @@ func _on_area_entered(area):
 			#get_parent().find_child("inv_grid").add_item(ID)
 		if global.hp < global.max_hp:
 			global.hp += 1
-		queue_free()
+		$Sprite2D.visible = false
+		$AnimationPlayer.play('heal')
+		#queue_free()
 
 func drops():
 	$coll_for_env.queue_free()

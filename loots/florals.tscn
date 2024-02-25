@@ -1,14 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://brn3awedrtvuc"]
+[gd_scene load_steps=11 format=3 uid="uid://brn3awedrtvuc"]
 
 [ext_resource type="Texture2D" uid="uid://ds6licbliv6jp" path="res://pics/plants/florals.png" id="1_fmlue"]
 [ext_resource type="Script" path="res://loots/florals.gd" id="1_rjbvy"]
+[ext_resource type="Texture2D" uid="uid://bhlp2nfixdsnk" path="res://pics/player/status_icon.png" id="3_e3skh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_31cuw"]
 radius = 18.1108
 
 [sub_resource type="Animation" id="Animation_adxbh"]
 resource_name = "gettingHit"
-length = 0.8
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -16,7 +17,7 @@ tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 0.6),
+"times": PackedFloat32Array(0.1, 0.4),
 "transitions": PackedFloat32Array(0.297302, 0.25),
 "update": 0,
 "values": [Vector2(0.25, 0.3), Vector2(0.5, 0.1)]
@@ -28,7 +29,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.8),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -94,9 +95,76 @@ tracks/1/keys = {
 "values": [Vector2(0.25, 0.25)]
 }
 
+[sub_resource type="Animation" id="Animation_5qji8"]
+resource_name = "heal"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("heal_update:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("heal_update:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("heal_update:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("heal_update:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3kg56"]
 _data = {
 "gettingHit": SubResource("Animation_adxbh"),
+"heal": SubResource("Animation_5qji8"),
 "idle": SubResource("Animation_umpx5"),
 "idle_shiny": SubResource("Animation_ib51v")
 }
@@ -111,7 +179,7 @@ script = ExtResource("1_rjbvy")
 shape = SubResource("CircleShape2D_31cuw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.3)
+scale = Vector2(0.5, 0.1)
 texture = ExtResource("1_fmlue")
 hframes = 2
 vframes = 3
@@ -128,5 +196,12 @@ libraries = {
 [node name="coll" type="CollisionShape2D" parent="coll_for_env"]
 shape = SubResource("CircleShape2D_5uc74")
 debug_color = Color(0.694118, 0.490196, 0.219608, 0.419608)
+
+[node name="heal_update" type="Sprite2D" parent="."]
+z_index = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_e3skh")
+hframes = 3
+vframes = 2
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

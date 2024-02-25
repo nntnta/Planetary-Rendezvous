@@ -184,7 +184,7 @@ shape = SubResource("CircleShape2D_coueb")
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_kaqfl")
 region_enabled = true
-region_rect = Rect2(480, 0, 160, 160)
+region_rect = Rect2(0, 0, 160, 160)
 
 [node name="hitbox" type="Area2D" parent="body" groups=["enemy"]]
 
@@ -200,15 +200,18 @@ wait_time = 0.1
 [node name="coll" type="CollisionShape2D" parent="body/attack"]
 position = Vector2(-35, 0)
 shape = SubResource("CircleShape2D_rsras")
+disabled = true
 debug_color = Color(0, 0.627451, 0.505882, 0.419608)
 
 [node name="coll2" type="CollisionShape2D" parent="body/attack"]
 position = Vector2(-12, -27)
 shape = SubResource("CircleShape2D_bdukb")
+disabled = true
 
 [node name="coll3" type="CollisionShape2D" parent="body/attack"]
 position = Vector2(-10, 27)
 shape = SubResource("CircleShape2D_rma0f")
+disabled = true
 
 [node name="state_machine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_wqy8t")

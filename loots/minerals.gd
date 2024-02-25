@@ -4,6 +4,7 @@ var pickaxe_dmg = 1
 var ID = '0'
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$status_upgrade.visible = false
 	$drops.monitoring = false
 	
 	if get_parent().editor_description == 'mercury':
@@ -58,18 +59,26 @@ func _on_drops_area_entered(area):
 		match ID:
 			'0':
 				global.exp_mercury += 1
+				$mineral.visible = false
+				$AnimationPlayer.play('speed')
 				#if global.mineral_mercury > 4:
 					#print(global.mineral_mercury)
 			'1':
 				global.exp_venus += 1
+				$mineral.visible = false
+				$AnimationPlayer.play('damage')
 				#if global.mineral_venus > 4:
 					#print(global.mineral_venus)
 			'2':
 				global.exp_earth += 1
+				$mineral.visible = false
+				$AnimationPlayer.play('max_hp')
 				#if global.mineral_earth > 4:
 					#print(global.mineral_earth)
 			'3':
 				global.exp_mars += 1
+				$mineral.visible = false
+				$AnimationPlayer.play('luck')
 				#if global.mineral_mars > 4:
 					#print(global.mineral_mars)
-		queue_free()
+		#queue_free()

@@ -3,7 +3,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$hpBar/hp.visible = false
-	global.slot = 'inv1'
+	#global.slot = 'inv1'
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$hpBar.value = global.hp
@@ -32,19 +32,19 @@ func _process(delta):
 		$inv/inv2/inv_2.frame_coords = Vector2(0,0)
 		#$AnimationPlayer.play("just_got_inv2")
 func _input(event):
-	if event.is_action_pressed("1"):
+	if event.is_action_pressed("1") or global.slot == 'inv1':
 		global.slot = 'inv1'
 		$inv/inv1/inv_1_selected.visible = true
 		$inv/inv2/inv_2_selected.visible = false
 		$inv/inv3/inv_3_selected.visible = false
 	
-	if event.is_action_pressed("2"):
+	if event.is_action_pressed("2") or global.slot == 'inv2':
 		global.slot = 'inv2'
 		$inv/inv1/inv_1_selected.visible = false
 		$inv/inv2/inv_2_selected.visible = true
 		$inv/inv3/inv_3_selected.visible = false
 	
-	if event.is_action_pressed("3"):
+	if event.is_action_pressed("3") or global.slot == 'inv3':
 		global.slot = 'inv3'
 		$inv/inv1/inv_1_selected.visible = false
 		$inv/inv2/inv_2_selected.visible = false
