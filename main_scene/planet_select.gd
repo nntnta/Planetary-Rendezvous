@@ -19,7 +19,22 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if global.unlocked_mercury:
+		$planets/mercury.disabled = false
+	if global.unlocked_venus:
+		$planets/venus.disabled = false
+	if global.unlocked_mars:
+		$planets/mars.disabled = false
+	if global.unlocked_jupiter:
+		$planets/jupiter.disabled = false
+	if global.unlocked_saturn:
+		$planets/saturn.disabled = false
+	if global.unlocked_uranus:
+		$planets/uranus.disabled = false
+	if global.unlocked_neptune:
+		$planets/neptune.disabled = false
+	if global.unlocked_pluto:
+		$planets/pluto.disabled = false
 
 
 func _on_mercury_pressed():

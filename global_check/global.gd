@@ -15,6 +15,19 @@ func _process(delta):
 			heal_factor_cd = 3
 		else:
 			heal_factor_cd = 3
+			
+			
+#planets unlocked
+var unlocked_mercury = false
+var unlocked_venus = false
+var unlocked_mars = false
+var unlocked_jupiter = false
+var unlocked_saturn = false
+var unlocked_uranus = false
+var unlocked_neptune = false
+var unlocked_pluto = false
+#planets unlocked
+
 #slots------------------------------------------------------------------------------------------------
 var slot = 'inv1'
 #slots------------------------------------------------------------------------------------------------

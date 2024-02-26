@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bhxw21aas15t6"]
+[gd_scene load_steps=42 format=3 uid="uid://bhxw21aas15t6"]
 
 [ext_resource type="Script" path="res://main_scene/planet_select.gd" id="1_vqedp"]
 [ext_resource type="PackedScene" uid="uid://daxj17mon6ks8" path="res://planets/mercury/mercury.tscn" id="2_r6nro"]
@@ -10,25 +10,38 @@
 [ext_resource type="PackedScene" uid="uid://cntul2jy054a8" path="res://planets/uranus/uranus.tscn" id="8_lca27"]
 [ext_resource type="PackedScene" uid="uid://ddrv3rykexuy" path="res://planets/neptune/neptune.tscn" id="9_0tle6"]
 [ext_resource type="PackedScene" uid="uid://dipkjwlmn1sc1" path="res://planets/pluto/pluto.tscn" id="10_o6jhv"]
+[ext_resource type="Shader" path="res://main_scene/bg_scroll.gdshader" id="11_2iddw"]
 [ext_resource type="Texture2D" uid="uid://cj0rdjc3ej54b" path="res://pics/bg/menu_bg.png" id="11_c2rsd"]
 [ext_resource type="Texture2D" uid="uid://bs7hyg2w1hc1l" path="res://pics/planets_button/mercury_hover.png" id="12_2fekc"]
 [ext_resource type="Texture2D" uid="uid://dxns17ees5sig" path="res://pics/planets_button/mercury_pressed.png" id="12_b2rjn"]
 [ext_resource type="Texture2D" uid="uid://djefepdc7bab1" path="res://pics/planets_button/venus_hover.png" id="14_tv6tl"]
+[ext_resource type="Texture2D" uid="uid://vrsjisfoaqfq" path="res://pics/planets_button/mercury_locked.png" id="14_xsm53"]
 [ext_resource type="Texture2D" uid="uid://c6xfpsno23eoq" path="res://pics/planets_button/venus_pressed.png" id="15_xm45f"]
 [ext_resource type="Texture2D" uid="uid://ceotwfg304cgf" path="res://pics/planets_button/earth_hover.png" id="16_08ohw"]
+[ext_resource type="Texture2D" uid="uid://vi2fqlg2c8ae" path="res://pics/planets_button/venus_locked.png" id="17_k5msq"]
 [ext_resource type="Texture2D" uid="uid://cktm3og6qo08v" path="res://pics/planets_button/earth_pressed.png" id="18_skjcm"]
 [ext_resource type="Texture2D" uid="uid://b1y03tkjy8r3s" path="res://pics/planets_button/mars_hover.png" id="18_ua4f2"]
 [ext_resource type="Texture2D" uid="uid://xr0tls5oxdyq" path="res://pics/planets_button/jupiter_hover.png" id="20_hls8t"]
 [ext_resource type="Texture2D" uid="uid://dywketmo33yqh" path="res://pics/planets_button/mars_pressed.png" id="21_v2osg"]
 [ext_resource type="Texture2D" uid="uid://c044i7ypllh00" path="res://pics/planets_button/saturn_hover.png" id="22_er4u3"]
+[ext_resource type="Texture2D" uid="uid://cvlo61bwmuyr7" path="res://pics/planets_button/mars_locked.png" id="22_mhr8h"]
 [ext_resource type="Texture2D" uid="uid://dli1wkjwb6pb8" path="res://pics/planets_button/jupiter_pressed.png" id="24_66xcw"]
 [ext_resource type="Texture2D" uid="uid://cpp7hx74tmdhd" path="res://pics/planets_button/uranus_hover.png" id="24_djvtn"]
+[ext_resource type="Texture2D" uid="uid://28f5n2vpwuyw" path="res://pics/planets_button/jupiter_locked.png" id="25_veqc6"]
 [ext_resource type="Texture2D" uid="uid://dcyxtjkqa7ape" path="res://pics/planets_button/neptune_hover.png" id="26_pctvq"]
 [ext_resource type="Texture2D" uid="uid://bv58x5fjwf3r0" path="res://pics/planets_button/saturn_pressed.png" id="27_3bb5l"]
+[ext_resource type="Texture2D" uid="uid://do5nchm7hxv3i" path="res://pics/planets_button/saturn_locked.png" id="28_dpoyd"]
 [ext_resource type="Texture2D" uid="uid://lhr2hhtdsesu" path="res://pics/planets_button/pluto_hover.png" id="28_nn27j"]
 [ext_resource type="Texture2D" uid="uid://b5rh8lh2d80af" path="res://pics/planets_button/uranus_pressed.png" id="30_byvh7"]
+[ext_resource type="Texture2D" uid="uid://6ut2spswug4b" path="res://pics/planets_button/uranus_locked.png" id="31_j60qm"]
 [ext_resource type="Texture2D" uid="uid://6adad3p32u7x" path="res://pics/planets_button/neptune_pressed.png" id="33_kqxga"]
+[ext_resource type="Texture2D" uid="uid://cr4ba81kcvvpk" path="res://pics/planets_button/neptune_locked.png" id="34_s3o5f"]
 [ext_resource type="Texture2D" uid="uid://d2shbhn1f0nrb" path="res://pics/planets_button/pluto_pressed.png" id="36_4xnlr"]
+[ext_resource type="Texture2D" uid="uid://ckxk8myo1edg1" path="res://pics/planets_button/pluto_locked.png" id="37_c6sde"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ig1bk"]
+shader = ExtResource("11_2iddw")
+shader_parameter/speedx = 0.01
 
 [sub_resource type="Animation" id="Animation_eqg0b"]
 resource_name = "idle_bg"
@@ -65,6 +78,9 @@ neptune = ExtResource("9_0tle6")
 pluto = ExtResource("10_o6jhv")
 
 [node name="bg" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ig1bk")
 position = Vector2(489, 357)
 scale = Vector2(1.06562, 1.06562)
 texture = ExtResource("11_c2rsd")
@@ -78,9 +94,11 @@ offset_top = 304.0
 offset_right = 140.0
 offset_bottom = 363.0
 scale = Vector2(0.5, 0.5)
+disabled = true
 texture_normal = ExtResource("12_2fekc")
 texture_pressed = ExtResource("12_b2rjn")
 texture_hover = ExtResource("12_b2rjn")
+texture_disabled = ExtResource("14_xsm53")
 ignore_texture_size = true
 stretch_mode = 3
 
@@ -90,9 +108,11 @@ offset_top = 241.0
 offset_right = 284.0
 offset_bottom = 333.0
 scale = Vector2(0.5, 0.5)
+disabled = true
 texture_normal = ExtResource("14_tv6tl")
 texture_pressed = ExtResource("15_xm45f")
 texture_hover = ExtResource("15_xm45f")
+texture_disabled = ExtResource("17_k5msq")
 ignore_texture_size = true
 stretch_mode = 3
 
@@ -114,9 +134,11 @@ offset_top = 221.0
 offset_right = 490.0
 offset_bottom = 323.0
 scale = Vector2(0.5, 0.5)
+disabled = true
 texture_normal = ExtResource("18_ua4f2")
 texture_pressed = ExtResource("21_v2osg")
 texture_hover = ExtResource("21_v2osg")
+texture_disabled = ExtResource("22_mhr8h")
 ignore_texture_size = true
 stretch_mode = 3
 
@@ -126,9 +148,11 @@ offset_top = 309.0
 offset_right = 666.0
 offset_bottom = 473.0
 scale = Vector2(0.5, 0.5)
+disabled = true
 texture_normal = ExtResource("20_hls8t")
 texture_pressed = ExtResource("24_66xcw")
 texture_hover = ExtResource("24_66xcw")
+texture_disabled = ExtResource("25_veqc6")
 ignore_texture_size = true
 stretch_mode = 3
 
@@ -138,9 +162,11 @@ offset_top = 209.0
 offset_right = 794.0
 offset_bottom = 337.0
 scale = Vector2(0.5, 0.5)
+disabled = true
 texture_normal = ExtResource("22_er4u3")
 texture_pressed = ExtResource("27_3bb5l")
 texture_hover = ExtResource("27_3bb5l")
+texture_disabled = ExtResource("28_dpoyd")
 ignore_texture_size = true
 stretch_mode = 3
 
@@ -150,9 +176,11 @@ offset_top = 311.0
 offset_right = 901.0
 offset_bottom = 403.0
 scale = Vector2(0.5, 0.5)
+disabled = true
 texture_normal = ExtResource("24_djvtn")
 texture_pressed = ExtResource("30_byvh7")
 texture_hover = ExtResource("30_byvh7")
+texture_disabled = ExtResource("31_j60qm")
 ignore_texture_size = true
 stretch_mode = 3
 
@@ -162,9 +190,11 @@ offset_top = 305.0
 offset_right = 1063.0
 offset_bottom = 411.0
 scale = Vector2(0.5, 0.5)
+disabled = true
 texture_normal = ExtResource("26_pctvq")
 texture_pressed = ExtResource("33_kqxga")
 texture_hover = ExtResource("33_kqxga")
+texture_disabled = ExtResource("34_s3o5f")
 ignore_texture_size = true
 stretch_mode = 3
 
@@ -174,9 +204,11 @@ offset_top = 401.0
 offset_right = 1127.0
 offset_bottom = 444.0
 scale = Vector2(0.5, 0.5)
+disabled = true
 texture_normal = ExtResource("28_nn27j")
 texture_pressed = ExtResource("36_4xnlr")
 texture_hover = ExtResource("36_4xnlr")
+texture_disabled = ExtResource("37_c6sde")
 ignore_texture_size = true
 stretch_mode = 3
 

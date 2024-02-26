@@ -80,12 +80,6 @@ earth_mineral = ExtResource("3_2c5ol")
 metadata/_edit_horizontal_guides_ = [648.0, 18.0, 43.0, 43.0, 610.0, -1574.0]
 metadata/_edit_vertical_guides_ = [1152.0, 648.0, 1200.0, 1185.0]
 
-[node name="bg" type="Sprite2D" parent="."]
-self_modulate = Color(0.105882, 1, 0.631373, 1)
-position = Vector2(583, 319)
-scale = Vector2(3, 3)
-texture = ExtResource("4_dey5f")
-
 [node name="spawn_player" type="Marker2D" parent="."]
 position = Vector2(346, 294)
 
@@ -160,6 +154,19 @@ shape = SubResource("CircleShape2D_khlmf")
 libraries = {
 "": SubResource("AnimationLibrary_j0ukp")
 }
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(3840, 3840)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+self_modulate = Color(0.105882, 1, 0.631373, 1)
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3, 3)
+texture = ExtResource("4_dey5f")
+centered = false
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

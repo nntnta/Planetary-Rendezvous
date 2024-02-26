@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://sc8xm7aym51d"]
+[gd_scene load_steps=62 format=3 uid="uid://sc8xm7aym51d"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_f84py"]
 [ext_resource type="Texture2D" uid="uid://wsvqtsgmecit" path="res://pics/player/player_all.png" id="2_1gbtg"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="3_50khj"]
 [ext_resource type="Script" path="res://player/SubViewport.gd" id="5_0ietd"]
 [ext_resource type="Texture2D" uid="uid://dah7umefqolcn" path="res://pics/tools/melee_weapon.png" id="5_df2qi"]
-[ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="6_fiufc"]
+[ext_resource type="Texture2D" uid="uid://s7xh7mvu2s1f" path="res://pics/bg/minimapBorder.png" id="6_fvtdd"]
+[ext_resource type="Texture2D" uid="uid://bxpql37mlm7m" path="res://pics/bg/rocket_pointer.png" id="6_v0r5q"]
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="7_3o6nj"]
+[ext_resource type="Texture2D" uid="uid://dv84qhwisehgg" path="res://pics/bg/minimapBG.png" id="7_e40kj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0g0a7"]
 radius = 17.0294
@@ -1417,7 +1419,11 @@ motion_mode = 1
 script = ExtResource("1_f84py")
 
 [node name="player_interface" parent="." instance=ExtResource("2_bxit4")]
-position = Vector2(-574, -328)
+z_index = 5
+position = Vector2(-575, -327)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_speed = 5000.0
 
 [node name="coll_for_env" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0g0a7")
@@ -1507,12 +1513,13 @@ parameters/swingMelee/blend_position = Vector2(-0.377921, -0.0308371)
 parameters/swingPickaxe/blend_position = Vector2(0.237712, 0.110132)
 parameters/walk/blend_position = Vector2(-0.00480002, 0.647577)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_speed = 5000.0
-
 [node name="minimap" type="CanvasLayer" parent="."]
 
 [node name="minimap_border" type="Sprite2D" parent="minimap"]
+z_index = 1
+position = Vector2(1067.8, 565.8)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("6_fvtdd")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="minimap"]
 anchors_preset = 8
@@ -1520,17 +1527,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 464.0
-offset_top = 212.0
-offset_right = 560.0
-offset_bottom = 308.0
+offset_left = 443.8
+offset_top = 193.8
+offset_right = 539.8
+offset_bottom = 289.8
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="pointer" type="Sprite2D" parent="minimap/SubViewportContainer"]
+texture_filter = 1
+position = Vector2(48, 48)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_v0r5q")
 
 [node name="minimap_player" type="Sprite2D" parent="minimap/SubViewportContainer"]
-self_modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0, 1, 0, 1)
+z_index = 1
 position = Vector2(48, 48)
-scale = Vector2(10.0001, 10.0001)
+scale = Vector2(7, 7)
 texture = SubResource("CanvasTexture_nftiu")
 
 [node name="SubViewport" type="SubViewport" parent="minimap/SubViewportContainer"]
@@ -1541,8 +1556,10 @@ render_target_update_mode = 4
 script = ExtResource("5_0ietd")
 
 [node name="minimap_bg" type="Sprite2D" parent="minimap/SubViewportContainer/SubViewport"]
-self_modulate = Color(1, 1, 0.137255, 1)
-texture = ExtResource("6_fiufc")
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(10, 10)
+texture = ExtResource("7_e40kj")
 
 [node name="minimap_rocket" type="Sprite2D" parent="minimap/SubViewportContainer/SubViewport"]
 z_index = 1

@@ -25,12 +25,6 @@ venus_healPlant = ExtResource("4_2bdhc")
 metadata/_edit_vertical_guides_ = [772.0, 1851.0, 100.0, 91.0, 185.0, 1191.0, -1328.0, 2480.0]
 metadata/_edit_horizontal_guides_ = [-192.0, 1130.0, 228.0, 1041.0, -1566.0, 2224.0]
 
-[node name="bg" type="Sprite2D" parent="."]
-self_modulate = Color(1, 0.517647, 0.337255, 1)
-position = Vector2(574, 324)
-scale = Vector2(3, 3)
-texture = ExtResource("5_hjf8n")
-
 [node name="spawn_player" type="Marker2D" parent="."]
 position = Vector2(626, 160)
 
@@ -70,6 +64,19 @@ shape = SubResource("CircleShape2D_f2w5e")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="spawn_player/StaticBody2D"]
 position = Vector2(-49, -39)
 shape = SubResource("CircleShape2D_f2w5e")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(3840, 3840)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+self_modulate = Color(1, 0.517647, 0.337255, 1)
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3, 3)
+texture = ExtResource("5_hjf8n")
+centered = false
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

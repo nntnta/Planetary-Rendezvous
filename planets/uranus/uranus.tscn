@@ -20,12 +20,6 @@ script = ExtResource("1_xbgjy")
 player = ExtResource("2_t4y1b")
 frostblade = ExtResource("3_oe72h")
 
-[node name="bg" type="Sprite2D" parent="."]
-self_modulate = Color(0, 1, 1, 1)
-position = Vector2(571, 313)
-scale = Vector2(3, 3)
-texture = ExtResource("3_pn5oo")
-
 [node name="spawn_player" type="Marker2D" parent="."]
 position = Vector2(583, 495)
 
@@ -65,6 +59,19 @@ shape = SubResource("CircleShape2D_sjpro")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="spawn_player/StaticBody2D"]
 position = Vector2(-49, -39)
 shape = SubResource("CircleShape2D_sjpro")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(3840, 3840)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+self_modulate = Color(0, 1, 1, 1)
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3, 3)
+texture = ExtResource("3_pn5oo")
+centered = false
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

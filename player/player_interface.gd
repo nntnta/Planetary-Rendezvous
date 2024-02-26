@@ -6,6 +6,7 @@ func _ready():
 	#global.slot = 'inv1'
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#global_position = $"../Camera2D".global_position
 	$hpBar.value = global.hp
 	$hpBar.max_value = global.max_hp
 	update_exp_progress()

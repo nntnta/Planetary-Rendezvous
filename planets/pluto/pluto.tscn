@@ -18,12 +18,6 @@ radius = 14.0357
 script = ExtResource("1_e4tr7")
 player = ExtResource("2_ameq8")
 
-[node name="bg" type="Sprite2D" parent="."]
-self_modulate = Color(0.52549, 0.886275, 1, 1)
-position = Vector2(578, 312)
-scale = Vector2(2, 2)
-texture = ExtResource("3_funxo")
-
 [node name="spawn_player" type="Marker2D" parent="."]
 position = Vector2(546, 502)
 
@@ -63,6 +57,19 @@ shape = SubResource("CircleShape2D_noifj")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="spawn_player/StaticBody2D"]
 position = Vector2(-49, -39)
 shape = SubResource("CircleShape2D_noifj")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2560, 2560)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+self_modulate = Color(0.52549, 0.886275, 1, 1)
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(2, 2)
+texture = ExtResource("3_funxo")
+centered = false
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

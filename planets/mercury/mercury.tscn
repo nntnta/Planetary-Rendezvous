@@ -21,12 +21,7 @@ script = ExtResource("1_hgf0m")
 player = ExtResource("2_tjwwk")
 mercury_mineral = ExtResource("3_sigxt")
 metadata/_edit_horizontal_guides_ = [672.0, -958.0, 1625.0, -946.0, 1589.0]
-metadata/_edit_vertical_guides_ = [1386.0, 1860.0, -687.0, 1854.0, 1848.0]
-
-[node name="bg" type="Sprite2D" parent="."]
-position = Vector2(584, 327)
-scale = Vector2(2, 2)
-texture = ExtResource("4_4o30c")
+metadata/_edit_vertical_guides_ = [1386.0, 1860.0, -687.0, 1854.0, 1848.0, 1861.0]
 
 [node name="spawn_player" type="Marker2D" parent="."]
 position = Vector2(692, 243)
@@ -67,6 +62,18 @@ shape = SubResource("CircleShape2D_urrd2")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="spawn_player/StaticBody2D"]
 position = Vector2(-49, -39)
 shape = SubResource("CircleShape2D_urrd2")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2560, 2560)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(2, 2)
+texture = ExtResource("4_4o30c")
+centered = false
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]
