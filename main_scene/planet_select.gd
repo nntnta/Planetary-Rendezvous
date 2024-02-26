@@ -10,6 +10,15 @@ extends Node2D
 @export var neptune: PackedScene
 @export var pluto: PackedScene
 # Called when the node enters the scene tree for the first time.
+var locked_1 = true
+var locked_2 = true
+var locked_3 = true
+var locked_4 = true
+var locked_5 = true
+var locked_6 = true
+var locked_7 = true
+var locked_8 = true
+var locked_9 = true
 
 func _ready():
 	Transition.takeOffArea = true
@@ -19,22 +28,33 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if global.unlocked_mercury:
+	if global.unlocked_mercury && locked_1:
+		locked_1 = false
 		$planets/mercury.disabled = false
-	if global.unlocked_venus:
+	if global.unlocked_venus && locked_2:
+		locked_2 = false
 		$planets/venus.disabled = false
-	if global.unlocked_mars:
+	if global.unlocked_mars && locked_3:
+		locked_3 = false
 		$planets/mars.disabled = false
-	if global.unlocked_jupiter:
+	if global.unlocked_jupiter && locked_4:
+		locked_4 = false
 		$planets/jupiter.disabled = false
-	if global.unlocked_saturn:
+	if global.unlocked_saturn && locked_5:
+		locked_5 = false
 		$planets/saturn.disabled = false
-	if global.unlocked_uranus:
+	if global.unlocked_uranus && locked_6:
+		locked_6 = false
 		$planets/uranus.disabled = false
-	if global.unlocked_neptune:
+	if global.unlocked_neptune && locked_7:
+		locked_7 = false
 		$planets/neptune.disabled = false
-	if global.unlocked_pluto:
+	if global.unlocked_pluto && locked_8:
+		locked_8 = false
 		$planets/pluto.disabled = false
+	if global.unlocked_pluto && locked_9:
+		locked_9 = false
+		$planets/earth.disabled = false
 
 
 func _on_mercury_pressed():

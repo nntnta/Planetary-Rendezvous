@@ -3,6 +3,8 @@ class_name EnemyFollow
 
 @export var enemy: CharacterBody2D
 @export var move_speed := 35
+@export var unaggro = 350
+@export var attack_range = 60
 var player: CharacterBody2D
 
 func enter():
@@ -14,10 +16,10 @@ func physics_update(delta: float):
 	if $"../..".hp <= 0:
 		transitioned.emit(self, "dies")
 	
-	if direction.length() > 60 :
+	if direction.length() > attack_range :
 		enemy.velocity = direction.normalized() * move_speed * delta
 	else:
 		enemy.velocity = Vector2()
 
-	if direction.length() > 350:
+	if direction.length() > unaggro:
 		transitioned.emit(self, "idle")

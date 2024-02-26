@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmiamd87ii0j2"]
+
+[ext_resource type="Script" path="res://main_scene/retry.gd" id="1_8vw1v"]
+[ext_resource type="Texture2D" uid="uid://bapqsgj77hnn" path="res://pics/player/retry.png" id="2_fa3kr"]
+[ext_resource type="Texture2D" uid="uid://bdoq2t8lplgfi" path="res://pics/player/retry_pressed.png" id="3_t70r2"]
+[ext_resource type="Shader" path="res://main_scene/retry.gdshader" id="4_12joo"]
+[ext_resource type="Texture2D" uid="uid://cj0rdjc3ej54b" path="res://pics/bg/menu_bg.png" id="4_ehobm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rdq2v"]
+shader = ExtResource("4_12joo")
+
+[sub_resource type="Animation" id="Animation_1nryf"]
+resource_name = "fadein"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 3.36),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yc5pl"]
+resource_name = "fadeout"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qympv"]
+_data = {
+"fadein": SubResource("Animation_1nryf"),
+"fadeout": SubResource("Animation_yc5pl")
+}
+
+[node name="retry" type="Node2D"]
+script = ExtResource("1_8vw1v")
+
+[node name="retry" type="TextureButton" parent="."]
+offset_left = 429.0
+offset_top = 174.0
+offset_right = 749.0
+offset_bottom = 494.0
+action_mode = 0
+button_mask = 7
+texture_normal = ExtResource("2_fa3kr")
+texture_pressed = ExtResource("3_t70r2")
+texture_hover = ExtResource("3_t70r2")
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 5
+texture_repeat = 2
+material = SubResource("ShaderMaterial_rdq2v")
+position = Vector2(777, -429)
+scale = Vector2(1.83239, 1.83239)
+texture = ExtResource("4_ehobm")
+
+[node name="transition" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qympv")
+}
+
+[node name="ColorRect" type="ColorRect" parent="transition"]
+visible = false
+self_modulate = Color(0, 0, 0, 0.6)
+offset_left = -57.0
+offset_top = -29.0
+offset_right = 1218.0
+offset_bottom = 722.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="retry" to="." method="_on_retry_pressed"]

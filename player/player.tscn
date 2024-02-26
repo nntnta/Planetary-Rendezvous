@@ -1,8 +1,9 @@
-[gd_scene load_steps=62 format=3 uid="uid://sc8xm7aym51d"]
+[gd_scene load_steps=70 format=3 uid="uid://sc8xm7aym51d"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_f84py"]
 [ext_resource type="Texture2D" uid="uid://wsvqtsgmecit" path="res://pics/player/player_all.png" id="2_1gbtg"]
 [ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="2_bxit4"]
+[ext_resource type="PackedScene" uid="uid://bmiamd87ii0j2" path="res://main_scene/retry.tscn" id="2_u2w1g"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="3_50khj"]
 [ext_resource type="Script" path="res://player/SubViewport.gd" id="5_0ietd"]
 [ext_resource type="Texture2D" uid="uid://dah7umefqolcn" path="res://pics/tools/melee_weapon.png" id="5_df2qi"]
@@ -326,6 +327,18 @@ tracks/10/keys = {
 "update": 1,
 "values": [3, 0]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("tools/melee_weapon/hitbox_melee:monitorable")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_f0g5v"]
 resource_name = "swingMeleeLeft"
@@ -464,6 +477,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("tools/melee_weapon/hitbox_melee:monitorable")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_28u2i"]
@@ -604,6 +629,18 @@ tracks/10/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("tools/melee_weapon/hitbox_melee:monitorable")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_1s3yc"]
 resource_name = "swingMeleeUp"
@@ -742,6 +779,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("tools/melee_weapon/hitbox_melee:monitorable")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_8ohke"]
@@ -1262,9 +1311,40 @@ tracks/0/keys = {
 "values": [44, 45, 46, 47]
 }
 
+[sub_resource type="Animation" id="Animation_12vgj"]
+resource_name = "dead"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(16, 1), Vector2i(17, 1), Vector2i(18, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"retry_scene"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6lqh4"]
 _data = {
 "RESET": SubResource("Animation_guceh"),
+"dead": SubResource("Animation_12vgj"),
 "downIdle": SubResource("Animation_tmd63"),
 "downWalk": SubResource("Animation_khe0a"),
 "leftIdle": SubResource("Animation_jtytc"),
@@ -1282,6 +1362,14 @@ _data = {
 "upIdle": SubResource("Animation_5jbbv"),
 "upWalk": SubResource("Animation_yfr3m")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lkgr6"]
+animation = &"dead"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gu1mm"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_lkgr6")
+blend_point_0/pos = Vector2(0, 0)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rm25g"]
 animation = &"leftIdle"
@@ -1399,8 +1487,18 @@ switch_mode = 1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_frln8"]
 switch_mode = 1
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t243a"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y1qvr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_afpl1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xg0qv"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6065w"]
 states/Start/position = Vector2(226, 100)
+states/dead/node = SubResource("AnimationNodeBlendSpace2D_gu1mm")
+states/dead/position = Vector2(744, 186.754)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_455we")
 states/idle/position = Vector2(403, 100)
 states/swingMelee/node = SubResource("AnimationNodeBlendSpace2D_ewjv4")
@@ -1409,14 +1507,15 @@ states/swingPickaxe/node = SubResource("AnimationNodeBlendSpace2D_tb5b2")
 states/swingPickaxe/position = Vector2(403, 201.377)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_6anui")
 states/walk/position = Vector2(566, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_2tqw4"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_kc5xg"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_ymg3g"), "swingPickaxe", "idle", SubResource("AnimationNodeStateMachineTransition_b1fmo"), "idle", "swingPickaxe", SubResource("AnimationNodeStateMachineTransition_0s7lg"), "swingMelee", "idle", SubResource("AnimationNodeStateMachineTransition_nqq1i"), "idle", "swingMelee", SubResource("AnimationNodeStateMachineTransition_frln8")]
-graph_offset = Vector2(0, -41.2458)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_2tqw4"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_kc5xg"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_ymg3g"), "swingPickaxe", "idle", SubResource("AnimationNodeStateMachineTransition_b1fmo"), "idle", "swingPickaxe", SubResource("AnimationNodeStateMachineTransition_0s7lg"), "swingMelee", "idle", SubResource("AnimationNodeStateMachineTransition_nqq1i"), "idle", "swingMelee", SubResource("AnimationNodeStateMachineTransition_frln8"), "swingMelee", "dead", SubResource("AnimationNodeStateMachineTransition_t243a"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_y1qvr"), "walk", "dead", SubResource("AnimationNodeStateMachineTransition_afpl1"), "swingPickaxe", "dead", SubResource("AnimationNodeStateMachineTransition_xg0qv")]
+graph_offset = Vector2(0, -13.3605)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nftiu"]
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_f84py")
+retry = ExtResource("2_u2w1g")
 
 [node name="player_interface" parent="." instance=ExtResource("2_bxit4")]
 z_index = 5
@@ -1491,6 +1590,7 @@ hframes = 2
 vframes = 3
 
 [node name="hitbox_melee" type="Area2D" parent="tools/melee_weapon" groups=["melee_weapon"]]
+monitorable = false
 
 [node name="coll" type="CollisionShape2D" parent="tools/melee_weapon/hitbox_melee"]
 position = Vector2(-2.75, -2.25)
@@ -1508,6 +1608,7 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_6065w")
 anim_player = NodePath("../AnimationPlayer")
+parameters/dead/blend_position = Vector2(0, 0)
 parameters/idle/blend_position = Vector2(0, 0.647577)
 parameters/swingMelee/blend_position = Vector2(-0.377921, -0.0308371)
 parameters/swingPickaxe/blend_position = Vector2(0.237712, 0.110132)

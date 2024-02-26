@@ -7,6 +7,7 @@ var takeOffArea = false
 var inMenu = false
 var takeoff_clicked = false
 
+
 func change_scene(planet: PackedScene, name):
 	global.shiny_floral = false
 	
@@ -41,3 +42,10 @@ func _input(event):
 		await get_tree().create_timer(0.5, false).timeout
 		get_tree().change_scene_to_packed(menu)
 		$transition.play("fadein")
+
+func retry_pressed():
+	$transition/ColorRect.visible = true
+	$transition.play("fadeout")
+	await get_tree().create_timer(0.5, false).timeout
+	get_tree().change_scene_to_packed(menu)
+	$transition.play("fadein")

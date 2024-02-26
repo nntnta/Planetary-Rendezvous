@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bhxw21aas15t6"]
+[gd_scene load_steps=44 format=3 uid="uid://bhxw21aas15t6"]
 
 [ext_resource type="Script" path="res://main_scene/planet_select.gd" id="1_vqedp"]
 [ext_resource type="PackedScene" uid="uid://daxj17mon6ks8" path="res://planets/mercury/mercury.tscn" id="2_r6nro"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cktm3og6qo08v" path="res://pics/planets_button/earth_pressed.png" id="18_skjcm"]
 [ext_resource type="Texture2D" uid="uid://b1y03tkjy8r3s" path="res://pics/planets_button/mars_hover.png" id="18_ua4f2"]
 [ext_resource type="Texture2D" uid="uid://xr0tls5oxdyq" path="res://pics/planets_button/jupiter_hover.png" id="20_hls8t"]
+[ext_resource type="Texture2D" uid="uid://bku3bff8we3ei" path="res://pics/planets_button/earth_locked.png" id="21_82ehy"]
 [ext_resource type="Texture2D" uid="uid://dywketmo33yqh" path="res://pics/planets_button/mars_pressed.png" id="21_v2osg"]
 [ext_resource type="Texture2D" uid="uid://c044i7ypllh00" path="res://pics/planets_button/saturn_hover.png" id="22_er4u3"]
 [ext_resource type="Texture2D" uid="uid://cvlo61bwmuyr7" path="res://pics/planets_button/mars_locked.png" id="22_mhr8h"]
@@ -126,6 +127,7 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("16_08ohw")
 texture_pressed = ExtResource("18_skjcm")
 texture_hover = ExtResource("18_skjcm")
+texture_disabled = ExtResource("21_82ehy")
 ignore_texture_size = true
 stretch_mode = 3
 

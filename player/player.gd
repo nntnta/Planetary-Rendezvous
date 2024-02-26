@@ -2,9 +2,12 @@ extends CharacterBody2D
 
 var SPEED = 15000.0 
 var swing = false
+var dead = false
+@export var retry : PackedScene
 #var melee_dmg = 1
 
 func _ready():
+	dead = false
 	$tools/pickaxe/hitbox/coll.disabled = true
 	$tools/pickaxe/pickaxe.visible = false
 	$tools/melee_weapon/hitbox_melee/coll.disabled = true
@@ -12,7 +15,10 @@ func _ready():
 	#global.silver_pickaxe_drop = false
 
 func _process(delta):
-	pass
+	if !dead && global.hp <= 0:
+		dead = true
+		$AnimationTree.get("parameters/playback").travel("dead")
+		#$AnimationPlayer.play('dead')
 	#camera_border(get_parent().editor_description)
 
 func _physics_process(delta):
@@ -25,10 +31,10 @@ func _physics_process(delta):
 		#anim_frostblade_change('swingMeleeRight')
 		#anim_frostblade_change('swingMeleeUp')
 		
-	if velocity == Vector2.ZERO && !swing:
+	if velocity == Vector2.ZERO && !swing && !dead:
 		$AnimationTree.get("parameters/playback").travel("idle")
 	
-	elif !swing:
+	elif !swing && !dead:
 		$AnimationTree.get("parameters/playback").travel("walk")
 		$AnimationTree.set("parameters/idle/blend_position", velocity)
 		$AnimationTree.set("parameters/walk/blend_position", velocity)
@@ -44,13 +50,13 @@ func _physics_process(delta):
 
 	
 func _input(event):
-	if event.is_action_pressed("leftClick", false) && !swing && !global.bronze_pickaxe_drop && global.slot == 'inv1':
+	if event.is_action_pressed("leftClick", false) && !swing && !global.bronze_pickaxe_drop && global.slot == 'inv1' && !dead:
 		$AnimationTree.set("parameters/swingPickaxe/blend_position", global_position.direction_to(get_global_mouse_position()))
 		$AnimationTree.set("parameters/idle/blend_position", global_position.direction_to(get_global_mouse_position()))
 		swing = true
 		$AnimationTree.get("parameters/playback").travel("swingPickaxe")
 		
-	if event.is_action_pressed("leftClick", false) && !swing && (!global.basic_baton_drop or !global.frostblade_drop ) && global.slot == 'inv2':
+	if event.is_action_pressed("leftClick", false) && !dead && !swing && (!global.basic_baton_drop or !global.frostblade_drop ) && global.slot == 'inv2':
 		$AnimationTree.set("parameters/swingMelee/blend_position", global_position.direction_to(get_global_mouse_position()))
 		$AnimationTree.set("parameters/idle/blend_position", global_position.direction_to(get_global_mouse_position()))
 		swing = true
@@ -63,7 +69,7 @@ func end_swinging():
 
 
 func _on_hitbox_area_entered(area):
-	if area.is_in_group('enemy_attack'):
+	if area.is_in_group('enemy_attack') && !dead:
 		if $sprite.self_modulate == Color(1,1,1):
 			global.hp -= 1
 			$sprite.self_modulate = Color(100,100,100)
@@ -161,3 +167,6 @@ func camera_border(planet):
 			$Camera2D.limit_top		= -946
 			$Camera2D.limit_right	= 1848
 			$Camera2D.limit_bottom	= 1595
+
+func retry_scene():
+	get_tree().change_scene_to_packed(retry)

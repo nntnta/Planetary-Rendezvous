@@ -171,9 +171,11 @@ _data = {
 }
 
 [node name="orange_critter" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_wuueu")
 
 [node name="body" type="CharacterBody2D" parent="."]
+y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("2_g5gka")
 
@@ -181,6 +183,7 @@ script = ExtResource("2_g5gka")
 shape = SubResource("CircleShape2D_coueb")
 
 [node name="sprite" type="Sprite2D" parent="body"]
+y_sort_enabled = true
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_kaqfl")
 region_enabled = true

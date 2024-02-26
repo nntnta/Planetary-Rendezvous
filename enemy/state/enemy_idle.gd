@@ -3,6 +3,7 @@ class_name  EnemyIdle
 
 @export var enemy: CharacterBody2D
 @export var move_speed := 10
+@export var search_range = 200
 var player: CharacterBody2D
 var move_direction: Vector2
 var wander_time : float
@@ -29,5 +30,5 @@ func physics_update(delta: float):
 		enemy.velocity = move_direction * move_speed * delta
 	
 	var direction = player.global_position - enemy.global_position
-	if direction.length() < 200:
+	if direction.length() < search_range:
 		transitioned.emit(self, "follow")
