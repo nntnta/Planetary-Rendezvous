@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://unvxioa0yyk1"]
+[gd_scene load_steps=9 format=3 uid="uid://unvxioa0yyk1"]
 
 [ext_resource type="Script" path="res://planets/saturn/saturn.gd" id="1_1f5vk"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_38etp"]
+[ext_resource type="PackedScene" uid="uid://oweomtxd7uvm" path="res://enemy/green_critter.tscn" id="3_ewirs"]
 [ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="3_tpbgs"]
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="4_4ks05"]
 
@@ -17,6 +18,9 @@ radius = 14.0357
 [node name="saturn" type="Node2D"]
 script = ExtResource("1_1f5vk")
 player = ExtResource("2_38etp")
+green_critter = ExtResource("3_ewirs")
+metadata/_edit_horizontal_guides_ = [0.0]
+metadata/_edit_vertical_guides_ = [1365.0]
 
 [node name="spawn_player" type="Marker2D" parent="."]
 position = Vector2(268, 386)

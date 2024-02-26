@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bhxw21aas15t6"]
+[gd_scene load_steps=43 format=3 uid="uid://bhxw21aas15t6"]
 
 [ext_resource type="Script" path="res://main_scene/planet_select.gd" id="1_vqedp"]
 [ext_resource type="PackedScene" uid="uid://daxj17mon6ks8" path="res://planets/mercury/mercury.tscn" id="2_r6nro"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://cr4ba81kcvvpk" path="res://pics/planets_button/neptune_locked.png" id="34_s3o5f"]
 [ext_resource type="Texture2D" uid="uid://d2shbhn1f0nrb" path="res://pics/planets_button/pluto_pressed.png" id="36_4xnlr"]
 [ext_resource type="Texture2D" uid="uid://ckxk8myo1edg1" path="res://pics/planets_button/pluto_locked.png" id="37_c6sde"]
+[ext_resource type="Texture2D" uid="uid://3en48qxky21d" path="res://loots/uniques/planets_unique_reward.png" id="39_cl55c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ig1bk"]
 shader = ExtResource("11_2iddw")
@@ -78,7 +79,7 @@ neptune = ExtResource("9_0tle6")
 pluto = ExtResource("10_o6jhv")
 
 [node name="bg" type="Sprite2D" parent="."]
-texture_filter = 1
+texture_filter = 5
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ig1bk")
 position = Vector2(489, 357)
@@ -212,7 +213,81 @@ texture_disabled = ExtResource("37_c6sde")
 ignore_texture_size = true
 stretch_mode = 3
 
+[node name="unique_reward" type="Node2D" parent="."]
+
+[node name="mercury" type="Sprite2D" parent="unique_reward"]
+visible = false
+position = Vector2(102, 275)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("39_cl55c")
+hframes = 4
+vframes = 2
+
+[node name="venus" type="Sprite2D" parent="unique_reward"]
+visible = false
+position = Vector2(222, 212)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("39_cl55c")
+hframes = 4
+vframes = 2
+frame = 1
+
+[node name="mars" type="Sprite2D" parent="unique_reward"]
+visible = false
+position = Vector2(416, 196)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("39_cl55c")
+hframes = 4
+vframes = 2
+frame = 2
+
+[node name="jupiter" type="Sprite2D" parent="unique_reward"]
+visible = false
+position = Vector2(545, 275)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("39_cl55c")
+hframes = 4
+vframes = 2
+frame = 3
+
+[node name="saturn" type="Sprite2D" parent="unique_reward"]
+visible = false
+position = Vector2(689, 176)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("39_cl55c")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="uranus" type="Sprite2D" parent="unique_reward"]
+visible = false
+position = Vector2(836, 276)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("39_cl55c")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="neptune" type="Sprite2D" parent="unique_reward"]
+visible = false
+position = Vector2(980, 274)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("39_cl55c")
+hframes = 4
+vframes = 2
+frame = 6
+
+[node name="pluto" type="Sprite2D" parent="unique_reward"]
+visible = false
+position = Vector2(1091, 374)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("39_cl55c")
+hframes = 4
+vframes = 2
+frame = 7
+
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position = Vector2(574, 312)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
