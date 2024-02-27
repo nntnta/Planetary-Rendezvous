@@ -14,7 +14,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if global.unique_jupiter_dropped && $unique:
+		$unique.queue_free()
 
 func orangeCritter_spawn():
 	var i = 0

@@ -11,14 +11,50 @@
 		"ATK" : 0
 	},
 	
-	"2" : {
-		"texture" : "mineral_green.png",
+	"mercury" : {
+		"texture" : "unique_mercury.png",
 		"slot_type" : 0,
 		"ATK" : 0
 	},
 	
-	"3" : {
-		"texture" : "mineral_red.png",
+	"venus" : {
+		"texture" : "unique_venus.png",
+		"slot_type" : 0,
+		"ATK" : 0
+	},
+	
+	"mars" : {
+		"texture" : "unique_mars.png",
+		"slot_type" : 0,
+		"ATK" : 0
+	},
+	
+	"jupiter" : {
+		"texture" : "unique_jupiter.png",
+		"slot_type" : 0,
+		"ATK" : 0
+	},
+	
+	"saturn" : {
+		"texture" : "unique_saturn.png",
+		"slot_type" : 0,
+		"ATK" : 0
+	},
+	
+	"uranus" : {
+		"texture" : "unique_uranus.png",
+		"slot_type" : 0,
+		"ATK" : 0
+	},
+	
+	"neptune" : {
+		"texture" : "unique_neptune.png",
+		"slot_type" : 0,
+		"ATK" : 0
+	},
+	
+	"pluto" : {
+		"texture" : "unique_pluto.png",
 		"slot_type" : 0,
 		"ATK" : 0
 	}

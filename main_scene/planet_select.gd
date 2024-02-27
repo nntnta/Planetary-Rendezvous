@@ -56,6 +56,22 @@ func _process(delta):
 		locked_9 = false
 		$planets/earth.disabled = false
 
+	if global.unique_mercury_dropped:
+		$unique_reward/mercury.visible = true
+	if global.unique_venus_dropped:
+		$unique_reward/venus.visible = true
+	if global.unique_mars_dropped:
+		$unique_reward/mars.visible = true
+	if global.unique_jupiter_dropped:
+		$unique_reward/jupiter.visible = true
+	if global.unique_saturn_dropped:
+		$unique_reward/saturn.visible = true
+	if global.unique_uranus_dropped:
+		$unique_reward/uranus.visible = true
+	if global.unique_neptune_dropped:
+		$unique_reward/neptune.visible = true
+	if global.unique_pluto_dropped:
+		$unique_reward/pluto.visible = true
 
 func _on_mercury_pressed():
 	$planets/mercury.disabled = true

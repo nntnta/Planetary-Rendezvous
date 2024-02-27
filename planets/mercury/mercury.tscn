@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://daxj17mon6ks8"]
+[gd_scene load_steps=10 format=3 uid="uid://daxj17mon6ks8"]
 
 [ext_resource type="Script" path="res://planets/mercury/mercury.gd" id="1_hgf0m"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_tjwwk"]
 [ext_resource type="PackedScene" uid="uid://bc82m3np056ip" path="res://loots/minerals.tscn" id="3_sigxt"]
 [ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="4_4o30c"]
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="5_e35jp"]
+[ext_resource type="PackedScene" uid="uid://mm1dfgdynt77" path="res://loots/uniques/unique_reward.tscn" id="6_qt4dg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1o2uy"]
 radius = 73.0274
@@ -74,6 +75,9 @@ texture_repeat = 2
 scale = Vector2(2, 2)
 texture = ExtResource("4_4o30c")
 centered = false
+
+[node name="unique" parent="." instance=ExtResource("6_qt4dg")]
+position = Vector2(719, 746)
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

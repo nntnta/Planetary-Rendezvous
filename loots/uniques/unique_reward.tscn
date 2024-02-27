@@ -1,0 +1,117 @@
+[gd_scene load_steps=8 format=3 uid="uid://mm1dfgdynt77"]
+
+[ext_resource type="Script" path="res://loots/uniques/unique_reward.gd" id="1_3fii2"]
+[ext_resource type="Texture2D" uid="uid://3en48qxky21d" path="res://loots/uniques/planets_unique_reward.png" id="2_o03on"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vdqlu"]
+radius = 54.0093
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8jnq5"]
+radius = 22.2036
+
+[sub_resource type="Animation" id="Animation_lrykn"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 1.6),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(0, -5), Vector2(0, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(0.27, 0.23), Vector2(0.24, 0.26)]
+}
+
+[sub_resource type="Animation" id="Animation_qdxwy"]
+resource_name = "pop_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 2, 2),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(0.4, 0.4), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"picked"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_11l4x"]
+_data = {
+"idle": SubResource("Animation_lrykn"),
+"pop_up": SubResource("Animation_qdxwy")
+}
+
+[node name="unique" type="Node2D"]
+script = ExtResource("1_3fii2")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 3.4)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_o03on")
+hframes = 4
+vframes = 4
+
+[node name="grabBox" type="Area2D" parent="."]
+
+[node name="coll" type="CollisionShape2D" parent="grabBox"]
+shape = SubResource("CircleShape2D_vdqlu")
+
+[node name="coll_for_env" type="StaticBody2D" parent="."]
+
+[node name="coll" type="CollisionShape2D" parent="coll_for_env"]
+shape = SubResource("CircleShape2D_8jnq5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_11l4x")
+}
+
+[connection signal="area_entered" from="grabBox" to="." method="_on_grab_box_area_entered"]
+[connection signal="area_exited" from="grabBox" to="." method="_on_grab_box_area_exited"]

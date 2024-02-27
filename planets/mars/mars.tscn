@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8y5q7rqiee2v"]
+[gd_scene load_steps=16 format=3 uid="uid://b8y5q7rqiee2v"]
 
 [ext_resource type="Script" path="res://planets/mars/mars.gd" id="1_g8fur"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_ax6wt"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="5_u4saq"]
 [ext_resource type="Script" path="res://planets/mars/starter_baton.gd" id="6_5yubr"]
 [ext_resource type="Texture2D" uid="uid://dah7umefqolcn" path="res://pics/tools/melee_weapon.png" id="7_hwfxb"]
+[ext_resource type="PackedScene" uid="uid://mm1dfgdynt77" path="res://loots/uniques/unique_reward.tscn" id="8_qoc37"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mpylk"]
 radius = 73.03
@@ -168,6 +169,9 @@ texture_repeat = 2
 scale = Vector2(3, 3)
 texture = ExtResource("4_ed7jo")
 centered = false
+
+[node name="unique" parent="." instance=ExtResource("8_qoc37")]
+position = Vector2(215, 426)
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

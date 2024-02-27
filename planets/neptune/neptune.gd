@@ -12,7 +12,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if global.unique_neptune_dropped && $unique:
+		$unique.queue_free()
 
 
 func _on_takeoff_area_entered(area):

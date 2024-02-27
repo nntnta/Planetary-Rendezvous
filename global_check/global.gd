@@ -78,3 +78,14 @@ var exp_neptune = 0
 var exp_uranus = 0
 var exp_pluto = 0
 #planet exp------
+
+#uniques
+var unique_mercury_dropped = false
+var unique_venus_dropped = false
+var unique_mars_dropped = false
+var unique_jupiter_dropped = false
+var unique_saturn_dropped = false
+var unique_uranus_dropped = false
+var unique_neptune_dropped = false
+var unique_pluto_dropped = false
+#uniques

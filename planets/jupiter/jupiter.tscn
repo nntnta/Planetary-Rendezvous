@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://2fn8jb7l7xpi"]
+[gd_scene load_steps=16 format=3 uid="uid://2fn8jb7l7xpi"]
 
 [ext_resource type="Script" path="res://planets/jupiter/jupiter.gd" id="1_2rx63"]
 [ext_resource type="PackedScene" uid="uid://br5vkv7cpawkf" path="res://enemy/orange_critter.tscn" id="2_pgxa8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="4_meer0"]
 [ext_resource type="Script" path="res://planets/jupiter/starter_ranged.gd" id="5_qw25a"]
 [ext_resource type="Texture2D" uid="uid://dqed8q3c778bw" path="res://pics/tools/ranged_weapon.png" id="6_g6px3"]
+[ext_resource type="PackedScene" uid="uid://mm1dfgdynt77" path="res://loots/uniques/unique_reward.tscn" id="8_7ccii"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ugq43"]
 radius = 73.03
@@ -73,6 +74,7 @@ _data = {
 }
 
 [node name="jupiter" type="Node2D"]
+editor_description = "jupiter"
 script = ExtResource("1_2rx63")
 orange_critter = ExtResource("2_pgxa8")
 player = ExtResource("2_r5jse")
@@ -166,6 +168,9 @@ texture_repeat = 2
 scale = Vector2(4, 4)
 texture = ExtResource("3_m7dp1")
 centered = false
+
+[node name="unique" parent="." instance=ExtResource("8_7ccii")]
+position = Vector2(476, 848)
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]
