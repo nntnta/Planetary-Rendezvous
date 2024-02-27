@@ -40,7 +40,7 @@ func _input(event):
 		player_in = false
 		global.frostblade_drop = false
 		
-		global.melee_dmg = 2
+		global.melee_dmg += 2
 		$"../player".anim_frostblade_change('swingMeleeDown')
 		$"../player".anim_frostblade_change('swingMeleeLeft')
 		$"../player".anim_frostblade_change('swingMeleeRight')

@@ -4,6 +4,7 @@ var heal_factor_cd = 3
 func _process(delta):
 	max_hp = 10 + floor(exp_earth/2)
 	extra_speed = exp_mercury * 500
+	max_ammo = 20 + exp_jupiter
 	if exp_earth >= 1 && exp_mars >= 1 && exp_mercury >= 1 && exp_venus >= 1:
 		silver_pickaxe_drop = false
 	
@@ -61,7 +62,9 @@ var unlimited_ammo_dropped = false
 var hp = 10
 var max_hp = 10
 var extra_speed = 0
-var melee_dmg = 1
+var melee_dmg = 0.5
+var ammo = 20
+var max_ammo = 20
 #stats
 
 #planet exp------

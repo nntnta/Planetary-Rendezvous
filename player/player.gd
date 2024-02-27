@@ -64,7 +64,8 @@ func _input(event):
 		swing = true
 		$AnimationTree.get("parameters/playback").travel("swingMelee")
 	
-	if event.is_action_pressed("leftClick", false) && !dead && !shot && (!global.star_shooter_drop or !global.banana_shooter_drop ) && global.slot == 'inv3':
+	if event.is_action_pressed("leftClick", false) && (global.ammo > 0 or global.unlimited_ammo_dropped) && !dead && !shot && (!global.star_shooter_drop or !global.banana_shooter_drop ) && global.slot == 'inv3':
+		global.ammo -= 1
 		var bullet_spawner = bullet.instantiate()
 		bullet_spawner.position = $sprite.global_position
 		get_tree().current_scene.call_deferred('add_child', bullet_spawner)

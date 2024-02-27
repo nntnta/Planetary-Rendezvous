@@ -65,12 +65,14 @@ func _on_drops_area_entered(area):
 					#print(global.mineral_mercury)
 			'1':
 				global.exp_venus += 1
+				global.melee_dmg += 0.1
 				$mineral.visible = false
 				$AnimationPlayer.play('damage')
 				#if global.mineral_venus > 4:
 					#print(global.mineral_venus)
 			'2':
 				global.exp_earth += 1
+				global.hp += 1
 				$mineral.visible = false
 				$AnimationPlayer.play('max_hp')
 				#if global.mineral_earth > 4:

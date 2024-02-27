@@ -1,17 +1,25 @@
 extends Node2D
-
+var infinite = load("res://pics/player/bars/ammo_bar_infinite.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$hpBar/hp.visible = false
+	$ammoBar/ammo.visible = false
+	$ammoBar.visible = false
 	#global.slot = 'inv1'
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#global_position = $"../Camera2D".global_position
 	$hpBar.value = global.hp
 	$hpBar.max_value = global.max_hp
+	$ammoBar.value = global.ammo
+	$ammoBar.max_value = global.max_ammo
 	update_exp_progress()
 	
+	$ammoBar/ammo.text = str($ammoBar.value) + ' / ' + str($ammoBar.max_value)
 	$hpBar/hp.text = str($hpBar.value) + ' / ' + str($hpBar.max_value)
+	
+	if !global.star_shooter_drop:
+		$ammoBar.visible = true
 	
 	if !global.bronze_pickaxe_drop:
 		$inv/inv1/inv_1.visible = true
@@ -39,6 +47,9 @@ func _process(delta):
 	if !global.banana_shooter_drop:
 		$inv/inv3/inv_3.visible = true
 		$inv/inv3/inv_3.frame_coords = Vector2(1,0)
+		
+	if global.unlimited_ammo_dropped:
+		$ammoBar.texture_over = infinite
 		
 func _input(event):
 	if event.is_action_pressed("1") or global.slot == 'inv1':
@@ -77,3 +88,11 @@ func update_exp_progress():
 	$exp/uranus.value = global.exp_uranus
 	$exp/neptune.value = global.exp_neptune
 	$exp/pluto.value = global.exp_pluto
+
+
+func _on_ammo_bar_mouse_entered():
+	$ammoBar/ammo.visible = true
+
+
+func _on_ammo_bar_mouse_exited():
+	$ammoBar/ammo.visible = false

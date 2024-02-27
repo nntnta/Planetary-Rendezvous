@@ -12,6 +12,7 @@ var being_knocked_back = true
 var kb_modifier = 35 + global.exp_jupiter
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$body/status.visible = false
 	player_pos = $"../player".position
 	if randi_range(0,100) < 6+global.exp_mars && !global.shiny_orange_critter && !global.unlimited_ammo_dropped:
 		$body/sprite.self_modulate = Color(40,1,11)

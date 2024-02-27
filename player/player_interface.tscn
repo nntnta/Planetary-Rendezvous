@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bob5f2sxvlmc0"]
+[gd_scene load_steps=33 format=3 uid="uid://bob5f2sxvlmc0"]
 
 [ext_resource type="Script" path="res://player/player_interface.gd" id="1_ww167"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="2_loui6"]
@@ -10,8 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://c5cxbo8yjk7ug" path="res://pics/player/bars/healthBar.png" id="7_7psh7"]
 [ext_resource type="Texture2D" uid="uid://c2umce6sg7gt0" path="res://pics/player/bars/healthProgress.png" id="8_fg3tb"]
 [ext_resource type="Texture2D" uid="uid://cn2sbfsul03n8" path="res://pics/planets_button/mercury.png" id="9_3fnrw"]
+[ext_resource type="Texture2D" uid="uid://wiijb7muhuo0" path="res://pics/player/bars/ammo_bar.png" id="10_3prnv"]
 [ext_resource type="Texture2D" uid="uid://d36hyfbje0060" path="res://pics/planets_button/venus.png" id="10_lnrsc"]
 [ext_resource type="Texture2D" uid="uid://dxns17ees5sig" path="res://pics/planets_button/mercury_pressed.png" id="10_w4dw0"]
+[ext_resource type="Texture2D" uid="uid://bed5ajpup4s3d" path="res://pics/player/bars/ammo_bar_progress.png" id="11_gobfn"]
 [ext_resource type="Texture2D" uid="uid://0dyibmytmmev" path="res://pics/planets_button/earth.png" id="11_quxlj"]
 [ext_resource type="Texture2D" uid="uid://b8n3egn37yxef" path="res://pics/planets_button/mars.png" id="12_by5k7"]
 [ext_resource type="Texture2D" uid="uid://c6xfpsno23eoq" path="res://pics/planets_button/venus_pressed.png" id="12_xyxij"]
@@ -169,6 +171,25 @@ theme_override_font_sizes/font_size = 41
 text = "20 / 20
 "
 
+[node name="ammoBar" type="TextureProgressBar" parent="."]
+offset_left = -5.0
+offset_top = 44.0
+offset_right = 315.0
+offset_bottom = 204.0
+scale = Vector2(0.5, 0.5)
+value = 100.0
+texture_under = ExtResource("10_3prnv")
+texture_progress = ExtResource("11_gobfn")
+texture_progress_offset = Vector2(80, 70)
+
+[node name="ammo" type="Label" parent="ammoBar"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 52.0
+offset_right = 336.0
+offset_bottom = 109.0
+theme_override_font_sizes/font_size = 41
+
 [node name="exp" type="Node2D" parent="."]
 position = Vector2(100, -3)
 
@@ -278,3 +299,5 @@ libraries = {
 
 [connection signal="mouse_entered" from="hpBar" to="." method="_on_hp_bar_mouse_entered"]
 [connection signal="mouse_exited" from="hpBar" to="." method="_on_hp_bar_mouse_exited"]
+[connection signal="mouse_entered" from="ammoBar" to="." method="_on_ammo_bar_mouse_entered"]
+[connection signal="mouse_exited" from="ammoBar" to="." method="_on_ammo_bar_mouse_exited"]

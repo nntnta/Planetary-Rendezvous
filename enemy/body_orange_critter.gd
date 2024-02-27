@@ -7,7 +7,6 @@ func _physics_process(delta):
 	if $"..".hp <= 0 && !dead:
 		if !$"..".pink_variant:
 			dead = true
-			global.exp_jupiter += 1
 			$"../AnimationPlayer".play('dead')
 		if $"..".pink_variant:
 			var drop_spawner = rare_drop.instantiate()
@@ -17,6 +16,8 @@ func _physics_process(delta):
 			dead = true
 			global.exp_jupiter += 1
 			$"../AnimationPlayer".play('dead')
+		global.exp_jupiter += 1
+		global.ammo += 1
 			
 	elif !dead:
 		if last_velocity.x > 0:
