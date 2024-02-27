@@ -170,7 +170,8 @@ texture = ExtResource("3_m7dp1")
 centered = false
 
 [node name="unique" parent="." instance=ExtResource("8_7ccii")]
-position = Vector2(476, 848)
+visible = false
+position = Vector2(-476, 254)
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]

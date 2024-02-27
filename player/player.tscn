@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://sc8xm7aym51d"]
+[gd_scene load_steps=74 format=3 uid="uid://sc8xm7aym51d"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_f84py"]
 [ext_resource type="Texture2D" uid="uid://wsvqtsgmecit" path="res://pics/player/player_all.png" id="2_1gbtg"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="7_3o6nj"]
 [ext_resource type="Texture2D" uid="uid://dv84qhwisehgg" path="res://pics/bg/minimapBG.png" id="7_e40kj"]
 [ext_resource type="Texture2D" uid="uid://dqed8q3c778bw" path="res://pics/tools/ranged_weapon.png" id="8_gk7bs"]
+[ext_resource type="Texture2D" uid="uid://6f73vbft3uvc" path="res://pics/player/unique_minimap.png" id="14_6de3v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0g0a7"]
 radius = 17.0294
@@ -1674,6 +1675,13 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="unique_pointer" type="Sprite2D" parent="minimap/SubViewportContainer"]
+self_modulate = Color(0.360784, 0.94902, 0, 1)
+texture_filter = 1
+position = Vector2(48, 48)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_v0r5q")
+
 [node name="pointer" type="Sprite2D" parent="minimap/SubViewportContainer"]
 texture_filter = 1
 position = Vector2(48, 48)
@@ -1704,6 +1712,11 @@ texture = ExtResource("7_e40kj")
 z_index = 1
 texture = ExtResource("7_3o6nj")
 offset = Vector2(0, -250)
+
+[node name="unique" type="Sprite2D" parent="minimap/SubViewportContainer/SubViewport"]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("14_6de3v")
 
 [node name="Camera2D" type="Camera2D" parent="minimap/SubViewportContainer/SubViewport"]
 zoom = Vector2(0.05, 0.05)

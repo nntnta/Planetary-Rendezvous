@@ -1,12 +1,30 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmsn0nag6ndl8"]
+[gd_scene load_steps=29 format=3 uid="uid://bmsn0nag6ndl8"]
 
 [ext_resource type="Script" path="res://planets/earth/earth.gd" id="1_48bx1"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_qkox3"]
 [ext_resource type="PackedScene" uid="uid://bc82m3np056ip" path="res://loots/minerals.tscn" id="3_2c5ol"]
 [ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="4_dey5f"]
+[ext_resource type="Texture2D" uid="uid://cq8o14gqpcheg" path="res://pics/player/earth_stabilizer.png" id="4_fa432"]
 [ext_resource type="Script" path="res://planets/earth/starter_pickaxe.gd" id="5_8v7g6"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="5_507p3"]
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="5_tw04c"]
+[ext_resource type="Texture2D" uid="uid://bhdrpa0ubnaap" path="res://pics/inventory_stuff/unique_mercury.png" id="5_ukydk"]
+[ext_resource type="Texture2D" uid="uid://dyjkd7hpqdgn0" path="res://pics/inventory_stuff/unique_venus.png" id="6_8t77f"]
+[ext_resource type="Texture2D" uid="uid://pdmjqy67h5nk" path="res://pics/inventory_stuff/unique_mars.png" id="7_lnmbh"]
+[ext_resource type="Texture2D" uid="uid://cdpq3bute4ryg" path="res://pics/inventory_stuff/unique_jupiter.png" id="8_ytc8m"]
+[ext_resource type="Texture2D" uid="uid://b6rv86a6fr7it" path="res://pics/inventory_stuff/unique_saturn.png" id="9_ysi2i"]
+[ext_resource type="Texture2D" uid="uid://bncqyv4ur5e5x" path="res://pics/inventory_stuff/unique_uranus.png" id="10_x8o0v"]
+[ext_resource type="Texture2D" uid="uid://b33x7nya0mtbi" path="res://pics/inventory_stuff/unique_neptune.png" id="11_wl36s"]
+[ext_resource type="Texture2D" uid="uid://cv41x0lrgl7bp" path="res://pics/inventory_stuff/unique_pluto.png" id="12_vc5qo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ltwxk"]
+radius = 135.015
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrtqd"]
+radius = 114.004
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sqmvg"]
+radius = 218.662
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_od74y"]
 radius = 73.03
@@ -72,6 +90,317 @@ _data = {
 "pop_up": SubResource("Animation_3cq2y")
 }
 
+[sub_resource type="Animation" id="Animation_3bako"]
+resource_name = "unique_offered"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("stabilizer/uniques/unique1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("stabilizer/uniques/unique1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, -121), Vector2(1, -71)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("stabilizer/uniques/unique1:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("stabilizer/uniques/unique2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("stabilizer/uniques/unique2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(61, -110), Vector2(61, -60)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("stabilizer/uniques/unique2:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("stabilizer/uniques/unique3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("stabilizer/uniques/unique3:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(105, -74), Vector2(105, -24)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("stabilizer/uniques/unique3:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("stabilizer/uniques/unique4:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("stabilizer/uniques/unique4:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(82, -26), Vector2(82, 24)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("stabilizer/uniques/unique4:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("stabilizer/uniques/unique5:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("stabilizer/uniques/unique5:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 4), Vector2(1, 54)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("stabilizer/uniques/unique5:self_modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("stabilizer/uniques/unique6:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("stabilizer/uniques/unique6:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(2.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-82, -26), Vector2(-82, 24)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("stabilizer/uniques/unique6:self_modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(2.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("stabilizer/uniques/unique7:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("stabilizer/uniques/unique7:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(3, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-105, -74), Vector2(-105, -24)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("stabilizer/uniques/unique7:self_modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(3, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("stabilizer/uniques/unique8:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(3.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("stabilizer/uniques/unique8:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(3.5, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-61, -110), Vector2(-61, -60)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("stabilizer/uniques/unique8:self_modulate")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(3.5, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/24/type = "method"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath(".")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ending"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6i3v1"]
+_data = {
+"unique_offered": SubResource("Animation_3bako")
+}
+
 [node name="earth" type="Node2D"]
 editor_description = "earth"
 script = ExtResource("1_48bx1")
@@ -79,6 +408,76 @@ player = ExtResource("2_qkox3")
 earth_mineral = ExtResource("3_2c5ol")
 metadata/_edit_horizontal_guides_ = [648.0, 18.0, 43.0, 43.0, 610.0, -1574.0]
 metadata/_edit_vertical_guides_ = [1152.0, 648.0, 1200.0, 1185.0]
+
+[node name="stabilizer" type="Node2D" parent="."]
+position = Vector2(360, 1020)
+
+[node name="sprite" type="Sprite2D" parent="stabilizer"]
+texture = ExtResource("4_fa432")
+vframes = 2
+
+[node name="coll_env" type="StaticBody2D" parent="stabilizer"]
+
+[node name="coll" type="CollisionShape2D" parent="stabilizer/coll_env"]
+position = Vector2(0, 23)
+shape = SubResource("CircleShape2D_ltwxk")
+
+[node name="coll2" type="CollisionShape2D" parent="stabilizer/coll_env"]
+position = Vector2(45, 19)
+shape = SubResource("CircleShape2D_jrtqd")
+
+[node name="coll3" type="CollisionShape2D" parent="stabilizer/coll_env"]
+position = Vector2(-47, 19)
+shape = SubResource("CircleShape2D_jrtqd")
+
+[node name="interact" type="Area2D" parent="stabilizer"]
+
+[node name="coll" type="CollisionShape2D" parent="stabilizer/interact"]
+position = Vector2(0, 56)
+shape = SubResource("CircleShape2D_sqmvg")
+debug_color = Color(0.717647, 0.478431, 0.152941, 0.419608)
+
+[node name="uniques" type="Node2D" parent="stabilizer"]
+
+[node name="unique1" type="Sprite2D" parent="stabilizer/uniques"]
+position = Vector2(1, -71)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_ukydk")
+
+[node name="unique2" type="Sprite2D" parent="stabilizer/uniques"]
+position = Vector2(61, -60)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_8t77f")
+
+[node name="unique3" type="Sprite2D" parent="stabilizer/uniques"]
+position = Vector2(105, -24)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_lnmbh")
+
+[node name="unique4" type="Sprite2D" parent="stabilizer/uniques"]
+position = Vector2(82, 24)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_ytc8m")
+
+[node name="unique5" type="Sprite2D" parent="stabilizer/uniques"]
+position = Vector2(1, 54)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_ysi2i")
+
+[node name="unique6" type="Sprite2D" parent="stabilizer/uniques"]
+position = Vector2(-82, 24)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_x8o0v")
+
+[node name="unique7" type="Sprite2D" parent="stabilizer/uniques"]
+position = Vector2(-105, -24)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_wl36s")
+
+[node name="unique8" type="Sprite2D" parent="stabilizer/uniques"]
+position = Vector2(-61, -60)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_vc5qo")
 
 [node name="spawn_player" type="Marker2D" parent="."]
 position = Vector2(346, 294)
@@ -134,6 +533,7 @@ region_enabled = true
 region_rect = Rect2(180, 500, 120, 120)
 
 [node name="hover" type="Sprite2D" parent="natural_drops/starter_pickaxe"]
+visible = false
 rotation = 3.14159
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_507p3")
@@ -168,6 +568,13 @@ scale = Vector2(3, 3)
 texture = ExtResource("4_dey5f")
 centered = false
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6i3v1")
+}
+
+[connection signal="area_entered" from="stabilizer/interact" to="." method="_on_interact_area_entered"]
+[connection signal="area_exited" from="stabilizer/interact" to="." method="_on_interact_area_exited"]
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]
 [connection signal="area_entered" from="natural_drops/starter_pickaxe/grabBox" to="natural_drops/starter_pickaxe" method="_on_grab_box_area_entered"]

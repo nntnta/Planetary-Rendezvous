@@ -9,6 +9,9 @@ var deflected_dead = 0
 var can_be_picked = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if $unique:
+		$unique/coll_for_env/coll.disabled = true
+	
 	if !global.banana_shooter_drop:
 		deflected_dead = 8
 		$natural_drops/altar/banana.visible = false
@@ -31,6 +34,10 @@ func _ready():
 func _process(delta):
 	if global.unique_saturn_dropped && $unique:
 		$unique.queue_free()
+	
+	if global.exp_saturn >= 15 && $unique:
+		$unique/coll_for_env/coll.disabled = false
+		$unique.visible = true
 	
 	if deflected_dead > 0:
 		$natural_drops/altar/leaves.visible = true

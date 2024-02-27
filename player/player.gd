@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var SPEED = 15000.0 
+var SPEED = 20000
 var swing = false
 var dead = false
 var shot = false

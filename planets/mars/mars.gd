@@ -5,6 +5,8 @@ extends Node2D
 @export var mars_mineral: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if $unique:
+		$unique/coll_for_env/coll.disabled = true
 	Transition.takeOffArea = true
 	var player_spawn = player.instantiate()
 	player_spawn.position = current_pos.global_position
@@ -15,7 +17,10 @@ func _ready():
 func _process(delta):
 	if global.unique_mars_dropped && $unique:
 		$unique.queue_free()
-
+	
+	if global.exp_mars >= 10 && $unique:
+		$unique/coll_for_env/coll.disabled = false
+		$unique.visible = true
 
 func _on_takeoff_area_entered(area):
 	if area.is_in_group('player'):

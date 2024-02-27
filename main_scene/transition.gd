@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var menu: PackedScene
-
+@export var good: PackedScene
 var current_scene
 var takeOffArea = false
 var inMenu = false
@@ -48,4 +48,11 @@ func retry_pressed():
 	$transition.play("fadeout")
 	await get_tree().create_timer(0.5, false).timeout
 	get_tree().change_scene_to_packed(menu)
+	$transition.play("fadein")
+	
+func good_ending():
+	$transition/ColorRect.visible = true
+	$transition.play("fadeout")
+	await get_tree().create_timer(0.5, false).timeout
+	get_tree().change_scene_to_packed(good)
 	$transition.play("fadein")

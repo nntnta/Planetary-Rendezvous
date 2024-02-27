@@ -3,7 +3,7 @@ var heal_factor_cd = 3
 
 func _process(delta):
 	max_hp = 10 + floor(exp_earth/2)
-	extra_speed = exp_mercury * 500
+	extra_speed = exp_mercury * 1000
 	max_ammo = 20 + exp_jupiter
 	if exp_earth >= 1 && exp_mars >= 1 && exp_mercury >= 1 && exp_venus >= 1:
 		silver_pickaxe_drop = false
@@ -16,7 +16,9 @@ func _process(delta):
 			heal_factor_cd = 3
 		else:
 			heal_factor_cd = 3
-			
+	
+	if unlocked_jupiter && unlocked_mars&&unlocked_mercury&&unlocked_neptune&&unlocked_pluto&&unlocked_saturn&&unlocked_uranus&&unlocked_venus:
+		unlocked_all_planets = true
 			
 #planets unlocked
 var unlocked_mercury = false
@@ -27,6 +29,7 @@ var unlocked_saturn = false
 var unlocked_uranus = false
 var unlocked_neptune = false
 var unlocked_pluto = false
+var unlocked_all_planets = true
 #planets unlocked
 
 #slots------------------------------------------------------------------------------------------------
