@@ -42,7 +42,7 @@ func _on_hitbox_area_entered(area):
 		var actual_dmg = 2
 		$body/sprite.self_modulate = Color(100,100,100)
 		receive_knockback(area.global_position, actual_dmg)
-		$body/hitbox/attacked2.start()
+		$body/hitbox/attacked.start()
 
 		
 

@@ -50,6 +50,7 @@ var banana_shooter_drop		= true
 #rare------
 var shiny_floral = false
 var shiny_orange_critter = false
+var banana_summoned = false
 #rare------
 
 #items-------

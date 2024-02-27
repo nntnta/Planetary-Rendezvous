@@ -18,7 +18,7 @@ func _process(delta):
 	$ammoBar/ammo.text = str($ammoBar.value) + ' / ' + str($ammoBar.max_value)
 	$hpBar/hp.text = str($hpBar.value) + ' / ' + str($hpBar.max_value)
 	
-	if !global.star_shooter_drop:
+	if !global.star_shooter_drop or !global.banana_shooter_drop:
 		$ammoBar.visible = true
 	
 	if !global.bronze_pickaxe_drop:

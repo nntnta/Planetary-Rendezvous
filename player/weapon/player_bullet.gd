@@ -22,7 +22,7 @@ func _physics_process(delta):
 	if !global.banana_shooter_drop:
 		$sprite.frame_coords = Vector2(1,2)
 		speed = 50000
-		dmg = 1
+		dmg = 2
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

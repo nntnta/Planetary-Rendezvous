@@ -36,7 +36,7 @@ func _on_hitbox_area_entered(area):
 
 
 func _input(event):
-	if event.is_action_pressed("rightClick") && player_in:
+	if event.is_action_pressed("rightClick") && player_in && blade_dropped: 
 		player_in = false
 		global.frostblade_drop = false
 		

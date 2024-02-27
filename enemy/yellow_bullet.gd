@@ -47,6 +47,7 @@ func _on_deflected_area_entered(area):
 		area.get_parent().get_parent().find_child('sprite').self_modulate = Color(100,100,100)
 		area.get_parent().get_parent().find_child('hitbox').find_child('attacked').start()
 		$AnimationPlayer.play('collided')
+		area.get_parent().get_parent().find_child('body').deflected = true
 		area.get_parent().get_parent().hp -= deflected_dmg
 
 
