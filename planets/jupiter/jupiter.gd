@@ -18,7 +18,7 @@ func _process(delta):
 
 func orangeCritter_spawn():
 	var i = 0
-	while  i < 5:
+	while  i < 12:
 		var critter_spawner = orange_critter.instantiate()
 		critter_spawner.position = Vector2i(randi_range(0,600),randi_range(0,700))
 		get_tree().current_scene.call_deferred('add_child', critter_spawner)

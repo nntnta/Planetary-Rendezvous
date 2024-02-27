@@ -179,7 +179,7 @@ script = ExtResource("1_rjbvy")
 shape = SubResource("CircleShape2D_31cuw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.1)
+scale = Vector2(0.25, 0.3)
 texture = ExtResource("1_fmlue")
 hframes = 2
 vframes = 3
@@ -202,6 +202,6 @@ z_index = 2
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_e3skh")
 hframes = 3
-vframes = 2
+vframes = 3
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

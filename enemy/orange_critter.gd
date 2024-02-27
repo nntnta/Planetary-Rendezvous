@@ -6,12 +6,20 @@ var player_pos
 var following = false
 var dead = false
 var flip = randi_range(0,1)
-
+var skin = Color(1,1,1)
+var pink_variant = false
 var being_knocked_back = true
 var kb_modifier = 35 + global.exp_jupiter
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_pos = $"../player".position
+	if randi_range(0,100) < 6+global.exp_mars && !global.shiny_orange_critter && !global.unlimited_ammo_dropped:
+		$body/sprite.self_modulate = Color(40,1,11)
+		skin = Color(40,1,11)
+		max_hp = 10
+		hp = 10
+		pink_variant = true
+		global.shiny_orange_critter = true
 	#if flip == 0:
 		#$body/sprite.flip_h = !$body/sprite.flip_h
 	
@@ -44,4 +52,4 @@ func receive_knockback(dmg_source: Vector2, dmg_received: int):
 		#global_position.move_toward(knockback,1)
 
 func _on_attacked_timeout():
-	$body/sprite.self_modulate = Color(1,1,1)
+	$body/sprite.self_modulate = skin

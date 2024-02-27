@@ -32,6 +32,14 @@ func _process(delta):
 		$inv/inv2/inv_2.visible = true
 		$inv/inv2/inv_2.frame_coords = Vector2(0,0)
 		#$AnimationPlayer.play("just_got_inv2")
+		
+	if !global.star_shooter_drop:
+		$inv/inv3/inv_3.visible = true
+		$inv/inv3/inv_3.frame_coords = Vector2(0,0)
+	if !global.banana_shooter_drop:
+		$inv/inv3/inv_3.visible = true
+		$inv/inv3/inv_3.frame_coords = Vector2(1,0)
+		
 func _input(event):
 	if event.is_action_pressed("1") or global.slot == 'inv1':
 		global.slot = 'inv1'

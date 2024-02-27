@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bob5f2sxvlmc0"]
+[gd_scene load_steps=31 format=3 uid="uid://bob5f2sxvlmc0"]
 
 [ext_resource type="Script" path="res://player/player_interface.gd" id="1_ww167"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="2_loui6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dwpikjkuu4pdd" path="res://pics/tools/inventory_unselected.png" id="4_fbvl1"]
 [ext_resource type="Texture2D" uid="uid://dah7umefqolcn" path="res://pics/tools/melee_weapon.png" id="5_7odhe"]
 [ext_resource type="PackedScene" uid="uid://ctbslfewtlkwv" path="res://player/inventory/inventory.tscn" id="5_kysye"]
+[ext_resource type="Texture2D" uid="uid://dqed8q3c778bw" path="res://pics/tools/ranged_weapon.png" id="6_d4q46"]
 [ext_resource type="Texture2D" uid="uid://c5cxbo8yjk7ug" path="res://pics/player/bars/healthBar.png" id="7_7psh7"]
 [ext_resource type="Texture2D" uid="uid://c2umce6sg7gt0" path="res://pics/player/bars/healthProgress.png" id="8_fg3tb"]
 [ext_resource type="Texture2D" uid="uid://cn2sbfsul03n8" path="res://pics/planets_button/mercury.png" id="9_3fnrw"]
@@ -127,8 +128,9 @@ visible = false
 z_index = 1
 position = Vector2(59, 589)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_loui6")
-region_enabled = true
+texture = ExtResource("6_d4q46")
+hframes = 2
+vframes = 3
 region_rect = Rect2(20, 20, 120, 120)
 
 [node name="inv_3_selected" type="Sprite2D" parent="inv/inv3"]

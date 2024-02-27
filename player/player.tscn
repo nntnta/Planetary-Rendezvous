@@ -1,16 +1,18 @@
-[gd_scene load_steps=70 format=3 uid="uid://sc8xm7aym51d"]
+[gd_scene load_steps=73 format=3 uid="uid://sc8xm7aym51d"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_f84py"]
 [ext_resource type="Texture2D" uid="uid://wsvqtsgmecit" path="res://pics/player/player_all.png" id="2_1gbtg"]
 [ext_resource type="PackedScene" uid="uid://bob5f2sxvlmc0" path="res://player/player_interface.tscn" id="2_bxit4"]
 [ext_resource type="PackedScene" uid="uid://bmiamd87ii0j2" path="res://main_scene/retry.tscn" id="2_u2w1g"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="3_50khj"]
+[ext_resource type="PackedScene" uid="uid://dn8qbdlrwr2wt" path="res://player/weapon/player_bullet.tscn" id="3_v12eq"]
 [ext_resource type="Script" path="res://player/SubViewport.gd" id="5_0ietd"]
 [ext_resource type="Texture2D" uid="uid://dah7umefqolcn" path="res://pics/tools/melee_weapon.png" id="5_df2qi"]
 [ext_resource type="Texture2D" uid="uid://s7xh7mvu2s1f" path="res://pics/bg/minimapBorder.png" id="6_fvtdd"]
 [ext_resource type="Texture2D" uid="uid://bxpql37mlm7m" path="res://pics/bg/rocket_pointer.png" id="6_v0r5q"]
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="7_3o6nj"]
 [ext_resource type="Texture2D" uid="uid://dv84qhwisehgg" path="res://pics/bg/minimapBG.png" id="7_e40kj"]
+[ext_resource type="Texture2D" uid="uid://dqed8q3c778bw" path="res://pics/tools/ranged_weapon.png" id="8_gk7bs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0g0a7"]
 radius = 17.0294
@@ -85,6 +87,48 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("tools/pickaxe:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-514, 263)]
+}
+
+[sub_resource type="Animation" id="Animation_12vgj"]
+resource_name = "dead"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(16, 1), Vector2i(17, 1), Vector2i(18, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"retry_scene"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_tmd63"]
@@ -1311,35 +1355,9 @@ tracks/0/keys = {
 "values": [44, 45, 46, 47]
 }
 
-[sub_resource type="Animation" id="Animation_12vgj"]
-resource_name = "dead"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 0), Vector2i(16, 1), Vector2i(17, 1), Vector2i(18, 1)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"retry_scene"
-}]
-}
+[sub_resource type="Animation" id="Animation_mapg4"]
+resource_name = "shoot"
+length = 0.5
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6lqh4"]
 _data = {
@@ -1351,6 +1369,7 @@ _data = {
 "leftWalk": SubResource("Animation_sw37a"),
 "rightIdle": SubResource("Animation_6bqs1"),
 "rightWalk": SubResource("Animation_fuxj6"),
+"shoot": SubResource("Animation_mapg4"),
 "swingMeleeDown": SubResource("Animation_b6d54"),
 "swingMeleeLeft": SubResource("Animation_f0g5v"),
 "swingMeleeRight": SubResource("Animation_28u2i"),
@@ -1516,6 +1535,7 @@ graph_offset = Vector2(0, -13.3605)
 motion_mode = 1
 script = ExtResource("1_f84py")
 retry = ExtResource("2_u2w1g")
+bullet = ExtResource("3_v12eq")
 
 [node name="player_interface" parent="." instance=ExtResource("2_bxit4")]
 z_index = 5
@@ -1546,9 +1566,9 @@ shape = SubResource("CircleShape2D_y0uib")
 
 [node name="pickaxe" type="Node2D" parent="tools"]
 z_index = 1
+position = Vector2(-514, 263)
 
 [node name="pickaxe" type="Sprite2D" parent="tools/pickaxe"]
-visible = false
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_50khj")
 hframes = 11
@@ -1557,7 +1577,6 @@ frame = 12
 region_rect = Rect2(180, 500, 120, 120)
 
 [node name="pickaxe_silver" type="Sprite2D" parent="tools/pickaxe"]
-visible = false
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_50khj")
 hframes = 11
@@ -1590,12 +1609,31 @@ hframes = 2
 vframes = 3
 
 [node name="hitbox_melee" type="Area2D" parent="tools/melee_weapon" groups=["melee_weapon"]]
-monitorable = false
 
 [node name="coll" type="CollisionShape2D" parent="tools/melee_weapon/hitbox_melee"]
 position = Vector2(-2.75, -2.25)
 rotation = 0.785398
 shape = SubResource("RectangleShape2D_3uiph")
+
+[node name="ranged_weapon" type="Node2D" parent="tools"]
+
+[node name="star_shooter" type="Sprite2D" parent="tools/ranged_weapon"]
+visible = false
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_gk7bs")
+hframes = 2
+vframes = 3
+
+[node name="banana_shooter" type="Sprite2D" parent="tools/ranged_weapon"]
+visible = false
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_gk7bs")
+hframes = 2
+vframes = 3
+frame = 1
+
+[node name="cd" type="Timer" parent="tools/ranged_weapon"]
+wait_time = 0.2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1675,3 +1713,4 @@ zoom = Vector2(0.05, 0.05)
 [connection signal="area_entered" from="tools/pickaxe/hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="tools/pickaxe/hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="area_entered" from="tools/melee_weapon/hitbox_melee" to="." method="_on_hitbox_melee_area_entered"]
+[connection signal="timeout" from="tools/ranged_weapon/cd" to="." method="_on_cd_timeout"]

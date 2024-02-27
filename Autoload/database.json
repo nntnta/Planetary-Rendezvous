@@ -6,7 +6,7 @@
 	},
 	
 	"1" : {
-		"texture" : "mineral_emerald.png",
+		"texture" : "unlimited_ammo.png",
 		"slot_type" : 0,
 		"ATK" : 0
 	},

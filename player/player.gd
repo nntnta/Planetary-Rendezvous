@@ -3,7 +3,9 @@ extends CharacterBody2D
 var SPEED = 15000.0 
 var swing = false
 var dead = false
+var shot = false
 @export var retry : PackedScene
+@export var bullet: PackedScene
 #var melee_dmg = 1
 
 func _ready():
@@ -61,6 +63,13 @@ func _input(event):
 		$AnimationTree.set("parameters/idle/blend_position", global_position.direction_to(get_global_mouse_position()))
 		swing = true
 		$AnimationTree.get("parameters/playback").travel("swingMelee")
+	
+	if event.is_action_pressed("leftClick", false) && !dead && !shot && (!global.star_shooter_drop or !global.banana_shooter_drop ) && global.slot == 'inv3':
+		var bullet_spawner = bullet.instantiate()
+		bullet_spawner.position = $sprite.global_position
+		get_tree().current_scene.call_deferred('add_child', bullet_spawner)
+		shot = true
+		$tools/ranged_weapon/cd.start()
 		
 		
 func end_swinging():
@@ -170,3 +179,7 @@ func camera_border(planet):
 
 func retry_scene():
 	get_tree().change_scene_to_packed(retry)
+
+
+func _on_cd_timeout():
+	shot = false

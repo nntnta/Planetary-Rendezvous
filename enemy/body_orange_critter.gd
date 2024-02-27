@@ -1,12 +1,23 @@
 extends CharacterBody2D
 var last_velocity = velocity
 var dead = false
+@export var rare_drop : PackedScene
 
 func _physics_process(delta):
 	if $"..".hp <= 0 && !dead:
-		dead = true
-		global.exp_jupiter += 1
-		$"../AnimationPlayer".play('dead')
+		if !$"..".pink_variant:
+			dead = true
+			global.exp_jupiter += 1
+			$"../AnimationPlayer".play('dead')
+		if $"..".pink_variant:
+			var drop_spawner = rare_drop.instantiate()
+			drop_spawner.global_position = $".".global_position
+			get_tree().current_scene.call_deferred('add_child', drop_spawner)
+			drop_spawner.z_index = -1
+			dead = true
+			global.exp_jupiter += 1
+			$"../AnimationPlayer".play('dead')
+			
 	elif !dead:
 		if last_velocity.x > 0:
 			$sprite.flip_h = true

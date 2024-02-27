@@ -41,15 +41,20 @@ var cosmium_pickaxe_drop	= true
 
 var basic_baton_drop		= true
 var frostblade_drop			= true #true real
+
+var star_shooter_drop		= true
+var banana_shooter_drop		= true
 #tools---------------------------------------------------------------------------------------------------
 
 #rare------
 var shiny_floral = false
+var shiny_orange_critter = false
 #rare------
 
 #items-------
 var item_array = []
 var healing_factor_dropped = false
+var unlimited_ammo_dropped = false
 #items-------
 
 #stats

@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://br5vkv7cpawkf"]
+[gd_scene load_steps=18 format=3 uid="uid://br5vkv7cpawkf"]
 
 [ext_resource type="Script" path="res://enemy/orange_critter.gd" id="1_wuueu"]
 [ext_resource type="Script" path="res://enemy/body_orange_critter.gd" id="2_g5gka"]
 [ext_resource type="Texture2D" uid="uid://cix26plb0tvgj" path="res://pics/enemy/jupiter_critter.png" id="2_kaqfl"]
+[ext_resource type="PackedScene" uid="uid://c1dfagsky71m1" path="res://player/inventory/unlimited_ammo.tscn" id="3_65y8m"]
 [ext_resource type="Script" path="res://enemy/state/state_machine.gd" id="4_wqy8t"]
 [ext_resource type="Script" path="res://enemy/state/enemy_idle.gd" id="5_jgqcm"]
 [ext_resource type="Script" path="res://enemy/state/enemy_follow.gd" id="6_0wn8g"]
@@ -178,6 +179,7 @@ script = ExtResource("1_wuueu")
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("2_g5gka")
+rare_drop = ExtResource("3_65y8m")
 
 [node name="coll" type="CollisionShape2D" parent="body"]
 shape = SubResource("CircleShape2D_coueb")
