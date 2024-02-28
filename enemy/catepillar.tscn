@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://2siix5tgf0k1"]
+[gd_scene load_steps=16 format=3 uid="uid://2siix5tgf0k1"]
 
 [ext_resource type="Script" path="res://enemy/catepillar.gd" id="1_0ch0r"]
 [ext_resource type="Script" path="res://enemy/catepillar_body.gd" id="2_5yn3v"]
@@ -18,6 +18,9 @@ radius = 30.8058
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1tmv"]
 size = Vector2(164, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yfh0"]
+size = Vector2(216, 64)
 
 [sub_resource type="Animation" id="Animation_2p02j"]
 resource_name = "attacked"
@@ -148,13 +151,19 @@ wait_time = 0.1
 [node name="coll" type="CollisionShape2D" parent="body/coll_env"]
 position = Vector2(-80, 0)
 shape = SubResource("CircleShape2D_0tmjd")
+disabled = true
 
 [node name="coll2" type="CollisionShape2D" parent="body/coll_env"]
 position = Vector2(76, 0)
 shape = SubResource("CircleShape2D_0tmjd")
+disabled = true
 
 [node name="coll3" type="CollisionShape2D" parent="body/coll_env"]
 shape = SubResource("RectangleShape2D_u1tmv")
+disabled = true
+
+[node name="coll" type="CollisionShape2D" parent="body"]
+shape = SubResource("RectangleShape2D_0yfh0")
 
 [node name="state_machine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_y0846")
@@ -163,7 +172,7 @@ initial_state = NodePath("idle")
 [node name="idle" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("5_jorji")
 enemy = NodePath("../../body")
-move_speed = 3000
+move_speed = 1500
 search_range = 0
 max_wander_time = 10
 

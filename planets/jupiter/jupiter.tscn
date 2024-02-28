@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://2fn8jb7l7xpi"]
+[gd_scene load_steps=17 format=3 uid="uid://2fn8jb7l7xpi"]
 
 [ext_resource type="Script" path="res://planets/jupiter/jupiter.gd" id="1_2rx63"]
 [ext_resource type="PackedScene" uid="uid://br5vkv7cpawkf" path="res://enemy/orange_critter.tscn" id="2_pgxa8"]
@@ -23,6 +23,23 @@ radius = 45.0111
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3ig7"]
 radius = 19.3132
+
+[sub_resource type="Animation" id="Animation_v65y1"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(429, 441), Vector2(429, 451)]
+}
 
 [sub_resource type="Animation" id="Animation_fricy"]
 resource_name = "pop_up"
@@ -70,6 +87,7 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r1ja3"]
 _data = {
+"idle": SubResource("Animation_v65y1"),
 "pop_up": SubResource("Animation_fricy")
 }
 
@@ -124,7 +142,7 @@ shape = SubResource("CircleShape2D_sj7td")
 [node name="natural_drops" type="Node2D" parent="."]
 
 [node name="starter_ranged" type="Node2D" parent="natural_drops"]
-position = Vector2(429, 446)
+position = Vector2(429, 441)
 script = ExtResource("5_qw25a")
 
 [node name="star_shooter" type="Sprite2D" parent="natural_drops/starter_ranged"]
