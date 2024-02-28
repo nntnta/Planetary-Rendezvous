@@ -226,7 +226,7 @@ y_sort_enabled = true
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_kaqfl")
 region_enabled = true
-region_rect = Rect2(480, 0, 160, 160)
+region_rect = Rect2(0, 160, 320, 320)
 
 [node name="hitbox" type="Area2D" parent="body" groups=["enemy"]]
 

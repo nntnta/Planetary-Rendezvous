@@ -47,5 +47,5 @@ func _on_hitbox_area_entered(area):
 		
 
 
-func _on_attacked_2_timeout():
+func _on_attacked_timeout():
 	$body/sprite.self_modulate = Color(1,1,1)

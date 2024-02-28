@@ -13,9 +13,6 @@ func enter():
 func physics_update(delta: float):
 	var direction = player.global_position - enemy.global_position
 	
-	if $"../..".hp <= 0:
-		transitioned.emit(self, "dies")
-	
 	if direction.length() > attack_range :
 		enemy.velocity = direction.normalized() * move_speed * delta
 	else:
