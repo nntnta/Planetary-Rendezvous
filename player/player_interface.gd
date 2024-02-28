@@ -5,6 +5,9 @@ var inv2 = false
 var inv3 = false
 var find_unique = 'The unique resource has shown itself. Get ahold of it.'
 var lack_exp  = 'Gather more EXP on the planet.'
+var offering = 'Offer all uniques to the altar on Earth.'
+var lack_offer = 'Gather all the unique resource from other planets.'
+var unique_got = 'The unique resource is acquired.'
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$hpBar/hp.visible = false
@@ -198,9 +201,12 @@ func _on_button_3_pressed():
 
 
 func _on_mercury_mouse_entered():
-	if $exp/mercury.value >= $exp/mercury.max_value:
+	if $exp/mercury.value >= $exp/mercury.max_value && !global.unique_mercury_dropped:
 		$exp/done.visible = true
 		$exp/done.text = find_unique
+	elif global.unique_mercury_dropped:
+		$exp/done.visible = true
+		$exp/done.text = unique_got
 	else:
 		$exp/done.visible = true
 		$exp/done.text = lack_exp
@@ -210,9 +216,12 @@ func _on_mercury_mouse_exited():
 
 
 func _on_venus_mouse_entered():
-	if $exp/venus.value >= $exp/venus.max_value:
+	if $exp/venus.value >= $exp/venus.max_value && !global.unique_venus_dropped:
 		$exp/done.visible = true
 		$exp/done.text = find_unique
+	elif global.unique_venus_dropped:
+		$exp/done.visible = true
+		$exp/done.text = unique_got
 	else:
 		$exp/done.visible = true
 		$exp/done.text = lack_exp
@@ -222,9 +231,12 @@ func _on_venus_mouse_exited():
 
 
 func _on_mars_mouse_entered():
-	if $exp/mars.value >= $exp/mars.max_value:
+	if $exp/mars.value >= $exp/mars.max_value && !global.unique_mars_dropped:
 		$exp/done.visible = true
 		$exp/done.text = find_unique
+	elif global.unique_mars_dropped:
+		$exp/done.visible = true
+		$exp/done.text = unique_got
 	else:
 		$exp/done.visible = true
 		$exp/done.text = lack_exp
@@ -234,9 +246,12 @@ func _on_mars_mouse_exited():
 
 
 func _on_jupiter_mouse_entered():
-	if $exp/jupiter.value >= $exp/jupiter.max_value:
+	if $exp/jupiter.value >= $exp/jupiter.max_value && !global.unique_jupiter_dropped:
 		$exp/done.visible = true
 		$exp/done.text = find_unique
+	elif global.unique_jupiter_dropped:
+		$exp/done.visible = true
+		$exp/done.text = unique_got
 	else:
 		$exp/done.visible = true
 		$exp/done.text = lack_exp
@@ -246,9 +261,12 @@ func _on_jupiter_mouse_exited():
 
 
 func _on_saturn_mouse_entered():
-	if $exp/saturn.value >= $exp/saturn.max_value:
+	if $exp/saturn.value >= $exp/saturn.max_value && !global.unique_saturn_dropped:
 		$exp/done.visible = true
 		$exp/done.text = find_unique
+	elif global.unique_saturn_dropped:
+		$exp/done.visible = true
+		$exp/done.text = unique_got
 	else:
 		$exp/done.visible = true
 		$exp/done.text = lack_exp
@@ -258,9 +276,12 @@ func _on_saturn_mouse_exited():
 
 
 func _on_uranus_mouse_entered():
-	if $exp/uranus.value >= $exp/uranus.max_value:
+	if $exp/uranus.value >= $exp/uranus.max_value && !global.unique_uranus_dropped:
 		$exp/done.visible = true
 		$exp/done.text = find_unique
+	elif global.unique_uranus_dropped:
+		$exp/done.visible = true
+		$exp/done.text = unique_got
 	else:
 		$exp/done.visible = true
 		$exp/done.text = lack_exp
@@ -271,9 +292,12 @@ func _on_uranus_mouse_exited():
 
 
 func _on_neptune_mouse_entered():
-	if $exp/neptune.value >= $exp/neptune.max_value:
+	if $exp/neptune.value >= $exp/neptune.max_value && !global.unique_neptune_dropped:
 		$exp/done.visible = true
 		$exp/done.text = find_unique
+	elif global.unique_neptune_dropped:
+		$exp/done.visible = true
+		$exp/done.text = unique_got
 	else:
 		$exp/done.visible = true
 		$exp/done.text = lack_exp
@@ -283,12 +307,28 @@ func _on_neptune_mouse_exited():
 
 
 func _on_pluto_mouse_entered():
-	if $exp/pluto.value >= $exp/pluto.max_value:
+	if $exp/pluto.value >= $exp/pluto.max_value && !global.unique_pluto_dropped:
 		$exp/done.visible = true
 		$exp/done.text = find_unique
+	elif global.unique_pluto_dropped:
+		$exp/done.visible = true
+		$exp/done.text = unique_got
 	else:
 		$exp/done.visible = true
 		$exp/done.text = lack_exp
 
 func _on_pluto_mouse_exited():
+	$exp/done.visible = false
+
+
+func _on_earth_mouse_entered():
+	if global.unique_all_planets:
+		$exp/done.visible = true
+		$exp/done.text = offering
+	else:
+		$exp/done.visible = true
+		$exp/done.text = lack_offer
+
+
+func _on_earth_mouse_exited():
 	$exp/done.visible = false

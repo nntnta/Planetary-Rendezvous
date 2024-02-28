@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://2fn8jb7l7xpi"]
+[gd_scene load_steps=19 format=3 uid="uid://2fn8jb7l7xpi"]
 
 [ext_resource type="Script" path="res://planets/jupiter/jupiter.gd" id="1_2rx63"]
 [ext_resource type="PackedScene" uid="uid://br5vkv7cpawkf" path="res://enemy/orange_critter.tscn" id="2_pgxa8"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_r5jse"]
 [ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="3_m7dp1"]
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="4_meer0"]
+[ext_resource type="Texture2D" uid="uid://2brsiksa131g" path="res://pics/player/takeoff_area.png" id="5_05ejk"]
 [ext_resource type="Script" path="res://planets/jupiter/starter_ranged.gd" id="5_qw25a"]
 [ext_resource type="Texture2D" uid="uid://dqed8q3c778bw" path="res://pics/tools/ranged_weapon.png" id="6_g6px3"]
 [ext_resource type="PackedScene" uid="uid://mm1dfgdynt77" path="res://loots/uniques/unique_reward.tscn" id="8_7ccii"]
@@ -149,6 +150,13 @@ position = Vector2(0, -48)
 position = Vector2(0, -26)
 shape = SubResource("CircleShape2D_xh2ko")
 debug_color = Color(0.419608, 0.603922, 0, 0.419608)
+
+[node name="area" type="Sprite2D" parent="spawn_player"]
+z_index = -1
+position = Vector2(0, -88)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_05ejk")
+vframes = 2
 
 [node name="natural_drops" type="Node2D" parent="."]
 

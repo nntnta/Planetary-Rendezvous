@@ -491,6 +491,8 @@ libraries = {
 [connection signal="mouse_exited" from="exp/mercury" to="." method="_on_mercury_mouse_exited"]
 [connection signal="mouse_entered" from="exp/venus" to="." method="_on_venus_mouse_entered"]
 [connection signal="mouse_exited" from="exp/venus" to="." method="_on_venus_mouse_exited"]
+[connection signal="mouse_entered" from="exp/earth" to="." method="_on_earth_mouse_entered"]
+[connection signal="mouse_exited" from="exp/earth" to="." method="_on_earth_mouse_exited"]
 [connection signal="mouse_entered" from="exp/mars" to="." method="_on_mars_mouse_entered"]
 [connection signal="mouse_exited" from="exp/mars" to="." method="_on_mars_mouse_exited"]
 [connection signal="mouse_entered" from="exp/jupiter" to="." method="_on_jupiter_mouse_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dipkjwlmn1sc1"]
+[gd_scene load_steps=12 format=3 uid="uid://dipkjwlmn1sc1"]
 
 [ext_resource type="Script" path="res://planets/pluto/pluto.gd" id="1_e4tr7"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_ameq8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://2siix5tgf0k1" path="res://enemy/catepillar.tscn" id="3_tdwh4"]
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="4_4n3qn"]
 [ext_resource type="PackedScene" uid="uid://mm1dfgdynt77" path="res://loots/uniques/unique_reward.tscn" id="5_sim7w"]
+[ext_resource type="Texture2D" uid="uid://2brsiksa131g" path="res://pics/player/takeoff_area.png" id="5_xhl81"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hot70"]
 radius = 73.03
@@ -74,6 +75,13 @@ position = Vector2(0, -48)
 position = Vector2(0, -26)
 shape = SubResource("CircleShape2D_75exb")
 debug_color = Color(0.419608, 0.603922, 0, 0.419608)
+
+[node name="area" type="Sprite2D" parent="spawn_player"]
+z_index = -1
+position = Vector2(0, -88)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_xhl81")
+vframes = 2
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgneskmpkp4wg"]
+[gd_scene load_steps=13 format=3 uid="uid://cgneskmpkp4wg"]
 
 [ext_resource type="Script" path="res://planets/venus/venus.gd" id="1_avxae"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_whf08"]
 [ext_resource type="PackedScene" uid="uid://bc82m3np056ip" path="res://loots/minerals.tscn" id="3_5p1lm"]
 [ext_resource type="PackedScene" uid="uid://brn3awedrtvuc" path="res://loots/florals.tscn" id="4_2bdhc"]
 [ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="5_hjf8n"]
+[ext_resource type="Texture2D" uid="uid://2brsiksa131g" path="res://pics/player/takeoff_area.png" id="6_n5858"]
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="6_qrihu"]
 [ext_resource type="PackedScene" uid="uid://mm1dfgdynt77" path="res://loots/uniques/unique_reward.tscn" id="7_uwj0e"]
 
@@ -76,6 +77,13 @@ position = Vector2(0, -48)
 position = Vector2(0, -26)
 shape = SubResource("CircleShape2D_ffhtp")
 debug_color = Color(0.419608, 0.603922, 0, 0.419608)
+
+[node name="area" type="Sprite2D" parent="spawn_player"]
+z_index = -1
+position = Vector2(0, -88)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_n5858")
+vframes = 2
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

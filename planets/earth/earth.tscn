@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bmsn0nag6ndl8"]
+[gd_scene load_steps=32 format=3 uid="uid://bmsn0nag6ndl8"]
 
 [ext_resource type="Script" path="res://planets/earth/earth.gd" id="1_48bx1"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_qkox3"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bncqyv4ur5e5x" path="res://pics/inventory_stuff/unique_uranus.png" id="10_x8o0v"]
 [ext_resource type="Texture2D" uid="uid://b33x7nya0mtbi" path="res://pics/inventory_stuff/unique_neptune.png" id="11_wl36s"]
 [ext_resource type="Texture2D" uid="uid://cv41x0lrgl7bp" path="res://pics/inventory_stuff/unique_pluto.png" id="12_vc5qo"]
+[ext_resource type="Texture2D" uid="uid://2brsiksa131g" path="res://pics/player/takeoff_area.png" id="14_8dftq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ltwxk"]
 radius = 135.015
@@ -567,6 +568,13 @@ position = Vector2(0, -48)
 position = Vector2(0, -26)
 shape = SubResource("CircleShape2D_b2ml7")
 debug_color = Color(0.419608, 0.603922, 0, 0.419608)
+
+[node name="area" type="Sprite2D" parent="spawn_player"]
+z_index = -1
+position = Vector2(0, -88)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_8dftq")
+vframes = 2
 
 [node name="natural_drops" type="Node2D" parent="."]
 

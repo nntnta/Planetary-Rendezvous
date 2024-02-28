@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://cntul2jy054a8"]
+[gd_scene load_steps=19 format=3 uid="uid://cntul2jy054a8"]
 
 [ext_resource type="Script" path="res://planets/uranus/uranus.gd" id="1_xbgjy"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_t4y1b"]
 [ext_resource type="PackedScene" uid="uid://dwlvd0bbp4q81" path="res://player/weapon/ice_covered_frostblade.tscn" id="3_oe72h"]
 [ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="3_pn5oo"]
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="4_b6ls2"]
+[ext_resource type="Texture2D" uid="uid://2brsiksa131g" path="res://pics/player/takeoff_area.png" id="5_5ehwe"]
 [ext_resource type="Script" path="res://planets/uranus/minimap_device.gd" id="5_uffvt"]
 [ext_resource type="Texture2D" uid="uid://b1k2uknujbaw3" path="res://pics/player/minimap_device.png" id="6_c8j7d"]
 [ext_resource type="PackedScene" uid="uid://mm1dfgdynt77" path="res://loots/uniques/unique_reward.tscn" id="6_ni5mg"]
@@ -53,7 +54,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.6, 1.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-214, 706), Vector2(-214, 716)]
+"values": [Vector2(228, 624), Vector2(228, 634)]
 }
 
 [sub_resource type="Animation" id="Animation_whfcy"]
@@ -160,10 +161,17 @@ position = Vector2(0, -26)
 shape = SubResource("CircleShape2D_b5ud2")
 debug_color = Color(0.419608, 0.603922, 0, 0.419608)
 
+[node name="area" type="Sprite2D" parent="spawn_player"]
+z_index = -1
+position = Vector2(0, -88)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_5ehwe")
+vframes = 2
+
 [node name="natural_drops" type="Node2D" parent="."]
 
 [node name="minimap_device" type="Node2D" parent="natural_drops"]
-position = Vector2(-214, 711)
+position = Vector2(228, 629)
 scale = Vector2(0.975, 1.025)
 script = ExtResource("5_uffvt")
 

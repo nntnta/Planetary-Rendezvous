@@ -56,7 +56,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("tools/pickaxe/pickaxe:frame_coords")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true

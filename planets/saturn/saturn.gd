@@ -60,11 +60,13 @@ func greenCritter_spawn():
 func _on_takeoff_area_entered(area):
 	if area.is_in_group('player'):
 		Transition.takeOffArea = true
+		$spawn_player/area.frame_coords = Vector2(0,1)
 
 
 func _on_takeoff_area_exited(area):
 	if area.is_in_group('player'):
 		Transition.takeOffArea = false
+		$spawn_player/area.frame_coords = Vector2(0,0)
 
 func leaf_check():
 	match deflected_dead:
