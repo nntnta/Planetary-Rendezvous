@@ -72,7 +72,7 @@ func _on_drops_area_entered(area):
 					#print(global.mineral_venus)
 			'2':
 				global.exp_earth += 1
-				global.hp += 1
+				#global.hp += 1
 				$mineral.visible = false
 				$AnimationPlayer.play('max_hp')
 				#if global.mineral_earth > 4:

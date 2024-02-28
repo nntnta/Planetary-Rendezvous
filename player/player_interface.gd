@@ -21,7 +21,7 @@ func _process(delta):
 	update_exp_progress()
 	
 	#$ammoBar/ammo.text = str($ammoBar.value) + ' / ' + str($ammoBar.max_value)
-	$hpBar/hp.text = str($hpBar.value) + ' / ' + str($hpBar.max_value)
+	$hpBar/hp.text = str(global.hp) + ' / ' + str(global.max_hp)
 	
 	if global.exp_mercury > 0:
 		$status/speed.visible = true

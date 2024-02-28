@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmy01ejr8mb5k"]
+[gd_scene load_steps=25 format=3 uid="uid://cmy01ejr8mb5k"]
 
+[ext_resource type="Script" path="res://main_scene/start_scene.gd" id="1_qjfvc"]
 [ext_resource type="Texture2D" uid="uid://cwnw335q6bysv" path="res://pics/bg/start_scene.png" id="1_y81r7"]
 [ext_resource type="FontFile" uid="uid://bueif7i5p0nij" path="res://Autoload/PixelifySans-Regular.ttf" id="2_gpstd"]
 [ext_resource type="Texture2D" uid="uid://bcigur11v8oir" path="res://pics/planets_button/jupiter.png" id="3_kwf4y"]
@@ -10,10 +11,342 @@
 [ext_resource type="Texture2D" uid="uid://bt4u26s0hvewn" path="res://pics/planets_button/saturn.png" id="8_hl5h3"]
 [ext_resource type="Texture2D" uid="uid://dnavk5hiq76lj" path="res://pics/planets_button/uranus.png" id="9_bkdp5"]
 [ext_resource type="Texture2D" uid="uid://d36hyfbje0060" path="res://pics/planets_button/venus.png" id="10_etqdc"]
+[ext_resource type="Texture2D" uid="uid://cdpq3bute4ryg" path="res://pics/inventory_stuff/unique_jupiter.png" id="12_sgsld"]
+[ext_resource type="Texture2D" uid="uid://pdmjqy67h5nk" path="res://pics/inventory_stuff/unique_mars.png" id="13_dsp71"]
+[ext_resource type="Texture2D" uid="uid://bhdrpa0ubnaap" path="res://pics/inventory_stuff/unique_mercury.png" id="14_inxvb"]
+[ext_resource type="Texture2D" uid="uid://b33x7nya0mtbi" path="res://pics/inventory_stuff/unique_neptune.png" id="15_ph1gw"]
+[ext_resource type="Texture2D" uid="uid://cv41x0lrgl7bp" path="res://pics/inventory_stuff/unique_pluto.png" id="16_4c16v"]
+[ext_resource type="Texture2D" uid="uid://b6rv86a6fr7it" path="res://pics/inventory_stuff/unique_saturn.png" id="17_p4x3x"]
+[ext_resource type="Texture2D" uid="uid://bncqyv4ur5e5x" path="res://pics/inventory_stuff/unique_uranus.png" id="18_acrvp"]
+[ext_resource type="Texture2D" uid="uid://dyjkd7hpqdgn0" path="res://pics/inventory_stuff/unique_venus.png" id="19_a8obm"]
+
+[sub_resource type="Animation" id="Animation_lnjmq"]
+resource_name = "start"
+length = 3.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_v7pin"]
+resource_name = "first"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_loh5c"]
+resource_name = "second"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label3:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_03ltg"]
+resource_name = "third"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label3:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("planets:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("planets/Sprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("planets/Sprite2D2:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("planets/Sprite2D3:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("planets/Sprite2D4:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("planets/Sprite2D6:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("planets/Sprite2D7:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("planets/Sprite2D8:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("planets/Sprite2D5:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("uniques:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("uniques/1:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(3, 5.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("uniques/2:self_modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(3, 5.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("uniques/3:self_modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(3, 5.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("uniques/4:self_modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(3, 5.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("uniques/5:self_modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(3, 5.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("uniques/6:self_modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(3, 5.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("uniques/7:self_modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(3, 5.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("uniques/8:self_modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(3, 5.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o4xhm"]
+_data = {
+"first": SubResource("Animation_v7pin"),
+"second": SubResource("Animation_loh5c"),
+"start": SubResource("Animation_lnjmq"),
+"third": SubResource("Animation_03ltg")
+}
 
 [node name="start_scene" type="Node2D"]
+script = ExtResource("1_qjfvc")
 
 [node name="bg" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
 position = Vector2(-88, -13)
 scale = Vector2(1.05, 1.05)
 texture = ExtResource("1_y81r7")
@@ -42,6 +375,7 @@ theme_override_font_sizes/font_size = 50
 text = "It has no way of recovering by its own."
 
 [node name="Label3" type="Label" parent="."]
+visible = false
 offset_left = 37.0
 offset_top = 499.0
 offset_right = 1127.0
@@ -53,45 +387,109 @@ are scattered across the solar system."
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o4xhm")
+}
 
 [node name="planets" type="Node2D" parent="."]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="planets"]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(1077, 122)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_kwf4y")
 
 [node name="Sprite2D2" type="Sprite2D" parent="planets"]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(109, 136)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_i4pub")
 
 [node name="Sprite2D3" type="Sprite2D" parent="planets"]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(265, 283)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_dcy78")
 
 [node name="Sprite2D4" type="Sprite2D" parent="planets"]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(397, 117)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_lr1m7")
 
 [node name="Sprite2D5" type="Sprite2D" parent="planets"]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(642, 96)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_krva8")
 
 [node name="Sprite2D6" type="Sprite2D" parent="planets"]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(842, 393)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_hl5h3")
 
 [node name="Sprite2D7" type="Sprite2D" parent="planets"]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(884, 134)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_bkdp5")
 
 [node name="Sprite2D8" type="Sprite2D" parent="planets"]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(389, 436)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_etqdc")
+
+[node name="uniques" type="Node2D" parent="."]
+visible = false
+
+[node name="1" type="Sprite2D" parent="uniques"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(785, 265)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_sgsld")
+
+[node name="2" type="Sprite2D" parent="uniques"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(184, 228)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_dsp71")
+
+[node name="3" type="Sprite2D" parent="uniques"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(524, 151)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_inxvb")
+
+[node name="4" type="Sprite2D" parent="uniques"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(359, 284)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_ph1gw")
+
+[node name="5" type="Sprite2D" parent="uniques"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(694, 437)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_4c16v")
+
+[node name="6" type="Sprite2D" parent="uniques"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(1022, 430)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_p4x3x")
+
+[node name="7" type="Sprite2D" parent="uniques"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(999, 222)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_acrvp")
+
+[node name="8" type="Sprite2D" parent="uniques"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(82, 449)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_a8obm")
