@@ -7,7 +7,7 @@ extends Node2D
 func _ready():
 	if $unique:
 		$unique/coll_for_env/coll.disabled = true
-	Transition.takeOffArea = true
+	Transition.takeOffArea = false
 	var player_spawn = player.instantiate()
 	player_spawn.position = current_pos.global_position
 	get_tree().current_scene.call_deferred('add_child', player_spawn)
@@ -37,3 +37,8 @@ func neptune_boss_spawn():
 	var boss_spawner = boss.instantiate()
 	boss_spawner.position = Vector2i(randi_range(700, 1300),randi_range(0,700))
 	get_tree().current_scene.call_deferred('add_child', boss_spawner)
+
+
+func _on_exit_area_area_entered(area):
+	if area.is_in_group('player'):
+		Transition.exit_rocket()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bob5f2sxvlmc0"]
+[gd_scene load_steps=54 format=3 uid="uid://bob5f2sxvlmc0"]
 
 [ext_resource type="Script" path="res://player/player_interface.gd" id="1_ww167"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="2_loui6"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c2umce6sg7gt0" path="res://pics/player/bars/healthProgress.png" id="8_fg3tb"]
 [ext_resource type="Texture2D" uid="uid://cn2sbfsul03n8" path="res://pics/planets_button/mercury.png" id="9_3fnrw"]
 [ext_resource type="Texture2D" uid="uid://wiijb7muhuo0" path="res://pics/player/bars/ammo_bar.png" id="10_3prnv"]
+[ext_resource type="FontFile" uid="uid://bueif7i5p0nij" path="res://Autoload/PixelifySans-Regular.ttf" id="10_euo8i"]
 [ext_resource type="Texture2D" uid="uid://d36hyfbje0060" path="res://pics/planets_button/venus.png" id="10_lnrsc"]
 [ext_resource type="Texture2D" uid="uid://dxns17ees5sig" path="res://pics/planets_button/mercury_pressed.png" id="10_w4dw0"]
 [ext_resource type="Texture2D" uid="uid://bed5ajpup4s3d" path="res://pics/player/bars/ammo_bar_progress.png" id="11_gobfn"]
@@ -34,6 +35,36 @@
 [ext_resource type="Texture2D" uid="uid://boi7y5obo0m7q" path="res://pics/player/maxHp.png" id="32_4ya02"]
 [ext_resource type="Texture2D" uid="uid://oiykstmwsks0" path="res://pics/player/luck.png" id="33_dawkd"]
 [ext_resource type="Texture2D" uid="uid://d2sx6dqis48co" path="res://pics/player/ammoMax.png" id="34_44m0t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tolhy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c30io"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1tdyw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtkxj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wnm22"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i5mdf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ah26x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvytq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kall2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dew85"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_me85k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emwfm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2xf4d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k6jt4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4w285"]
 
 [sub_resource type="Animation" id="Animation_mq52g"]
 resource_name = "just_got_inv1"
@@ -101,8 +132,19 @@ position = Vector2(59, 589)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_fbvl1")
 
+[node name="button1" type="Button" parent="inv/inv1"]
+offset_left = 22.0
+offset_top = 552.0
+offset_right = 96.0
+offset_bottom = 626.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tolhy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_c30io")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1tdyw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qtkxj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wnm22")
+
 [node name="inv2" type="Node2D" parent="inv"]
-position = Vector2(96, 0)
+position = Vector2(94, 0)
 
 [node name="inv_2" type="Sprite2D" parent="inv/inv2"]
 visible = false
@@ -127,8 +169,19 @@ position = Vector2(59, 589)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_fbvl1")
 
+[node name="button2" type="Button" parent="inv/inv2"]
+offset_left = 22.0
+offset_top = 552.0
+offset_right = 96.0
+offset_bottom = 626.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i5mdf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ah26x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hvytq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kall2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dew85")
+
 [node name="inv3" type="Node2D" parent="inv"]
-position = Vector2(192, 0)
+position = Vector2(187, 0)
 
 [node name="inv_3" type="Sprite2D" parent="inv/inv3"]
 visible = false
@@ -152,6 +205,17 @@ position = Vector2(59, 589)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_fbvl1")
 
+[node name="button3" type="Button" parent="inv/inv3"]
+offset_left = 22.0
+offset_top = 552.0
+offset_right = 96.0
+offset_bottom = 626.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_me85k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_emwfm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2xf4d")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k6jt4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4w285")
+
 [node name="inventory" parent="." instance=ExtResource("5_kysye")]
 position = Vector2(170, 265)
 
@@ -172,6 +236,7 @@ offset_left = 616.0
 offset_top = 50.0
 offset_right = 746.0
 offset_bottom = 107.0
+theme_override_fonts/font = ExtResource("10_euo8i")
 theme_override_font_sizes/font_size = 41
 text = "20 / 20
 "
@@ -350,6 +415,7 @@ offset_left = 55.0
 offset_top = 130.0
 offset_right = 95.0
 offset_bottom = 153.0
+theme_override_fonts/font = ExtResource("10_euo8i")
 theme_override_font_sizes/font_size = 16
 
 [node name="melee_text" type="Label" parent="status"]
@@ -358,6 +424,7 @@ offset_left = 55.0
 offset_top = 180.0
 offset_right = 95.0
 offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("10_euo8i")
 theme_override_font_sizes/font_size = 16
 
 [node name="maxHp_text" type="Label" parent="status"]
@@ -366,6 +433,7 @@ offset_left = 55.0
 offset_top = 230.0
 offset_right = 95.0
 offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("10_euo8i")
 theme_override_font_sizes/font_size = 16
 
 [node name="luck_text" type="Label" parent="status"]
@@ -374,6 +442,7 @@ offset_left = 55.0
 offset_top = 280.0
 offset_right = 95.0
 offset_bottom = 303.0
+theme_override_fonts/font = ExtResource("10_euo8i")
 theme_override_font_sizes/font_size = 16
 
 [node name="ammo_text" type="Label" parent="status"]
@@ -382,6 +451,7 @@ offset_left = 55.0
 offset_top = 330.0
 offset_right = 95.0
 offset_bottom = 353.0
+theme_override_fonts/font = ExtResource("10_euo8i")
 theme_override_font_sizes/font_size = 16
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -389,6 +459,9 @@ libraries = {
 "": SubResource("AnimationLibrary_ej53o")
 }
 
+[connection signal="pressed" from="inv/inv1/button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="inv/inv2/button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="inv/inv3/button3" to="." method="_on_button_3_pressed"]
 [connection signal="mouse_entered" from="hpBar" to="." method="_on_hp_bar_mouse_entered"]
 [connection signal="mouse_exited" from="hpBar" to="." method="_on_hp_bar_mouse_exited"]
 [connection signal="mouse_entered" from="ammoBar" to="." method="_on_ammo_bar_mouse_entered"]

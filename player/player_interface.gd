@@ -1,5 +1,8 @@
 extends Node2D
 var infinite = load("res://pics/player/bars/ammo_bar_infinite.png")
+var inv1 = false
+var inv2 = false
+var inv3 = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$hpBar/hp.visible = false
@@ -20,19 +23,19 @@ func _process(delta):
 	
 	if global.exp_mercury > 0:
 		$status/speed.visible = true
-		$status/speed_text.text = str(global.exp_mercury)
+		$status/speed_text.text = 'Speed: '+str(global.exp_mercury)
 	if global.exp_venus > 0:
 		$status/melee_dmg.visible = true
-		$status/melee_text.text = str(global.exp_venus)
+		$status/melee_text.text = 'Attack DMG: '+str(global.exp_venus)
 	if global.exp_earth > 0:
 		$status/max_health.visible = true
-		$status/maxHp_text.text = str(global.exp_earth)
+		$status/maxHp_text.text = 'Extra HP: '+str(global.exp_earth)
 	if global.exp_mars > 0:
 		$status/luck.visible = true
-		$status/luck_text.text = str(global.exp_mars)
+		$status/luck_text.text = 'Luck: '+str(global.exp_mars)
 	if global.exp_jupiter > 0:
 		$status/ammo.visible = true
-		$status/ammo_text.text = str(global.exp_jupiter)
+		$status/ammo_text.text = 'Ammo Cap: '+str(global.exp_jupiter)
 		
 	if !global.star_shooter_drop or !global.banana_shooter_drop:
 		$ammoBar.visible = true
@@ -68,20 +71,29 @@ func _process(delta):
 		$ammoBar.texture_over = infinite
 		
 func _input(event):
-	if event.is_action_pressed("1") or global.slot == 'inv1':
+	if event.is_action_pressed("1") or global.slot == 'inv1' or inv1:
 		global.slot = 'inv1'
+		inv1 = true
+		inv2 = false
+		inv3 = false
 		$inv/inv1/inv_1_selected.visible = true
 		$inv/inv2/inv_2_selected.visible = false
 		$inv/inv3/inv_3_selected.visible = false
 	
-	if event.is_action_pressed("2") or global.slot == 'inv2':
+	if event.is_action_pressed("2") or global.slot == 'inv2' or inv2:
 		global.slot = 'inv2'
+		inv1 = false
+		inv2 = true
+		inv3 = false
 		$inv/inv1/inv_1_selected.visible = false
 		$inv/inv2/inv_2_selected.visible = true
 		$inv/inv3/inv_3_selected.visible = false
 	
-	if event.is_action_pressed("3") or global.slot == 'inv3':
+	if event.is_action_pressed("3") or global.slot == 'inv3' or inv3:
 		global.slot = 'inv3'
+		inv1 = false
+		inv2 = false
+		inv3 = true
 		$inv/inv1/inv_1_selected.visible = false
 		$inv/inv2/inv_2_selected.visible = false
 		$inv/inv3/inv_3_selected.visible = true
@@ -159,3 +171,25 @@ func _on_ammo_mouse_entered():
 
 func _on_ammo_mouse_exited():
 	$status/ammo_text.visible = false
+
+
+
+func _on_button_1_pressed():
+	inv1 = true
+	inv2 = false
+	inv3 = false
+	global.slot = 'inv1'
+
+
+func _on_button_2_pressed():
+	inv1 = false
+	inv2 = true
+	inv3 = false
+	global.slot = 'inv2'
+
+
+func _on_button_3_pressed():
+	global.slot = 'inv3'
+	inv1 = false
+	inv2 = false
+	inv3 = true

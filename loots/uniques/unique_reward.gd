@@ -39,7 +39,7 @@ func _process(delta):
 			$sprite.frame_coords = Vector2(3,1+y)
 
 func _input(event):
-	if (event.is_action_pressed("rightClick") or event.is_action_pressed("spaceBar")) && player_in:
+	if (event.is_action_pressed("rightClick") or event.is_action_pressed("leftClick") or event.is_action_pressed("spaceBar")) && player_in:
 		player_in = false
 		
 		$coll_for_env/coll.disabled = true

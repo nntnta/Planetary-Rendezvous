@@ -29,7 +29,7 @@ func _on_grab_box_area_exited(area):
 
 
 func _input(event):
-	if (event.is_action_pressed("rightClick") or event.is_action_pressed("spaceBar")) && player_in:
+	if (event.is_action_pressed("rightClick") or event.is_action_pressed("leftClick") or event.is_action_pressed("spaceBar")) && player_in:
 		global.unlocked_mercury = true
 		global.unlocked_venus = true
 		global.unlocked_mars = true

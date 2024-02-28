@@ -24,7 +24,7 @@ func _ready():
 		$AnimationPlayer.play('banana_summoned')
 		$AnimationPlayer.queue('idle')
 		deflected_dead = 8
-	Transition.takeOffArea = true
+	Transition.takeOffArea = false
 	var player_spawn = player.instantiate()
 	player_spawn.position = current_pos.global_position
 	get_tree().current_scene.call_deferred('add_child', player_spawn)
@@ -108,3 +108,8 @@ func pickable():
 func banana_dropped():
 	global.banana_summoned = false
 	global.banana_shooter_drop = false
+
+
+func _on_exit_area_area_entered(area):
+	if area.is_in_group('player'):
+		Transition.exit_rocket()

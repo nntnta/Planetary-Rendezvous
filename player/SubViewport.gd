@@ -12,6 +12,12 @@ func _ready():
 	$minimap_rocket.position = $"../../../../spawn_player".position
 	if $"../../../../unique":
 		$unique.position = $"../../../../unique".position
+		
+	if $"../../../../stabilizer":
+		$stabilizer.visible = true
+		$stabilizer.position = $"../../../../stabilizer".position
+	if !$"../../../../stabilizer":
+		$stabilizer.visible = false
 	#limits = $ParallaxBackground/ParallaxLayer/minimap_bg.get_rect()
 	#$Camera2D.limit_left = limits.position.x*3
 	#$Camera2D.limit_top = limits.position.y*3
@@ -23,6 +29,8 @@ func _physics_process(delta):
 	camera.global_position = $"../../..".position
 	if $"../../../../unique" && $"../../../../unique".visible:
 		$unique.visible = true
+	
+	
 	
 	if $"../../../../unique" && $unique.visible:
 		rotate_to_unique($"../../../../unique", delta)

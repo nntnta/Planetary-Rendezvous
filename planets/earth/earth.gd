@@ -10,7 +10,7 @@ var mouse_in = false
 func _ready():
 	hide_uniques()
 	player_in = false
-	Transition.takeOffArea = true
+	Transition.takeOffArea = false
 	var player_spawn = player.instantiate()
 	player_spawn.position = current_pos.global_position
 	get_tree().current_scene.call_deferred('add_child', player_spawn)
@@ -70,3 +70,9 @@ func hide_uniques():
 
 func ending():
 	Transition.good_ending()
+
+
+func _on_exit_area_area_entered(area):
+	if area.is_in_group('player'):
+		Transition.takeOffArea = false
+		Transition.exit_rocket()

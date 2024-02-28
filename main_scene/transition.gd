@@ -56,3 +56,12 @@ func good_ending():
 	await get_tree().create_timer(0.5, false).timeout
 	get_tree().change_scene_to_packed(good)
 	$transition.play("fadein")
+
+func exit_rocket():
+	takeOffArea = false
+	takeoff_clicked = true
+	$transition/ColorRect.visible = true
+	$transition.play("fadeout")
+	await get_tree().create_timer(0.5, false).timeout
+	get_tree().change_scene_to_packed(menu)
+	$transition.play("fadein")

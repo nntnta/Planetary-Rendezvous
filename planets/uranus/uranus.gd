@@ -7,7 +7,7 @@ func _ready():
 	$natural_drops/minimap_device/AnimationPlayer.play('idle')
 	if $unique:
 		$unique/coll_for_env/coll.disabled = true
-	Transition.takeOffArea = true
+	Transition.takeOffArea = false
 	var player_spawn = player.instantiate()
 	player_spawn.position = current_pos.global_position
 	get_tree().current_scene.call_deferred('add_child', player_spawn)
@@ -37,3 +37,8 @@ func frostblade_spawn():
 	var frostblade_spawner = frostblade.instantiate()
 	frostblade_spawner.position = Vector2i(200,500)
 	get_tree().current_scene.call_deferred('add_child', frostblade_spawner)
+
+
+func _on_exit_area_area_entered(area):
+	if area.is_in_group('player'):
+		Transition.exit_rocket()

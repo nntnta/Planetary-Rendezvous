@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://2fn8jb7l7xpi"]
+[gd_scene load_steps=18 format=3 uid="uid://2fn8jb7l7xpi"]
 
 [ext_resource type="Script" path="res://planets/jupiter/jupiter.gd" id="1_2rx63"]
 [ext_resource type="PackedScene" uid="uid://br5vkv7cpawkf" path="res://enemy/orange_critter.tscn" id="2_pgxa8"]
@@ -17,6 +17,9 @@ radius = 42.0119
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sj7td"]
 radius = 14.0357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xh2ko"]
+radius = 30.4138
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bg8x"]
 radius = 45.0111
@@ -103,7 +106,7 @@ metadata/_edit_horizontal_guides_ = [647.0, -2216.0, -2205.0, 2864.0, 80.0]
 position = Vector2(830, 468)
 
 [node name="takeoff" type="Area2D" parent="spawn_player" groups=["takeoff"]]
-position = Vector2(0, -16)
+position = Vector2(0, -64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/takeoff"]
 position = Vector2(0, -32)
@@ -125,7 +128,7 @@ region_enabled = true
 region_rect = Rect2(0, 440, 640, 200)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="spawn_player"]
-position = Vector2(0, -16)
+position = Vector2(0, -64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/StaticBody2D"]
 position = Vector2(0, -49)
@@ -139,10 +142,18 @@ shape = SubResource("CircleShape2D_sj7td")
 position = Vector2(-49, -39)
 shape = SubResource("CircleShape2D_sj7td")
 
+[node name="exit_area" type="Area2D" parent="spawn_player"]
+position = Vector2(0, -48)
+
+[node name="coll" type="CollisionShape2D" parent="spawn_player/exit_area"]
+position = Vector2(0, -26)
+shape = SubResource("CircleShape2D_xh2ko")
+debug_color = Color(0.419608, 0.603922, 0, 0.419608)
+
 [node name="natural_drops" type="Node2D" parent="."]
 
 [node name="starter_ranged" type="Node2D" parent="natural_drops"]
-position = Vector2(429, 441)
+position = Vector2(429, 446.385)
 script = ExtResource("5_qw25a")
 
 [node name="star_shooter" type="Sprite2D" parent="natural_drops/starter_ranged"]
@@ -193,5 +204,6 @@ position = Vector2(-476, 254)
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]
+[connection signal="area_entered" from="spawn_player/exit_area" to="." method="_on_exit_area_area_entered"]
 [connection signal="area_entered" from="natural_drops/starter_ranged/grabBox" to="natural_drops/starter_ranged" method="_on_grab_box_area_entered"]
 [connection signal="area_exited" from="natural_drops/starter_ranged/grabBox" to="natural_drops/starter_ranged" method="_on_grab_box_area_exited"]

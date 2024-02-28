@@ -8,7 +8,7 @@ extends Node2D
 func _ready():
 	if $unique:
 		$unique/coll_for_env/coll.disabled = true
-	Transition.takeOffArea = true
+	Transition.takeOffArea = false
 	var player_spawn = player.instantiate()
 	player_spawn.position = current_pos.global_position
 	get_tree().current_scene.call_deferred('add_child', player_spawn)
@@ -49,3 +49,8 @@ func healPlant_spawn():
 		get_tree().current_scene.call_deferred('add_child', heal_spawner)
 		i += 1
 		
+
+
+func _on_exit_area_area_entered(area):
+	if area.is_in_group('player'):
+		Transition.exit_rocket()

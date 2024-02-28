@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dipkjwlmn1sc1"]
+[gd_scene load_steps=11 format=3 uid="uid://dipkjwlmn1sc1"]
 
 [ext_resource type="Script" path="res://planets/pluto/pluto.gd" id="1_e4tr7"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_ameq8"]
@@ -16,6 +16,9 @@ radius = 42.0119
 [sub_resource type="CircleShape2D" id="CircleShape2D_noifj"]
 radius = 14.0357
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_75exb"]
+radius = 30.4138
+
 [node name="pluto" type="Node2D"]
 editor_description = "pluto"
 script = ExtResource("1_e4tr7")
@@ -28,7 +31,7 @@ metadata/_edit_vertical_guides_ = [308.0]
 position = Vector2(546, 502)
 
 [node name="takeoff" type="Area2D" parent="spawn_player" groups=["takeoff"]]
-position = Vector2(0, -16)
+position = Vector2(0, -64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/takeoff"]
 position = Vector2(0, -32)
@@ -50,7 +53,7 @@ region_enabled = true
 region_rect = Rect2(0, 440, 640, 200)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="spawn_player"]
-position = Vector2(0, -16)
+position = Vector2(0, -64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/StaticBody2D"]
 position = Vector2(0, -49)
@@ -63,6 +66,14 @@ shape = SubResource("CircleShape2D_noifj")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="spawn_player/StaticBody2D"]
 position = Vector2(-49, -39)
 shape = SubResource("CircleShape2D_noifj")
+
+[node name="exit_area" type="Area2D" parent="spawn_player"]
+position = Vector2(0, -48)
+
+[node name="coll" type="CollisionShape2D" parent="spawn_player/exit_area"]
+position = Vector2(0, -26)
+shape = SubResource("CircleShape2D_75exb")
+debug_color = Color(0.419608, 0.603922, 0, 0.419608)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -83,3 +94,4 @@ position = Vector2(74, -365)
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]
+[connection signal="area_entered" from="spawn_player/exit_area" to="." method="_on_exit_area_area_entered"]

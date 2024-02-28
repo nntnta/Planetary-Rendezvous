@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://co7ptmvd83p1h" path="res://pics/bg/paper.png" id="5_ajy3s"]
 [ext_resource type="Texture2D" uid="uid://2i1xnjg3duwf" path="res://pics/bg/butterfly.png" id="6_lgb86"]
 [ext_resource type="Texture2D" uid="uid://co7dfoxflkqpp" path="res://pics/enemy/catepillar.png" id="7_yf4ce"]
-[ext_resource type="FontFile" uid="uid://4t4hrlsdtnpi" path="res://Autoload/VCR_OSD_MONO_1.001.ttf" id="8_oel1d"]
+[ext_resource type="FontFile" uid="uid://bueif7i5p0nij" path="res://Autoload/PixelifySans-Regular.ttf" id="8_vobgm"]
 
 [sub_resource type="Animation" id="Animation_v643t"]
 resource_name = "butterfly"
@@ -178,28 +178,29 @@ centered = false
 [node name="butterfly" type="Node2D" parent="."]
 
 [node name="ending" type="Sprite2D" parent="butterfly"]
+self_modulate = Color(0, 0, 0, 1)
 position = Vector2(-92, -12)
 scale = Vector2(1.05, 1.05)
 texture = ExtResource("4_lbtg6")
 centered = false
 vframes = 10
+frame = 9
 
 [node name="quote" type="Node2D" parent="butterfly"]
-visible = false
 
 [node name="paper" type="Sprite2D" parent="butterfly/quote"]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.823529, 0.823529, 0.823529, 1)
 position = Vector2(559, 319)
 scale = Vector2(2, 2)
 texture = ExtResource("5_ajy3s")
 
 [node name="butter" type="Sprite2D" parent="butterfly/quote"]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.823529, 0.823529, 0.823529, 1)
 position = Vector2(919, 411)
 texture = ExtResource("6_lgb86")
 
 [node name="worm" type="Sprite2D" parent="butterfly/quote"]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.823529, 0.823529, 0.823529, 1)
 position = Vector2(291, 564)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_yf4ce")
@@ -207,13 +208,13 @@ flip_h = true
 vframes = 4
 
 [node name="Label" type="Label" parent="butterfly/quote"]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.823529, 0.823529, 0.823529, 1)
 offset_left = 367.0
 offset_top = 218.0
 offset_right = 808.0
 offset_bottom = 355.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_oel1d")
+theme_override_fonts/font = ExtResource("8_vobgm")
 theme_override_font_sizes/font_size = 36
 text = "What the catepillar 
 calls the end,

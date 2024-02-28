@@ -7,7 +7,7 @@ extends Node2D
 func _ready():
 	if $unique:
 		$unique/coll_for_env/coll.disabled = true
-	Transition.takeOffArea = true
+	Transition.takeOffArea = false
 	var player_spawn = player.instantiate()
 	player_spawn.position = current_pos.global_position
 	get_tree().current_scene.call_deferred('add_child', player_spawn)
@@ -38,3 +38,8 @@ func catepillar_spawn():
 	var catepillar_spawner = catepillar.instantiate()
 	catepillar_spawner.position = Vector2i(randi_range(-100, 300),randi_range(-450,-250))
 	get_tree().current_scene.call_deferred('add_child', catepillar_spawner)
+
+
+func _on_exit_area_area_entered(area):
+	if area.is_in_group('player'):
+		Transition.exit_rocket()

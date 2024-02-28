@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8y5q7rqiee2v"]
+[gd_scene load_steps=18 format=3 uid="uid://b8y5q7rqiee2v"]
 
 [ext_resource type="Script" path="res://planets/mars/mars.gd" id="1_g8fur"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_ax6wt"]
@@ -17,6 +17,9 @@ radius = 42.0119
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2skd3"]
 radius = 14.0357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vaba"]
+radius = 30.4138
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mmdmo"]
 radius = 55.9017
@@ -115,7 +118,7 @@ metadata/_edit_horizontal_guides_ = [836.0]
 position = Vector2(624, 412)
 
 [node name="takeoff" type="Area2D" parent="spawn_player" groups=["takeoff"]]
-position = Vector2(0, -16)
+position = Vector2(0, -64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/takeoff"]
 position = Vector2(0, -32)
@@ -137,7 +140,7 @@ region_enabled = true
 region_rect = Rect2(0, 440, 640, 200)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="spawn_player"]
-position = Vector2(0, -16)
+position = Vector2(0, -64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_player/StaticBody2D"]
 position = Vector2(0, -49)
@@ -150,6 +153,14 @@ shape = SubResource("CircleShape2D_2skd3")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="spawn_player/StaticBody2D"]
 position = Vector2(-49, -39)
 shape = SubResource("CircleShape2D_2skd3")
+
+[node name="exit_area" type="Area2D" parent="spawn_player"]
+position = Vector2(0, -48)
+
+[node name="coll" type="CollisionShape2D" parent="spawn_player/exit_area"]
+position = Vector2(0, -26)
+shape = SubResource("CircleShape2D_6vaba")
+debug_color = Color(0.419608, 0.603922, 0, 0.419608)
 
 [node name="natural_drops" type="Node2D" parent="."]
 
@@ -207,5 +218,6 @@ position = Vector2(2337, 356)
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]
+[connection signal="area_entered" from="spawn_player/exit_area" to="." method="_on_exit_area_area_entered"]
 [connection signal="area_entered" from="natural_drops/starter_baton/grabBox" to="natural_drops/starter_baton" method="_on_grab_box_area_entered"]
 [connection signal="area_exited" from="natural_drops/starter_baton/grabBox" to="natural_drops/starter_baton" method="_on_grab_box_area_exited"]

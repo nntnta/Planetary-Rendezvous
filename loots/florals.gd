@@ -40,8 +40,10 @@ func drops():
 		$Sprite2D.scale = Vector2(0.25,0.25)
 		$Sprite2D.frame_coords = Vector2(1,2)
 		
+		
 	else:
 		dropped = true
 		$Sprite2D.scale = Vector2(0.25,0.25)
 		$Sprite2D.frame_coords = Vector2(0,2)
+		
 		
