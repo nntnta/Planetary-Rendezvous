@@ -3,6 +3,8 @@ var infinite = load("res://pics/player/bars/ammo_bar_infinite.png")
 var inv1 = false
 var inv2 = false
 var inv3 = false
+var find_unique = 'The unique resource has shown itself. Get ahold of it.'
+var lack_exp  = 'Gather more EXP on the planet.'
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$hpBar/hp.visible = false
@@ -193,3 +195,100 @@ func _on_button_3_pressed():
 	inv1 = false
 	inv2 = false
 	inv3 = true
+
+
+func _on_mercury_mouse_entered():
+	if $exp/mercury.value >= $exp/mercury.max_value:
+		$exp/done.visible = true
+		$exp/done.text = find_unique
+	else:
+		$exp/done.visible = true
+		$exp/done.text = lack_exp
+		
+func _on_mercury_mouse_exited():
+	$exp/done.visible = false
+
+
+func _on_venus_mouse_entered():
+	if $exp/venus.value >= $exp/venus.max_value:
+		$exp/done.visible = true
+		$exp/done.text = find_unique
+	else:
+		$exp/done.visible = true
+		$exp/done.text = lack_exp
+		
+func _on_venus_mouse_exited():
+	$exp/done.visible = false
+
+
+func _on_mars_mouse_entered():
+	if $exp/mars.value >= $exp/mars.max_value:
+		$exp/done.visible = true
+		$exp/done.text = find_unique
+	else:
+		$exp/done.visible = true
+		$exp/done.text = lack_exp
+
+func _on_mars_mouse_exited():
+	$exp/done.visible = false
+
+
+func _on_jupiter_mouse_entered():
+	if $exp/jupiter.value >= $exp/jupiter.max_value:
+		$exp/done.visible = true
+		$exp/done.text = find_unique
+	else:
+		$exp/done.visible = true
+		$exp/done.text = lack_exp
+
+func _on_jupiter_mouse_exited():
+	$exp/done.visible = false
+
+
+func _on_saturn_mouse_entered():
+	if $exp/saturn.value >= $exp/saturn.max_value:
+		$exp/done.visible = true
+		$exp/done.text = find_unique
+	else:
+		$exp/done.visible = true
+		$exp/done.text = lack_exp
+
+func _on_saturn_mouse_exited():
+	$exp/done.visible = false
+
+
+func _on_uranus_mouse_entered():
+	if $exp/uranus.value >= $exp/uranus.max_value:
+		$exp/done.visible = true
+		$exp/done.text = find_unique
+	else:
+		$exp/done.visible = true
+		$exp/done.text = lack_exp
+
+func _on_uranus_mouse_exited():
+	$exp/done.visible = false
+
+
+
+func _on_neptune_mouse_entered():
+	if $exp/neptune.value >= $exp/neptune.max_value:
+		$exp/done.visible = true
+		$exp/done.text = find_unique
+	else:
+		$exp/done.visible = true
+		$exp/done.text = lack_exp
+
+func _on_neptune_mouse_exited():
+	$exp/done.visible = false
+
+
+func _on_pluto_mouse_entered():
+	if $exp/pluto.value >= $exp/pluto.max_value:
+		$exp/done.visible = true
+		$exp/done.text = find_unique
+	else:
+		$exp/done.visible = true
+		$exp/done.text = lack_exp
+
+func _on_pluto_mouse_exited():
+	$exp/done.visible = false

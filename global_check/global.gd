@@ -83,7 +83,7 @@ var exp_jupiter = 0
 var exp_saturn = 0
 var exp_neptune = 0
 var exp_uranus = 0
-var exp_pluto = 10
+var exp_pluto = 0
 #planet exp------
 
 #uniques

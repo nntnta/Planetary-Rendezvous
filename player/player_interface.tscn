@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bob5f2sxvlmc0"]
+[gd_scene load_steps=55 format=3 uid="uid://bob5f2sxvlmc0"]
 
 [ext_resource type="Script" path="res://player/player_interface.gd" id="1_ww167"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="2_loui6"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://6adad3p32u7x" path="res://pics/planets_button/neptune_pressed.png" id="24_uwmh7"]
 [ext_resource type="Texture2D" uid="uid://d2shbhn1f0nrb" path="res://pics/planets_button/pluto_pressed.png" id="26_n10mi"]
 [ext_resource type="Texture2D" uid="uid://c8p7wvf3a24km" path="res://pics/player/speed.png" id="30_vcl7o"]
+[ext_resource type="FontFile" uid="uid://bwps6txfm8vrv" path="res://Autoload/PixelifySans-Bold.ttf" id="31_a6nrd"]
 [ext_resource type="Texture2D" uid="uid://bre8x0x2y454x" path="res://pics/player/melee_dmg.png" id="31_fahyi"]
 [ext_resource type="Texture2D" uid="uid://boi7y5obo0m7q" path="res://pics/player/maxHp.png" id="32_4ya02"]
 [ext_resource type="Texture2D" uid="uid://oiykstmwsks0" path="res://pics/player/luck.png" id="33_dawkd"]
@@ -362,6 +363,26 @@ fill_mode = 5
 texture_under = ExtResource("17_dkdlr")
 texture_progress = ExtResource("26_n10mi")
 
+[node name="progress" type="Label" parent="exp"]
+offset_left = 497.0
+offset_top = 540.0
+offset_right = 684.0
+offset_bottom = 577.0
+theme_override_fonts/font = ExtResource("31_a6nrd")
+theme_override_font_sizes/font_size = 17
+text = "Planets' Progress"
+
+[node name="done" type="Label" parent="exp"]
+visible = false
+offset_left = 244.0
+offset_top = 620.0
+offset_right = 893.0
+offset_bottom = 643.0
+theme_override_fonts/font = ExtResource("31_a6nrd")
+theme_override_font_sizes/font_size = 17
+text = "Gather more EXP on the planet."
+horizontal_alignment = 1
+
 [node name="status" type="Node2D" parent="."]
 
 [node name="speed" type="TextureButton" parent="status"]
@@ -466,6 +487,22 @@ libraries = {
 [connection signal="mouse_exited" from="hpBar" to="." method="_on_hp_bar_mouse_exited"]
 [connection signal="mouse_entered" from="ammoBar" to="." method="_on_ammo_bar_mouse_entered"]
 [connection signal="mouse_exited" from="ammoBar" to="." method="_on_ammo_bar_mouse_exited"]
+[connection signal="mouse_entered" from="exp/mercury" to="." method="_on_mercury_mouse_entered"]
+[connection signal="mouse_exited" from="exp/mercury" to="." method="_on_mercury_mouse_exited"]
+[connection signal="mouse_entered" from="exp/venus" to="." method="_on_venus_mouse_entered"]
+[connection signal="mouse_exited" from="exp/venus" to="." method="_on_venus_mouse_exited"]
+[connection signal="mouse_entered" from="exp/mars" to="." method="_on_mars_mouse_entered"]
+[connection signal="mouse_exited" from="exp/mars" to="." method="_on_mars_mouse_exited"]
+[connection signal="mouse_entered" from="exp/jupiter" to="." method="_on_jupiter_mouse_entered"]
+[connection signal="mouse_exited" from="exp/jupiter" to="." method="_on_jupiter_mouse_exited"]
+[connection signal="mouse_entered" from="exp/saturn" to="." method="_on_saturn_mouse_entered"]
+[connection signal="mouse_exited" from="exp/saturn" to="." method="_on_saturn_mouse_exited"]
+[connection signal="mouse_entered" from="exp/uranus" to="." method="_on_uranus_mouse_entered"]
+[connection signal="mouse_exited" from="exp/uranus" to="." method="_on_uranus_mouse_exited"]
+[connection signal="mouse_entered" from="exp/neptune" to="." method="_on_neptune_mouse_entered"]
+[connection signal="mouse_exited" from="exp/neptune" to="." method="_on_neptune_mouse_exited"]
+[connection signal="mouse_entered" from="exp/pluto" to="." method="_on_pluto_mouse_entered"]
+[connection signal="mouse_exited" from="exp/pluto" to="." method="_on_pluto_mouse_exited"]
 [connection signal="mouse_entered" from="status/speed" to="." method="_on_speed_mouse_entered"]
 [connection signal="mouse_exited" from="status/speed" to="." method="_on_speed_mouse_exited"]
 [connection signal="mouse_entered" from="status/melee_dmg" to="." method="_on_melee_dmg_mouse_entered"]

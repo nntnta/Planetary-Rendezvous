@@ -7,6 +7,7 @@ extends Node2D
 func _ready():
 	if $unique:
 		$unique/coll_for_env/coll.disabled = true
+	global.exp_pluto = 10
 	Transition.takeOffArea = false
 	var player_spawn = player.instantiate()
 	player_spawn.position = current_pos.global_position

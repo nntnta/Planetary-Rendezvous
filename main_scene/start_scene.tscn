@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmy01ejr8mb5k"]
+
+[ext_resource type="Texture2D" uid="uid://cwnw335q6bysv" path="res://pics/bg/start_scene.png" id="1_y81r7"]
+[ext_resource type="FontFile" uid="uid://bueif7i5p0nij" path="res://Autoload/PixelifySans-Regular.ttf" id="2_gpstd"]
+[ext_resource type="Texture2D" uid="uid://bcigur11v8oir" path="res://pics/planets_button/jupiter.png" id="3_kwf4y"]
+[ext_resource type="Texture2D" uid="uid://b8n3egn37yxef" path="res://pics/planets_button/mars.png" id="4_i4pub"]
+[ext_resource type="Texture2D" uid="uid://cn2sbfsul03n8" path="res://pics/planets_button/mercury.png" id="5_dcy78"]
+[ext_resource type="Texture2D" uid="uid://dqwtappndtkvs" path="res://pics/planets_button/neptune.png" id="6_lr1m7"]
+[ext_resource type="Texture2D" uid="uid://csrmya7fgfvvc" path="res://pics/planets_button/pluto.png" id="7_krva8"]
+[ext_resource type="Texture2D" uid="uid://bt4u26s0hvewn" path="res://pics/planets_button/saturn.png" id="8_hl5h3"]
+[ext_resource type="Texture2D" uid="uid://dnavk5hiq76lj" path="res://pics/planets_button/uranus.png" id="9_bkdp5"]
+[ext_resource type="Texture2D" uid="uid://d36hyfbje0060" path="res://pics/planets_button/venus.png" id="10_etqdc"]
+
+[node name="start_scene" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(-88, -13)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_y81r7")
+centered = false
+
+[node name="Label1" type="Label" parent="."]
+visible = false
+offset_left = 163.0
+offset_top = 493.0
+offset_right = 983.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("2_gpstd")
+theme_override_font_sizes/font_size = 50
+text = "Earth is damaged beyond recover
+by humans."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+offset_left = 122.0
+offset_top = 527.0
+offset_right = 1058.0
+offset_bottom = 587.0
+theme_override_fonts/font = ExtResource("2_gpstd")
+theme_override_font_sizes/font_size = 50
+text = "It has no way of recovering by its own."
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 37.0
+offset_top = 499.0
+offset_right = 1127.0
+offset_bottom = 622.0
+theme_override_fonts/font = ExtResource("2_gpstd")
+theme_override_font_sizes/font_size = 50
+text = "Fortunately, it is said that unique resources 
+are scattered across the solar system."
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="planets" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="planets"]
+position = Vector2(1077, 122)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_kwf4y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="planets"]
+position = Vector2(109, 136)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_i4pub")
+
+[node name="Sprite2D3" type="Sprite2D" parent="planets"]
+position = Vector2(265, 283)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_dcy78")
+
+[node name="Sprite2D4" type="Sprite2D" parent="planets"]
+position = Vector2(397, 117)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_lr1m7")
+
+[node name="Sprite2D5" type="Sprite2D" parent="planets"]
+position = Vector2(642, 96)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_krva8")
+
+[node name="Sprite2D6" type="Sprite2D" parent="planets"]
+position = Vector2(842, 393)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_hl5h3")
+
+[node name="Sprite2D7" type="Sprite2D" parent="planets"]
+position = Vector2(884, 134)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_bkdp5")
+
+[node name="Sprite2D8" type="Sprite2D" parent="planets"]
+position = Vector2(389, 436)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_etqdc")
