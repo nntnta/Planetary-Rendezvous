@@ -4,6 +4,7 @@ extends Node2D
 @export var frostblade: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$natural_drops/minimap_device/AnimationPlayer.play('idle')
 	if $unique:
 		$unique/coll_for_env/coll.disabled = true
 	Transition.takeOffArea = true

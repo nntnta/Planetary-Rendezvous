@@ -23,11 +23,12 @@ func _on_hitbox_area_entered(area):
 			$hitbox/sprite.frame_coords = Vector2(0,1)
 		if hp == 2:
 			$hitbox/sprite.frame_coords = Vector2(0,2)
-		if hp <= 0:
+		if hp <= 0 && !blade_dropped:
 			#if !blade_dropped:
 				#$coll_for_env.queue_free()
 			$hitbox/sprite.frame_coords = Vector2(0,3)
 			$hitbox/sprite.rotation = PI/4
+			$AnimationPlayer.play('idle')
 			blade_dropped = true
 			
 	if area.is_in_group('pickaxe') && global.silver_pickaxe_drop:

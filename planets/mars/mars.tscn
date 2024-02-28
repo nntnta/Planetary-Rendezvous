@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b8y5q7rqiee2v"]
+[gd_scene load_steps=17 format=3 uid="uid://b8y5q7rqiee2v"]
 
 [ext_resource type="Script" path="res://planets/mars/mars.gd" id="1_g8fur"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_ax6wt"]
@@ -68,8 +68,38 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ncwoh"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7, 1.4),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(1.05, 0.95), Vector2(0.95, 1.05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(934, 156), Vector2(934, 166)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lal3p"]
 _data = {
+"idle": SubResource("Animation_ncwoh"),
 "pop_up": SubResource("Animation_e8cwy")
 }
 
@@ -124,8 +154,9 @@ shape = SubResource("CircleShape2D_2skd3")
 [node name="natural_drops" type="Node2D" parent="."]
 
 [node name="starter_baton" type="Node2D" parent="natural_drops"]
-position = Vector2(934, 161)
+position = Vector2(934, 161.385)
 rotation = -1.5708
+scale = Vector2(0.971302, 1.0287)
 script = ExtResource("6_5yubr")
 
 [node name="basic_baton" type="Sprite2D" parent="natural_drops/starter_baton"]

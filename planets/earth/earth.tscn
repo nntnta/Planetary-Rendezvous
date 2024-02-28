@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bmsn0nag6ndl8"]
+[gd_scene load_steps=30 format=3 uid="uid://bmsn0nag6ndl8"]
 
 [ext_resource type="Script" path="res://planets/earth/earth.gd" id="1_48bx1"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_qkox3"]
@@ -85,8 +85,38 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_uhk3j"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 1.4),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(1.05, 0.95), Vector2(0.95, 1.05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(571, 276), Vector2(571, 286)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j0ukp"]
 _data = {
+"idle": SubResource("Animation_uhk3j"),
 "pop_up": SubResource("Animation_3cq2y")
 }
 
@@ -440,42 +470,50 @@ debug_color = Color(0.717647, 0.478431, 0.152941, 0.419608)
 [node name="uniques" type="Node2D" parent="stabilizer"]
 
 [node name="unique1" type="Sprite2D" parent="stabilizer/uniques"]
-position = Vector2(1, -71)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(1, -121)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_ukydk")
 
 [node name="unique2" type="Sprite2D" parent="stabilizer/uniques"]
-position = Vector2(61, -60)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(61, -110)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_8t77f")
 
 [node name="unique3" type="Sprite2D" parent="stabilizer/uniques"]
-position = Vector2(105, -24)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(105, -74)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("7_lnmbh")
 
 [node name="unique4" type="Sprite2D" parent="stabilizer/uniques"]
-position = Vector2(82, 24)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(82, -26)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("8_ytc8m")
 
 [node name="unique5" type="Sprite2D" parent="stabilizer/uniques"]
-position = Vector2(1, 54)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(1, 4)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("9_ysi2i")
 
 [node name="unique6" type="Sprite2D" parent="stabilizer/uniques"]
-position = Vector2(-82, 24)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-82, -26)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("10_x8o0v")
 
 [node name="unique7" type="Sprite2D" parent="stabilizer/uniques"]
-position = Vector2(-105, -24)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-105, -74)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("11_wl36s")
 
 [node name="unique8" type="Sprite2D" parent="stabilizer/uniques"]
-position = Vector2(-61, -60)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-61, -110)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("12_vc5qo")
 
@@ -523,6 +561,7 @@ shape = SubResource("CircleShape2D_8c88f")
 
 [node name="starter_pickaxe" type="Node2D" parent="natural_drops"]
 position = Vector2(571, 281)
+scale = Vector2(0.975, 1.025)
 script = ExtResource("5_8v7g6")
 
 [node name="bronze_pickaxe" type="Sprite2D" parent="natural_drops/starter_pickaxe"]

@@ -22,6 +22,10 @@ func _process(delta):
 		$AnimationTree.get("parameters/playback").travel("dead")
 		#$AnimationPlayer.play('dead')
 	#camera_border(get_parent().editor_description)
+	if global.minimap_dropped:
+		$minimap.visible = true
+	if !global.minimap_dropped:
+		$minimap.visible = false
 
 func _physics_process(delta):
 	velocity  = Input.get_vector("a",'d','w','s') * (SPEED + global.extra_speed) * delta

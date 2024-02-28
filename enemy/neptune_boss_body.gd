@@ -7,6 +7,7 @@ var dead = false
 
 func _physics_process(delta):
 	if $"..".hp <= 0 && !dead:
+		$"..".rotate_speed = 0
 		dead = true
 		global.exp_neptune += 10
 		global.unlocked_pluto = true

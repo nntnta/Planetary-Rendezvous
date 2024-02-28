@@ -19,7 +19,7 @@ func _process(delta):
 	if global.unique_jupiter_dropped && $unique:
 		$unique.queue_free()
 		
-	if global.exp_jupiter >= 15 && $unique:
+	if global.exp_jupiter >= 12 && $unique:
 		$unique/coll_for_env/coll.disabled = false
 		$unique.visible = true
 

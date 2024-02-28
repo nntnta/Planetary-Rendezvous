@@ -3,7 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if global.unlocked_all_planets:
+	if global.unique_all_planets:
 		$AnimationPlayer.play('good')
 
 

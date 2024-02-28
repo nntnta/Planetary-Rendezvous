@@ -35,7 +35,7 @@ func _process(delta):
 	if global.unique_saturn_dropped && $unique:
 		$unique.queue_free()
 	
-	if global.exp_saturn >= 15 && $unique:
+	if global.exp_saturn >= 14 && $unique:
 		$unique/coll_for_env/coll.disabled = false
 		$unique.visible = true
 	

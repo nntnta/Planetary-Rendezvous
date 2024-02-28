@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cntul2jy054a8"]
+[gd_scene load_steps=17 format=3 uid="uid://cntul2jy054a8"]
 
 [ext_resource type="Script" path="res://planets/uranus/uranus.gd" id="1_xbgjy"]
 [ext_resource type="PackedScene" uid="uid://sc8xm7aym51d" path="res://player/player.tscn" id="2_t4y1b"]
 [ext_resource type="PackedScene" uid="uid://dwlvd0bbp4q81" path="res://player/weapon/ice_covered_frostblade.tscn" id="3_oe72h"]
 [ext_resource type="Texture2D" uid="uid://bmxowqwctb54t" path="res://pics/bg/mercury_background.png" id="3_pn5oo"]
 [ext_resource type="Texture2D" uid="uid://dpttmph86baid" path="res://pics/player/rocket.png" id="4_b6ls2"]
+[ext_resource type="Script" path="res://planets/uranus/minimap_device.gd" id="5_uffvt"]
+[ext_resource type="Texture2D" uid="uid://b1k2uknujbaw3" path="res://pics/player/minimap_device.png" id="6_c8j7d"]
 [ext_resource type="PackedScene" uid="uid://mm1dfgdynt77" path="res://loots/uniques/unique_reward.tscn" id="6_ni5mg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kbna"]
@@ -15,6 +17,91 @@ radius = 42.0119
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sjpro"]
 radius = 14.0357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uwnqa"]
+radius = 76.0066
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbwun"]
+radius = 22.0227
+
+[sub_resource type="Animation" id="Animation_whfcy"]
+resource_name = "pop_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("natural_drops/minimap_device/device:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 2, 2),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(0.4, 0.4), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("natural_drops/minimap_device")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("natural_drops/minimap_device")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"picked"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_r1glv"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("natural_drops/minimap_device:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 1.4),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(1.05, 0.95), Vector2(0.95, 1.05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("natural_drops/minimap_device:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-214, 706), Vector2(-214, 716)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gpens"]
+_data = {
+"idle": SubResource("Animation_r1glv"),
+"pop_up": SubResource("Animation_whfcy")
+}
 
 [node name="uranus" type="Node2D"]
 editor_description = "uranus"
@@ -62,6 +149,42 @@ shape = SubResource("CircleShape2D_sjpro")
 position = Vector2(-49, -39)
 shape = SubResource("CircleShape2D_sjpro")
 
+[node name="natural_drops" type="Node2D" parent="."]
+
+[node name="minimap_device" type="Node2D" parent="natural_drops"]
+position = Vector2(-214, 711)
+scale = Vector2(0.975, 1.025)
+script = ExtResource("5_uffvt")
+
+[node name="device" type="Sprite2D" parent="natural_drops/minimap_device"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_c8j7d")
+vframes = 2
+
+[node name="hover" type="Sprite2D" parent="natural_drops/minimap_device"]
+visible = false
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_c8j7d")
+vframes = 2
+frame = 1
+
+[node name="grabBox" type="Area2D" parent="natural_drops/minimap_device"]
+
+[node name="coll" type="CollisionShape2D" parent="natural_drops/minimap_device/grabBox"]
+shape = SubResource("CircleShape2D_uwnqa")
+
+[node name="coll_env" type="StaticBody2D" parent="natural_drops/minimap_device"]
+
+[node name="coll" type="CollisionShape2D" parent="natural_drops/minimap_device/coll_env"]
+shape = SubResource("CircleShape2D_jbwun")
+debug_color = Color(0.776471, 0.435294, 0.152941, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="natural_drops/minimap_device"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_gpens")
+}
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -81,3 +204,5 @@ position = Vector2(2139, -383)
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]
+[connection signal="area_entered" from="natural_drops/minimap_device/grabBox" to="natural_drops/minimap_device" method="_on_grab_box_area_entered"]
+[connection signal="area_exited" from="natural_drops/minimap_device/grabBox" to="natural_drops/minimap_device" method="_on_grab_box_area_exited"]

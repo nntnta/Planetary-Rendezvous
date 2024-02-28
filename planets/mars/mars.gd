@@ -18,7 +18,7 @@ func _process(delta):
 	if global.unique_mars_dropped && $unique:
 		$unique.queue_free()
 	
-	if global.exp_mars >= 10 && $unique:
+	if global.exp_mars >= 5 && $unique:
 		$unique/coll_for_env/coll.disabled = false
 		$unique.visible = true
 

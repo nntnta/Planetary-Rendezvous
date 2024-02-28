@@ -19,7 +19,7 @@ func _process(delta):
 	if global.unique_venus_dropped && $unique:
 		$unique.queue_free()
 	
-	if global.exp_venus >= 10 && $unique:
+	if global.exp_venus >= 5 && $unique:
 		$unique/coll_for_env/coll.disabled = false
 		$unique.visible = true
 

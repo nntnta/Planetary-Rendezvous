@@ -27,7 +27,7 @@ var unlocked_mars = false
 var unlocked_jupiter = false
 var unlocked_saturn = false
 var unlocked_uranus = false
-var unlocked_neptune = true
+var unlocked_neptune = false
 var unlocked_pluto = false
 var unlocked_all_planets = false
 #planets unlocked
@@ -60,6 +60,8 @@ var banana_summoned = false
 var item_array = []
 var healing_factor_dropped = false
 var unlimited_ammo_dropped = false
+
+var minimap_dropped = false
 #items-------
 
 #stats
