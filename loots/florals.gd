@@ -35,11 +35,13 @@ func _on_area_entered(area):
 func drops():
 	$coll_for_env.queue_free()
 	if shiny:
+		global.exp_venus += 5
 		dropped = true
 		$Sprite2D.scale = Vector2(0.25,0.25)
 		$Sprite2D.frame_coords = Vector2(1,2)
 		
 	else:
+		global.exp_venus += 1
 		dropped = true
 		$Sprite2D.scale = Vector2(0.25,0.25)
 		$Sprite2D.frame_coords = Vector2(0,2)

@@ -33,7 +33,7 @@ func _on_takeoff_area_exited(area):
 
 func mineral_spawn():
 	var i = 0
-	while  i < 8:
+	while  i < 15:
 		var mineral_spawner = mars_mineral.instantiate()
 		mineral_spawner.position = Vector2i(randi_range(-500,470),randi_range(-100,800))
 		get_tree().current_scene.call_deferred('add_child', mineral_spawner)

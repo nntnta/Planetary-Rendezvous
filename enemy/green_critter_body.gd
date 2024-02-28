@@ -13,7 +13,7 @@ func _physics_process(delta):
 		if deflected:
 			$"../..".deflected_dead += 1
 			
-		global.exp_saturn += 1
+		global.exp_saturn += 2
 		$"../AnimationPlayer".play('dead')
 	elif !dead:
 		if last_velocity.x > 0:

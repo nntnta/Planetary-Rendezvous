@@ -6,9 +6,10 @@ extends Node2D
 var player_pos
 #@export var rare_drop : PackedScene
 var being_knocked_back = true
-var kb_modifier = 30 + global.exp_jupiter
+var kb_modifier = 10 + global.exp_jupiter
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$body/status.visible = false
 	player_pos = $"../player".position
 	#if flip == 0:
 		#$body/sprite.flip_h = !$body/sprite.flip_h
@@ -32,3 +33,11 @@ func _on_hit_box_area_entered(area):
 		$body/sprite.self_modulate = Color(100,100,100)
 		receive_knockback(area.global_position, actual_dmg)
 		$body/hitbox/attacked.start()
+
+
+func _on_grab_box_area_entered(area):
+	if area.is_in_group('player'):
+		$"../player/player_interface/inventory/UI/inv_grid".add_item('neptune_ring')
+		global.original_hp += 10
+		global.melee_dmg += 1.5
+		$AnimationPlayer.play('status')

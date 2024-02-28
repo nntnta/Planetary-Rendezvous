@@ -27,7 +27,7 @@ func _process(_delta):
 		$stabilizer/sprite.frame_coords = Vector2(0,0)
 
 func _input(event):
-	if (event.is_action_pressed("rightClick") or event.is_action_pressed("spaceBar")) && player_in && global.unlocked_all_planets:
+	if (event.is_action_pressed("rightClick") or event.is_action_pressed("spaceBar")) && player_in && global.unique_all_planets:
 		player_in = false
 		$AnimationPlayer.play('unique_offered')
 
@@ -43,7 +43,7 @@ func _on_takeoff_area_exited(area):
 
 func mineral_spawn():
 	var i = 0
-	while  i < 11:
+	while  i < 16:
 		var mineral_spawner = earth_mineral.instantiate()
 		mineral_spawner.position = Vector2i(randi_range(650, 1200),randi_range(50,1100))
 		get_tree().current_scene.call_deferred('add_child', mineral_spawner)

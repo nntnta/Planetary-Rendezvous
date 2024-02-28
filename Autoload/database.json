@@ -57,5 +57,11 @@
 		"texture" : "unique_pluto.png",
 		"slot_type" : 0,
 		"ATK" : 0
+	},
+	
+	"neptune_ring" : {
+		"texture" : "neptune_ring.png",
+		"slot_type" : 0,
+		"ATK" : 0
 	}
 }

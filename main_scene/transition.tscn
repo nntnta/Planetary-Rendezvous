@@ -71,8 +71,8 @@ libraries = {
 [node name="ColorRect" type="ColorRect" parent="transition"]
 visible = false
 z_index = 6
-offset_left = -797.0
-offset_top = -469.0
-offset_right = 1955.0
-offset_bottom = 1115.0
+offset_left = -3401.0
+offset_top = -1968.0
+offset_right = 4560.0
+offset_bottom = 2614.0
 color = Color(0, 0, 0, 1)

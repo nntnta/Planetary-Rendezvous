@@ -12,7 +12,8 @@ func _ready():
 	player_spawn.position = current_pos.global_position
 	get_tree().current_scene.call_deferred('add_child', player_spawn)
 	
-	neptune_boss_spawn()
+	if !global.neptune_boss_dead:
+		neptune_boss_spawn()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

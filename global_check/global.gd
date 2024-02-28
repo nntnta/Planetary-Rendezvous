@@ -2,7 +2,7 @@ extends Node
 var heal_factor_cd = 3
 
 func _process(delta):
-	max_hp = 10 + floor(exp_earth/2)
+	max_hp = original_hp + (0.5*exp_earth)
 	extra_speed = exp_mercury * 1000
 	max_ammo = 20 + exp_jupiter
 	if exp_earth >= 1 && exp_mars >= 1 && exp_mercury >= 1 && exp_venus >= 1:
@@ -17,8 +17,8 @@ func _process(delta):
 		else:
 			heal_factor_cd = 3
 	
-	if unlocked_jupiter && unlocked_mars&&unlocked_mercury&&unlocked_neptune&&unlocked_pluto&&unlocked_saturn&&unlocked_uranus&&unlocked_venus:
-		unlocked_all_planets = true
+	if unique_jupiter_dropped && unique_mars_dropped && unique_mercury_dropped && unique_neptune_dropped && unique_pluto_dropped && unique_saturn_dropped && unique_uranus_dropped && unique_venus_dropped:
+		unique_all_planets = true
 			
 #planets unlocked
 var unlocked_mercury = false
@@ -29,7 +29,7 @@ var unlocked_saturn = false
 var unlocked_uranus = false
 var unlocked_neptune = false
 var unlocked_pluto = false
-var unlocked_all_planets = true
+var unlocked_all_planets = false
 #planets unlocked
 
 #slots------------------------------------------------------------------------------------------------
@@ -63,6 +63,7 @@ var unlimited_ammo_dropped = false
 #items-------
 
 #stats
+var original_hp = 10
 var hp = 10
 var max_hp = 10
 var extra_speed = 0
@@ -80,7 +81,7 @@ var exp_jupiter = 0
 var exp_saturn = 0
 var exp_neptune = 0
 var exp_uranus = 0
-var exp_pluto = 0
+var exp_pluto = 10
 #planet exp------
 
 #uniques
@@ -92,4 +93,6 @@ var unique_saturn_dropped = false
 var unique_uranus_dropped = false
 var unique_neptune_dropped = false
 var unique_pluto_dropped = false
+var unique_all_planets = false
+var neptune_boss_dead = false
 #uniques

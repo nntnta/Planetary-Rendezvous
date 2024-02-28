@@ -124,7 +124,7 @@ shape = SubResource("CircleShape2D_sj7td")
 [node name="natural_drops" type="Node2D" parent="."]
 
 [node name="starter_ranged" type="Node2D" parent="natural_drops"]
-position = Vector2(99, 251)
+position = Vector2(429, 446)
 script = ExtResource("5_qw25a")
 
 [node name="star_shooter" type="Sprite2D" parent="natural_drops/starter_ranged"]

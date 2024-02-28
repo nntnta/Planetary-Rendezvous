@@ -14,9 +14,9 @@ func _physics_process(delta):
 			get_tree().current_scene.call_deferred('add_child', drop_spawner)
 			drop_spawner.z_index = -1
 			dead = true
-			global.exp_jupiter += 1
+			global.exp_jupiter += 3
 			$"../AnimationPlayer".play('dead')
-		global.exp_jupiter += 1
+		global.exp_jupiter += 2
 		global.ammo += 1
 			
 	elif !dead:

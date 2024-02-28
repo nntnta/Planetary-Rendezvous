@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bob5f2sxvlmc0"]
+[gd_scene load_steps=38 format=3 uid="uid://bob5f2sxvlmc0"]
 
 [ext_resource type="Script" path="res://player/player_interface.gd" id="1_ww167"]
 [ext_resource type="Texture2D" uid="uid://cn18pn1jyyfqc" path="res://pics/tools/sheetPickaxe.png" id="2_loui6"]
@@ -29,6 +29,11 @@
 [ext_resource type="Texture2D" uid="uid://b5rh8lh2d80af" path="res://pics/planets_button/uranus_pressed.png" id="22_sxms6"]
 [ext_resource type="Texture2D" uid="uid://6adad3p32u7x" path="res://pics/planets_button/neptune_pressed.png" id="24_uwmh7"]
 [ext_resource type="Texture2D" uid="uid://d2shbhn1f0nrb" path="res://pics/planets_button/pluto_pressed.png" id="26_n10mi"]
+[ext_resource type="Texture2D" uid="uid://c8p7wvf3a24km" path="res://pics/player/speed.png" id="30_vcl7o"]
+[ext_resource type="Texture2D" uid="uid://bre8x0x2y454x" path="res://pics/player/melee_dmg.png" id="31_fahyi"]
+[ext_resource type="Texture2D" uid="uid://boi7y5obo0m7q" path="res://pics/player/maxHp.png" id="32_4ya02"]
+[ext_resource type="Texture2D" uid="uid://oiykstmwsks0" path="res://pics/player/luck.png" id="33_dawkd"]
+[ext_resource type="Texture2D" uid="uid://d2sx6dqis48co" path="res://pics/player/ammoMax.png" id="34_44m0t"]
 
 [sub_resource type="Animation" id="Animation_mq52g"]
 resource_name = "just_got_inv1"
@@ -292,6 +297,93 @@ fill_mode = 5
 texture_under = ExtResource("17_dkdlr")
 texture_progress = ExtResource("26_n10mi")
 
+[node name="status" type="Node2D" parent="."]
+
+[node name="speed" type="TextureButton" parent="status"]
+visible = false
+offset_left = 12.0
+offset_top = 120.0
+offset_right = 172.0
+offset_bottom = 280.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("30_vcl7o")
+
+[node name="melee_dmg" type="TextureButton" parent="status"]
+visible = false
+offset_left = 8.0
+offset_top = 170.0
+offset_right = 168.0
+offset_bottom = 330.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("31_fahyi")
+
+[node name="max_health" type="TextureButton" parent="status"]
+visible = false
+offset_left = 9.0
+offset_top = 220.0
+offset_right = 169.0
+offset_bottom = 380.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("32_4ya02")
+
+[node name="luck" type="TextureButton" parent="status"]
+visible = false
+offset_left = 6.0
+offset_top = 270.0
+offset_right = 166.0
+offset_bottom = 430.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("33_dawkd")
+
+[node name="ammo" type="TextureButton" parent="status"]
+visible = false
+offset_left = 1.0
+offset_top = 320.0
+offset_right = 161.0
+offset_bottom = 480.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("34_44m0t")
+
+[node name="speed_text" type="Label" parent="status"]
+visible = false
+offset_left = 55.0
+offset_top = 130.0
+offset_right = 95.0
+offset_bottom = 153.0
+theme_override_font_sizes/font_size = 16
+
+[node name="melee_text" type="Label" parent="status"]
+visible = false
+offset_left = 55.0
+offset_top = 180.0
+offset_right = 95.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 16
+
+[node name="maxHp_text" type="Label" parent="status"]
+visible = false
+offset_left = 55.0
+offset_top = 230.0
+offset_right = 95.0
+offset_bottom = 253.0
+theme_override_font_sizes/font_size = 16
+
+[node name="luck_text" type="Label" parent="status"]
+visible = false
+offset_left = 55.0
+offset_top = 280.0
+offset_right = 95.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 16
+
+[node name="ammo_text" type="Label" parent="status"]
+visible = false
+offset_left = 55.0
+offset_top = 330.0
+offset_right = 95.0
+offset_bottom = 353.0
+theme_override_font_sizes/font_size = 16
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ej53o")
@@ -301,3 +393,13 @@ libraries = {
 [connection signal="mouse_exited" from="hpBar" to="." method="_on_hp_bar_mouse_exited"]
 [connection signal="mouse_entered" from="ammoBar" to="." method="_on_ammo_bar_mouse_entered"]
 [connection signal="mouse_exited" from="ammoBar" to="." method="_on_ammo_bar_mouse_exited"]
+[connection signal="mouse_entered" from="status/speed" to="." method="_on_speed_mouse_entered"]
+[connection signal="mouse_exited" from="status/speed" to="." method="_on_speed_mouse_exited"]
+[connection signal="mouse_entered" from="status/melee_dmg" to="." method="_on_melee_dmg_mouse_entered"]
+[connection signal="mouse_exited" from="status/melee_dmg" to="." method="_on_melee_dmg_mouse_exited"]
+[connection signal="mouse_entered" from="status/max_health" to="." method="_on_max_health_mouse_entered"]
+[connection signal="mouse_exited" from="status/max_health" to="." method="_on_max_health_mouse_exited"]
+[connection signal="mouse_entered" from="status/luck" to="." method="_on_luck_mouse_entered"]
+[connection signal="mouse_exited" from="status/luck" to="." method="_on_luck_mouse_exited"]
+[connection signal="mouse_entered" from="status/ammo" to="." method="_on_ammo_mouse_entered"]
+[connection signal="mouse_exited" from="status/ammo" to="." method="_on_ammo_mouse_exited"]

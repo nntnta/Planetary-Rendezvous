@@ -15,9 +15,25 @@ func _process(delta):
 	$ammoBar.max_value = global.max_ammo
 	update_exp_progress()
 	
-	$ammoBar/ammo.text = str($ammoBar.value) + ' / ' + str($ammoBar.max_value)
+	#$ammoBar/ammo.text = str($ammoBar.value) + ' / ' + str($ammoBar.max_value)
 	$hpBar/hp.text = str($hpBar.value) + ' / ' + str($hpBar.max_value)
 	
+	if global.exp_mercury > 0:
+		$status/speed.visible = true
+		$status/speed_text.text = str(global.exp_mercury)
+	if global.exp_venus > 0:
+		$status/melee_dmg.visible = true
+		$status/melee_text.text = str(global.exp_venus)
+	if global.exp_earth > 0:
+		$status/max_health.visible = true
+		$status/maxHp_text.text = str(global.exp_earth)
+	if global.exp_mars > 0:
+		$status/luck.visible = true
+		$status/luck_text.text = str(global.exp_mars)
+	if global.exp_jupiter > 0:
+		$status/ammo.visible = true
+		$status/ammo_text.text = str(global.exp_jupiter)
+		
 	if !global.star_shooter_drop or !global.banana_shooter_drop:
 		$ammoBar.visible = true
 	
@@ -91,8 +107,55 @@ func update_exp_progress():
 
 
 func _on_ammo_bar_mouse_entered():
-	$ammoBar/ammo.visible = true
+	#$ammoBar/ammo.visible = true
+	pass
 
 
 func _on_ammo_bar_mouse_exited():
-	$ammoBar/ammo.visible = false
+	#$ammoBar/ammo.visible = false
+	pass
+
+
+func _on_speed_mouse_entered():
+	if global.exp_mercury > 0:
+		$status/speed_text.visible = true
+
+
+func _on_speed_mouse_exited():
+	$status/speed_text.visible = false
+
+
+func _on_melee_dmg_mouse_entered():
+	if global.exp_venus > 0:
+		$status/melee_text.visible = true
+
+
+func _on_melee_dmg_mouse_exited():
+	$status/melee_text.visible = false
+
+
+func _on_max_health_mouse_entered():
+	if global.exp_earth > 0:
+		$status/maxHp_text.visible = true
+
+
+func _on_max_health_mouse_exited():
+	$status/maxHp_text.visible = false
+
+
+func _on_luck_mouse_entered():
+	if global.exp_mars > 0:
+		$status/luck_text.visible = true
+
+
+func _on_luck_mouse_exited():
+	$status/luck_text.visible = false
+
+
+func _on_ammo_mouse_entered():
+	if global.exp_jupiter > 0:
+		$status/ammo_text.visible = true
+
+
+func _on_ammo_mouse_exited():
+	$status/ammo_text.visible = false

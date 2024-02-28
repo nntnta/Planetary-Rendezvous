@@ -251,7 +251,7 @@ debug_color = Color(0.745098, 0.462745, 0.0862745, 0.419608)
 
 [node name="unique" parent="." instance=ExtResource("6_ex8ik")]
 visible = false
-position = Vector2(798, 428)
+position = Vector2(1953, -157)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

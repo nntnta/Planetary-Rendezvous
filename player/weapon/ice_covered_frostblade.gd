@@ -39,6 +39,7 @@ func _input(event):
 	if event.is_action_pressed("rightClick") && player_in && blade_dropped: 
 		player_in = false
 		global.frostblade_drop = false
+		global.exp_uranus += 10
 		global.melee_dmg += 2
 		$"../player".anim_frostblade_change('swingMeleeDown')
 		$"../player".anim_frostblade_change('swingMeleeLeft')

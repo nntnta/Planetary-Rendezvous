@@ -35,7 +35,7 @@ func _on_takeoff_area_exited(area):
 
 func mineral_spawn():
 	var i = 0
-	while  i < 10:
+	while  i < 12:
 		var mineral_spawner = venus_mineral.instantiate()
 		mineral_spawner.position = Vector2i(randi_range(750,1850),randi_range(-200,1200))
 		get_tree().current_scene.call_deferred('add_child', mineral_spawner)
@@ -43,7 +43,7 @@ func mineral_spawn():
 
 func healPlant_spawn():
 	var i = 0
-	while  i < 5:
+	while  i < 6:
 		var heal_spawner = venus_healPlant.instantiate()
 		heal_spawner.position = Vector2i(randi_range(180,1200),randi_range(220,1000))
 		get_tree().current_scene.call_deferred('add_child', heal_spawner)

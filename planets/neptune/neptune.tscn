@@ -77,7 +77,7 @@ centered = false
 
 [node name="unique" parent="." instance=ExtResource("5_ok0yh")]
 visible = false
-position = Vector2(343, 1137)
+position = Vector2(2620, 1050)
 
 [connection signal="area_entered" from="spawn_player/takeoff" to="." method="_on_takeoff_area_entered"]
 [connection signal="area_exited" from="spawn_player/takeoff" to="." method="_on_takeoff_area_exited"]
