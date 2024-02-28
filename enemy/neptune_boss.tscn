@@ -57,17 +57,19 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0.5, 0.5)]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("body:rotation")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 6.28319, 12.5664]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"speed_up"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_8hkr5"]
@@ -111,47 +113,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_5uric"]
-resource_name = "idle"
-length = 8.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/sprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.6, 2.1, 2.6, 3.1, 5.5, 6, 6.5, 7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 0), Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 1), Vector2i(0, 0), Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 1), Vector2i(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 2.5, 3, 4.5, 5, 6.5, 7, 8),
-"transitions": PackedFloat32Array(1, 0.5, 1, 0.5, 1, 0.5, 1, 0.5, 1, 1),
-"update": 0,
-"values": [Vector2(0.5, 0.5), Vector2(0.54, 0.46), Vector2(0.46, 0.54), Vector2(0.54, 0.46), Vector2(0.46, 0.54), Vector2(0.54, 0.46), Vector2(0.46, 0.54), Vector2(0.54, 0.46), Vector2(0.46, 0.54), Vector2(0.5, 0.5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 4, 8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 3.14159, 6.28319]
-}
-
 [sub_resource type="Animation" id="Animation_w0ffy"]
 resource_name = "drop_idle"
 length = 1.5
@@ -183,26 +144,57 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("body/sprite:rotation")
+tracks/2/path = NodePath("body:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("body:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5uric"]
+resource_name = "idle"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.1, 2.6, 3.1, 5.5, 6, 6.5, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 1), Vector2i(0, 0), Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 1), Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 2.5, 3, 4.5, 5, 6.5, 7, 8),
+"transitions": PackedFloat32Array(1, 0.5, 1, 0.5, 1, 0.5, 1, 0.5, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.54, 0.46), Vector2(0.46, 0.54), Vector2(0.54, 0.46), Vector2(0.46, 0.54), Vector2(0.54, 0.46), Vector2(0.46, 0.54), Vector2(0.54, 0.46), Vector2(0.46, 0.54), Vector2(0.5, 0.5)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"speed_down"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_fsqir"]
@@ -304,7 +296,6 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_tj3lc")
 hframes = 2
 vframes = 3
-frame = 1
 
 [node name="coll_env" type="StaticBody2D" parent="body"]
 
@@ -361,7 +352,6 @@ shape = SubResource("CircleShape2D_qd24m")
 debug_color = Color(0.996078, 0.0509804, 0, 0.419608)
 
 [node name="status" type="Sprite2D" parent="body"]
-visible = false
 z_index = 2
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("7_qbhqm")
@@ -376,16 +366,16 @@ initial_state = NodePath("idle")
 [node name="idle" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("4_16gma")
 enemy = NodePath("../../body")
-move_speed = 5000
+move_speed = 4000
 search_range = 400
 max_wander_time = 5
 
 [node name="follow" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("5_bj0va")
 enemy = NodePath("../../body")
-move_speed = 21000
+move_speed = 20000
 unaggro = 2000
-attack_range = 120
+attack_range = 130
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

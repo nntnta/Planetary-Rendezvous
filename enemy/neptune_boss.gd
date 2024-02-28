@@ -3,6 +3,7 @@ extends Node2D
 @export var max_hp = 20
 @export var hp = 20
 
+var rotate_speed = 1
 var player_pos
 #@export var rare_drop : PackedScene
 var being_knocked_back = true
@@ -14,6 +15,9 @@ func _ready():
 	#if flip == 0:
 		#$body/sprite.flip_h = !$body/sprite.flip_h
 	
+func _physics_process(delta):
+	$body.rotation += rotate_speed * delta
+
 func receive_knockback(dmg_source: Vector2, dmg_received: int):
 	if being_knocked_back:
 		var kb_direction = dmg_source.direction_to(self.global_position)
@@ -41,3 +45,9 @@ func _on_grab_box_area_entered(area):
 		global.original_hp += 10
 		global.melee_dmg += 1.5
 		$AnimationPlayer.play('status')
+
+func speed_up():
+	rotate_speed = 30
+	
+func speed_down():
+	rotate_speed = 1

@@ -27,7 +27,7 @@ var unlocked_mars = false
 var unlocked_jupiter = false
 var unlocked_saturn = false
 var unlocked_uranus = false
-var unlocked_neptune = false
+var unlocked_neptune = true
 var unlocked_pluto = false
 var unlocked_all_planets = false
 #planets unlocked
@@ -95,4 +95,5 @@ var unique_neptune_dropped = false
 var unique_pluto_dropped = false
 var unique_all_planets = false
 var neptune_boss_dead = false
+var catepillar_dead = false
 #uniques

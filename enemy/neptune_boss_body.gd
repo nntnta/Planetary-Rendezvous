@@ -14,23 +14,29 @@ func _physics_process(delta):
 		
 			
 	elif !dead:
-		if last_velocity.x > 0:
-			$sprite.flip_h = true
+		#if last_velocity.x > 0:
+			#$sprite.flip_h = true
 			#$attack/coll.position.x = 35
 			#$attack/coll2.position.x = 12
 			#$attack/coll3.position.x = 10
-		if last_velocity.x <= 0:
-			$sprite.flip_h = false
+		#if last_velocity.x <= 0:
+			#$sprite.flip_h = false
 			#$attack/coll.position.x = -35
 			#$attack/coll2.position.x = -12
 			#$attack/coll3.position.x = -10
 		move_and_slide()
 	
 		if velocity.length() > 0:
-			last_velocity = velocity
+			#if $sprite.frame_coords.x == 1 && $sprite.frame_coords.y == 0:
+				#$sprite.frame_coords = Vector2(0,0)
 			$"../AnimationPlayer".play('idle')
+			#$sprite.frame_coords = Vector2(0,0)
+			last_velocity = velocity
+			$"..".rotate_speed = 1
+			
 		else:
-			$"../AnimationPlayer".play('attacking')
+			$"..".rotate_speed = 30
+			$sprite.frame_coords = Vector2(1,0)
 
 func drop_item():
 	global.neptune_boss_dead = true
