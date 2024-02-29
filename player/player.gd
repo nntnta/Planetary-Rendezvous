@@ -9,6 +9,7 @@ var shot = false
 #var melee_dmg = 1
 
 func _ready():
+	$minimap/SubViewportContainer/AnimationPlayer.play('pointer')
 	dead = false
 	$tools/pickaxe/hitbox/coll.disabled = true
 	$tools/pickaxe/pickaxe.visible = false

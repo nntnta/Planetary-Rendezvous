@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://sc8xm7aym51d"]
+[gd_scene load_steps=80 format=3 uid="uid://sc8xm7aym51d"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_f84py"]
 [ext_resource type="Texture2D" uid="uid://wsvqtsgmecit" path="res://pics/player/player_all.png" id="2_1gbtg"]
@@ -1536,6 +1536,39 @@ graph_offset = Vector2(0, -13.3605)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nftiu"]
 
+[sub_resource type="Animation" id="Animation_fkwx0"]
+resource_name = "pointer"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pointer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(0.35, 0.25), Vector2(0.25, 0.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("unique_pointer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(0.35, 0.25), Vector2(0.25, 0.25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lwxrl"]
+_data = {
+"pointer": SubResource("Animation_fkwx0")
+}
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_f84py")
@@ -1745,6 +1778,11 @@ vframes = 4
 
 [node name="Camera2D" type="Camera2D" parent="minimap/SubViewportContainer/SubViewport"]
 zoom = Vector2(0.05, 0.05)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="minimap/SubViewportContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_lwxrl")
+}
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="hitbox/invulnerable" to="." method="_on_invulnerable_timeout"]

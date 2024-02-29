@@ -65,11 +65,11 @@ var minimap_dropped = true
 #items-------
 
 #stats
-var original_hp = 10
-var hp = 10
-var max_hp = 10
+var original_hp = 15
+var hp = 15
+var max_hp = 15
 var extra_speed = 0
-var melee_dmg = 0.5
+var melee_dmg = 1
 var ammo = 20
 var max_ammo = 20
 #stats

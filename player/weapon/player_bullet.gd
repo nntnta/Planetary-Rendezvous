@@ -1,8 +1,8 @@
 extends CharacterBody2D
 var direction
 var stop = false
-@export var dmg = 0.5
-@export var speed = 25000
+@export var dmg = 1
+@export var speed = 30000
 #var angle
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,8 +21,8 @@ func _physics_process(delta):
 	
 	if !global.banana_shooter_drop:
 		$sprite.frame_coords = Vector2(1,2)
-		speed = 50000
-		dmg = 2
+		speed = 60000
+		dmg = 3
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
