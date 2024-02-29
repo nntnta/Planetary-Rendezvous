@@ -17,7 +17,7 @@ func _ready():
 	$tools/melee_weapon/frostblade.visible = false
 	#global.silver_pickaxe_drop = false
 
-func _process(delta):
+func _process(_delta):
 	if !dead && global.hp <= 0:
 		dead = true
 		$AnimationTree.get("parameters/playback").travel("dead")

@@ -15,7 +15,7 @@ func _ready():
 	mineral_spawn()
 	healPlant_spawn()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if global.unique_venus_dropped && $unique:
 		$unique.queue_free()
 	

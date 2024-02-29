@@ -11,7 +11,3 @@ func _ready():
 		$butterfly.visible = true
 		$good.visible = false
 		$AnimationPlayer.play('butterfly')
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

@@ -13,8 +13,7 @@ func _ready():
 		$AnimationPlayer.play('idle')
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+
 
 func _on_area_entered(area):
 	if area.is_in_group('pickaxe') && !dropped:

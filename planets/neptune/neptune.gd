@@ -16,7 +16,7 @@ func _ready():
 		neptune_boss_spawn()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if global.unique_neptune_dropped && $unique:
 		$unique.queue_free()
 	

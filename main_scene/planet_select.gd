@@ -27,7 +27,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if global.unlocked_mercury && locked_1:
 		locked_1 = false
 		$planets/mercury.disabled = false

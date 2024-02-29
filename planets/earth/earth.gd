@@ -30,8 +30,10 @@ func _input(event):
 	if (event.is_action_pressed("rightClick") or event.is_action_pressed("spaceBar")) && player_in && global.unique_all_planets:
 		player_in = false
 		$AnimationPlayer.play('unique_offered')
-
-
+	elif (event.is_action_pressed("rightClick") or event.is_action_pressed("spaceBar")) && player_in:
+		$stabilizer/Label.visible = true
+		$stabilizer/Timer.start()
+		
 func _on_takeoff_area_entered(area):
 	if area.is_in_group('player'):
 		Transition.takeOffArea = true
@@ -78,3 +80,7 @@ func _on_exit_area_area_entered(area):
 	if area.is_in_group('player'):
 		Transition.takeOffArea = false
 		Transition.exit_rocket()
+
+
+func _on_timer_timeout():
+	$stabilizer/Label.visible = false

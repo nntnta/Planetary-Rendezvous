@@ -27,8 +27,6 @@ func receive_knockback(dmg_source: Vector2, dmg_received: int):
 		#global_position.move_toward(knockback,1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func firing():
 	var beam_spawner = beam.instantiate()

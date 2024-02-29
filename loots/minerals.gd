@@ -24,7 +24,7 @@ func _ready():
 		$mineral.region_rect = Rect2(320,0,160,160)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if !global.silver_pickaxe_drop:
 		pickaxe_dmg = 2
 

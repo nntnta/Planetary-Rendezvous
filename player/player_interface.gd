@@ -15,7 +15,7 @@ func _ready():
 	$ammoBar.visible = false
 	#global.slot = 'inv1'
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#global_position = $"../Camera2D".global_position
 	$hpBar.value = global.hp
 	$hpBar.max_value = global.max_hp

@@ -8,7 +8,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if player_in && blade_dropped:
 		$hitbox/sprite.frame_coords = Vector2(0,4)
 	

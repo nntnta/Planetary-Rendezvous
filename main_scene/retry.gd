@@ -6,10 +6,6 @@ func _ready():
 	global.hp = global.max_hp
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_retry_pressed():
 	#$transition/ColorRect.visible = true
