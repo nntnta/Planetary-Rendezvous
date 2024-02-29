@@ -18,6 +18,27 @@ func _ready():
 		$stabilizer.position = $"../../../../stabilizer".position
 	if !$"../../../../stabilizer":
 		$stabilizer.visible = false
+		
+	if $"../../../../neptune_boss":
+		$neptune_boss.visible = true
+		$neptune_boss.position = $"../../../../neptune_boss/body".global_position
+	
+	if !$"../../../../neptune_boss":
+		$neptune_boss.visible = false
+	
+	if $"../../../../catepillar":
+		$catepillar.visible = true
+		$catepillar.position = $"../../../../catepillar/body".global_position
+	
+	if !$"../../../../catepillar":
+		$catepillar.visible = false
+		
+	if $"../../../../natural_drops/altar":
+		$banana_altar.visible = true
+		$banana_altar.position = $"../../../../natural_drops/altar".global_position
+	
+	if !$"../../../../natural_drops/altar":
+		$banana_altar.visible = false
 	#limits = $ParallaxBackground/ParallaxLayer/minimap_bg.get_rect()
 	#$Camera2D.limit_left = limits.position.x*3
 	#$Camera2D.limit_top = limits.position.y*3
@@ -30,7 +51,13 @@ func _physics_process(delta):
 	if $"../../../../unique" && $"../../../../unique".visible:
 		$unique.visible = true
 	
+	if $"../../../../neptune_boss":
+		$neptune_boss.visible = true
+		$neptune_boss.position = $"../../../../neptune_boss/body".global_position
 	
+	if $"../../../../catepillar":
+		$catepillar.visible = true
+		$catepillar.position = $"../../../../catepillar/body".global_position
 	
 	if $"../../../../unique" && $unique.visible:
 		rotate_to_unique($"../../../../unique", delta)
@@ -44,9 +71,9 @@ func rotate_to_rocket(target, delta):
 	var angle = $"../pointer".transform.x.angle_to(direction )
 	$"../pointer".rotate(sign(angle) * min(delta * 2, abs(angle)) )
 	
-	if direction.length() > 1200:
+	if direction.length() > 800:
 		$"../pointer".visible = true
-	if direction.length() <= 1200:
+	if direction.length() <= 800:
 		$"../pointer".visible = false
 
 func rotate_to_unique(target, delta):

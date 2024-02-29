@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://sc8xm7aym51d"]
+[gd_scene load_steps=78 format=3 uid="uid://sc8xm7aym51d"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_f84py"]
 [ext_resource type="Texture2D" uid="uid://wsvqtsgmecit" path="res://pics/player/player_all.png" id="2_1gbtg"]
@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://dqed8q3c778bw" path="res://pics/tools/ranged_weapon.png" id="8_gk7bs"]
 [ext_resource type="Texture2D" uid="uid://6f73vbft3uvc" path="res://pics/player/unique_minimap.png" id="14_6de3v"]
 [ext_resource type="Texture2D" uid="uid://cq8o14gqpcheg" path="res://pics/player/earth_stabilizer.png" id="15_5tk1g"]
+[ext_resource type="Texture2D" uid="uid://b6w1hvsbn50v2" path="res://pics/enemy/neptune_boss.png" id="16_k7g4m"]
+[ext_resource type="Texture2D" uid="uid://wd2av2y68jqg" path="res://pics/tools/banana_altar.png" id="17_y0qt3"]
+[ext_resource type="Texture2D" uid="uid://co7dfoxflkqpp" path="res://pics/enemy/catepillar.png" id="18_0s24n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0g0a7"]
 radius = 17.0294
@@ -1723,6 +1726,22 @@ texture = ExtResource("14_6de3v")
 visible = false
 texture = ExtResource("15_5tk1g")
 vframes = 2
+
+[node name="neptune_boss" type="Sprite2D" parent="minimap/SubViewportContainer/SubViewport"]
+visible = false
+texture = ExtResource("16_k7g4m")
+hframes = 2
+vframes = 3
+
+[node name="banana_altar" type="Sprite2D" parent="minimap/SubViewportContainer/SubViewport"]
+visible = false
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("17_y0qt3")
+
+[node name="catepillar" type="Sprite2D" parent="minimap/SubViewportContainer/SubViewport"]
+visible = false
+texture = ExtResource("18_0s24n")
+vframes = 4
 
 [node name="Camera2D" type="Camera2D" parent="minimap/SubViewportContainer/SubViewport"]
 zoom = Vector2(0.05, 0.05)
