@@ -3,7 +3,7 @@ var player_in = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player_in = false
+	$".".queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,9 +19,9 @@ func _process(delta):
 
 func _input(event):
 	if (event.is_action_pressed("rightClick") or event.is_action_pressed("spaceBar") or event.is_action_pressed("leftClick")) && player_in:
-		global.unlocked_jupiter = true
-		global.unlocked_mercury = true
-		global.unlocked_venus = true
+		#global.unlocked_jupiter = true
+		#global.unlocked_mercury = true
+		#global.unlocked_venus = true
 		#global.unlocked_saturn = true
 		#global.unlocked_uranus = true
 		#global.unlocked_neptune = true

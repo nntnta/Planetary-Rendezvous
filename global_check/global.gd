@@ -61,7 +61,7 @@ var item_array = []
 var healing_factor_dropped = false
 var unlimited_ammo_dropped = false
 
-var minimap_dropped = false
+var minimap_dropped = true
 #items-------
 
 #stats
